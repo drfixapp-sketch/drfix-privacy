@@ -434,7 +434,7 @@
         onclick="setLang('en')" aria-pressed="false" lang="en">English</button>
     </nav>
   </div>
-  <p class="hdr-sub"><span id="hdr-updated">آخر تحديث: أغسطس 2026</span></p>
+  <p class="hdr-sub"><span id="hdr-updated">آخر تحديث: سبتمبر 2026</span></p>
 </header>
 
 <!-- MAIN -->
@@ -512,7 +512,7 @@
 const UI = {
   ar: {
     title:'سياسة الخصوصية', sub:'تطبيق Dr. Fix',
-    updated:'آخر تحديث: أغسطس 2026',
+    updated:'آخر تحديث: سبتمبر 2026',
     toc:'جدول المحتويات',
     print:'طباعة', copy:'نسخ الرابط', copied:'تم النسخ ✓',
     expand:'توسيع الكل', collapse:'طي الكل',
@@ -521,7 +521,7 @@ const UI = {
   },
   en: {
     title:'Privacy Policy', sub:'Dr. Fix App',
-    updated:'Last Updated: August 2026',
+    updated:'Last Updated: September 2026',
     toc:'Table of Contents',
     print:'Print', copy:'Copy Link', copied:'Copied ✓',
     expand:'Expand All', collapse:'Collapse All',
@@ -536,42 +536,47 @@ const UI = {
 const DATA = {
   ar: [
     { id:'s1', n:1, title:'مقدمة', html:`
-      <p>تطبيق <strong>Dr. Fix</strong> هو مساعد ذكي متخصص في تشخيص الأعطال الميكانيكية والكهربائية والصناعية للمعدات والأجهزة التقنية. يعمل التطبيق على تحليل وصف العطل والبيانات المدخلة وتقديم تشخيص مقترح مولَّد بواسطة الذكاء الاصطناعي، إلى جانب تقديم إرشادات صيانة وقائية ومجتمع تقني متخصص.</p>
+      <p>تطبيق <strong>Dr. Fix</strong> هو مساعد ذكي متخصص في تشخيص الأعطال الميكانيكية والكهربائية والصناعية للمعدات والأجهزة التقنية. يعمل التطبيق على تحليل وصف العطل والبيانات المدخلة وتقديم تشخيص مقترح مولَّد بواسطة الذكاء الاصطناعي (Google Gemini)، إلى جانب تقديم إرشادات صيانة وقائية، قاعدة معرفة تقنية، وخريطة تفاعلية لمراكز الصيانة ومتاجر قطع الغيار.</p>
       <p>نحن ملتزمون بحماية خصوصية مستخدمينا. توضح هذه السياسة بدقة البيانات التي يجمعها التطبيق، وكيفية استخدامها، ومع من قد تُشارَك.</p>`
     },
     { id:'s2', n:2, title:'البيانات التي يجمعها التطبيق', html:`
       <h3>أ. بيانات إدخال التشخيص</h3>
       <p>عند استخدام ميزة التشخيص، يطلب التطبيق المعلومات التالية:</p>
       <ul>
-        <li><strong>اسم الجهاز</strong> ونوعه وموديله (يُدخلها المستخدم يدوياً).</li>
-        <li><strong>وصف العطل والملاحظات التقنية</strong> (نص يُدخله المستخدم).</li>
-        <li><strong>صور اختيارية</strong> للجهاز أو العطل (يختارها المستخدم من الكاميرا أو المعرض — لا تُرسَل أي صورة تلقائياً بدون اختيار صريح).</li>
+        <li><strong>اسم الجهاز</strong> ونوعه وموديله والشركة المصنعة (يُدخلها المستخدم يدوياً أو بالصوت).</li>
+        <li><strong>وصف العطل والملاحظات التقنية وكود الخطأ</strong> (نص يُدخله المستخدم يدوياً أو عبر ميزة تحويل الصوت إلى نص).</li>
+        <li><strong>صور اختيارية</strong> للجهاز أو العطل (يختارها المستخدم من الكاميرا أو معرض الصور — الحد الأقصى 3 صور لكل جلسة — لا تُرسَل أي صورة تلقائياً بدون اختيار صريح).</li>
       </ul>
       <h3>ب. بيانات الحساب (للمستخدمين المسجلين فقط)</h3>
-      <p>إذا اختار المستخدم تسجيل الدخول بحساب Google:</p>
+      <p>يوفر التطبيق طريقتين لإنشاء حساب:</p>
       <ul>
-        <li><strong>عنوان البريد الإلكتروني</strong> المرتبط بحساب Google.</li>
-        <li><strong>الاسم</strong> كما يظهر في حساب Google.</li>
-        <li><strong>صورة الملف الشخصي</strong> من حساب Google (إن وجدت).</li>
+        <li><strong>التسجيل بالبريد الإلكتروني:</strong> الاسم، البريد الإلكتروني، وكلمة المرور (تُخزَّن مشفرة). يُرسَل رمز OTP للتحقق من صحة البريد الإلكتروني عند التسجيل.</li>
+        <li><strong>تسجيل الدخول بحساب Google:</strong> عنوان البريد الإلكتروني، الاسم، وصورة الملف الشخصي من حساب Google.</li>
       </ul>
       <blockquote>المستخدمون الذين يختارون وضع الضيف لا يتم إرسال أي بيانات من أجهزتهم إلى السحابة.</blockquote>
       <h3>ج. سجل التشخيصات</h3>
       <ul>
         <li>يتم حفظ نتائج التشخيص محلياً على الجهاز.</li>
-        <li>للمستخدمين المسجلين: يُحفظ السجل أيضاً بشكل مشفر على قاعدة بيانات سحابية خاصة لضمان إمكانية الوصول من أجهزة متعددة.</li>
+        <li>للمستخدمين المسجلين: يُحفظ السجل أيضاً بشكل آمن على Cloud Firestore لضمان إمكانية الوصول من أجهزة متعددة.</li>
       </ul>
       <h3>د. الموقع الجغرافي</h3>
       <ul>
-        <li>يطلب التطبيق إذن الموقع <strong>الجغرافي التقريبي</strong> لتحديد العملة المحلية المناسبة عند عرض تكاليف قطع الغيار وشركات الصيانة القريبة.</li>
-        <li>لا يتم تخزين الموقع الجغرافي أو إرساله لأي طرف خارجي.</li>
+        <li>يطلب التطبيق إذن الموقع <strong>الجغرافي التقريبي</strong> لعرض مراكز الصيانة ومتاجر قطع الغيار القريبة على الخريطة التفاعلية، وتحديد العملة المحلية المناسبة.</li>
+        <li>لا يتم تخزين الموقع الجغرافي أو إرساله لأي طرف خارجي باستثناء Google Maps لأغراض عرض الخريطة.</li>
       </ul>
-      <h3>هـ. محتوى المجتمع (اختياري)</h3>
+      <h3>هـ. صلاحية الميكروفون</h3>
+      <ul>
+        <li>يطلب التطبيق صلاحية الميكروفون لتمكين ميزة <strong>تحويل الصوت إلى نص (Speech-to-Text)</strong> لمساعدتك في إدخال وصف العطل والملاحظات التقنية بالصوت دون الحاجة للكتابة.</li>
+        <li>لا يتم تسجيل أي صوت أو إرساله لأي خادم خارجي — يتم معالجة الصوت محلياً عبر محرك النظام (Speech-to-Text API) على الجهاز مباشرة.</li>
+      </ul>
+      <h3>و. محتوى المجتمع (اختياري)</h3>
       <p>عند مشاركة حالة في مجتمع الخبراء:</p>
       <ul>
         <li><strong>وصف العطل والحل</strong> الذي أدخله المستخدم.</li>
         <li><strong>الاسم والتخصص</strong> (اختيارية، يمكن النشر بشكل مجهول).</li>
+        <li>يخضع المحتوى لمراجعة المشرف قبل ظهوره للمستخدمين الآخرين.</li>
       </ul>
-      <h3>و. بيانات تقنية</h3>
+      <h3>ز. بيانات تقنية</h3>
       <ul>
         <li><strong>معرّف الجهاز الفني (FCM Token)</strong>: يُولَّد لأغراض الدعم الفني والتواصل مع خدمة العملاء فقط، ولا يُستخدم لأغراض تتبع أو إعلانات.</li>
       </ul>`
@@ -581,10 +586,11 @@ const DATA = {
       <table class="data-tbl" role="table" aria-label="جدول استخدام البيانات">
         <thead><tr><th scope="col">البيانات</th><th scope="col">الغرض من الاستخدام</th></tr></thead>
         <tbody>
-          <tr><td>بيانات الجهاز ووصف العطل</td><td>إرسالها لنظام الذكاء الاصطناعي لتوليد تشخيص مقترح</td></tr>
-          <tr><td>الصور (اختيارية)</td><td>إرسالها لنظام الذكاء الاصطناعي كدليل بصري لتحسين دقة التشخيص</td></tr>
-          <tr><td>بيانات حساب Google</td><td>إنشاء حساب شخصي، مزامنة سجل التشخيصات</td></tr>
-          <tr><td>الموقع الجغرافي</td><td>تحديد العملة المحلية وعرض متاجر قطع الغيار القريبة</td></tr>
+          <tr><td>بيانات الجهاز ووصف العطل</td><td>إرسالها لنظام الذكاء الاصطناعي (Google Gemini) لتوليد تشخيص مقترح</td></tr>
+          <tr><td>الصور (اختيارية، حتى 3 صور)</td><td>إرسالها لنظام الذكاء الاصطناعي كدليل بصري لتحسين دقة التشخيص</td></tr>
+          <tr><td>الإدخال الصوتي عبر الميكروفون</td><td>تحويله محلياً إلى نص لتسهيل إدخال وصف العطل — لا يُرسَل لأي خادم</td></tr>
+          <tr><td>بيانات حساب Google / البريد الإلكتروني</td><td>إنشاء حساب شخصي، مزامنة سجل التشخيصات، التحقق برمز OTP</td></tr>
+          <tr><td>الموقع الجغرافي</td><td>عرض مراكز الصيانة ومتاجر قطع الغيار القريبة على الخريطة وتحديد العملة المحلية</td></tr>
           <tr><td>سجل التشخيصات</td><td>الرجوع إليه مستقبلاً ومزامنته عبر الأجهزة</td></tr>
           <tr><td>محتوى المجتمع</td><td>مشاركته مع مجتمع التقنيين الآخرين بعد مراجعة المشرف</td></tr>
           <tr><td>FCM Token</td><td>الدعم الفني الداخلي فقط</td></tr>
@@ -596,34 +602,37 @@ const DATA = {
       <h3>أ. Firebase (Google)</h3>
       <p>يستخدم التطبيق خدمات Firebase للمهام التالية:</p>
       <ul>
-        <li><strong>Firebase Authentication</strong>: إدارة تسجيل دخول المستخدمين عبر حسابات Google.</li>
-        <li><strong>Cloud Firestore</strong>: تخزين سجل التشخيصات ومحتوى المجتمع بشكل آمن على السحابة.</li>
+        <li><strong>Firebase Authentication</strong>: إدارة تسجيل دخول المستخدمين عبر البريد الإلكتروني وحسابات Google.</li>
+        <li><strong>Cloud Firestore</strong>: تخزين سجل التشخيصات ومحتوى المجتمع والبيانات التشغيلية بشكل آمن على السحابة.</li>
+        <li><strong>Firebase Storage</strong>: تخزين الملفات المرفوعة المتعلقة بالدعم الفني عند الحاجة.</li>
       </ul>
       <p>سياسة الخصوصية الخاصة بـ Firebase: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">https://firebase.google.com/support/privacy</a></p>
-      <h3>ب. OpenRouter</h3>
-      <p>يستخدم التطبيق خدمة <strong>OpenRouter</strong> للوصول لنماذج الذكاء الاصطناعي وتوليد تقارير التشخيص. عند تشغيل التشخيص، تُرسَل بيانات الجهاز ووصف العطل (والصور إن أرفقها المستخدم) لخوادم OpenRouter لمعالجتها وإرجاع التشخيص.</p>
-      <p>سياسة الخصوصية الخاصة بـ OpenRouter: <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">https://openrouter.ai/privacy</a></p>
+      <h3>ب. Google Gemini API</h3>
+      <p>يستخدم التطبيق <strong>Google Gemini API</strong> للوصول إلى نماذج الذكاء الاصطناعي وتوليد تقارير التشخيص الهندسي. عند تشغيل التشخيص، تُرسَل بيانات الجهاز ووصف العطل (والصور إن أرفقها المستخدم) إلى خوادم Google Gemini عبر بروتوكول HTTPS لمعالجتها وإرجاع التشخيص المقترح.</p>
+      <p>سياسة استخدام Google Gemini: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">https://ai.google.dev/gemini-api/terms</a></p>
       <h3>ج. Google Maps</h3>
-      <p>تستخدم شاشة "متاجر قطع الغيار" خدمة <strong>Google Maps</strong> لعرض خريطة تفاعلية. قد تقوم Google بجمع بيانات مجهولة الهوية عن تفاعل المستخدم مع الخريطة وفقاً لسياستها الخاصة.</p>`
+      <p>تستخدم شاشة "متاجر قطع الغيار ومراكز الصيانة" خدمة <strong>Google Maps</strong> لعرض خريطة تفاعلية تُمكِّن المستخدم من تحديد مواقع الجهات المجاورة بدقة. قد تقوم Google بجمع بيانات مجهولة الهوية عن تفاعل المستخدم مع الخريطة وفقاً لسياستها الخاصة.</p>
+      <p>سياسة خصوصية Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>`
     },
     { id:'s5', n:5, title:'الصور', html:`
       <ul>
         <li>رفع الصور <strong>اختياري بالكامل</strong>. لا يتطلب التطبيق صوراً لإجراء التشخيص.</li>
+        <li>الحد الأقصى <strong>3 صور</strong> لكل جلسة تشخيص واحدة.</li>
         <li>لا تُرسَل أي صورة لأي خادم خارجي إلا إذا قام المستخدم بشكل صريح باختيارها وإرفاقها أثناء جلسة التشخيص.</li>
-        <li>الصور المرسَلة تُعالَج فقط لأغراض التشخيص التقني ولا تُخزَّن على خوادمنا.</li>
+        <li>الصور المرسَلة تُعالَج فقط عبر Google Gemini API لأغراض التشخيص التقني ولا تُخزَّن على خوادمنا الخاصة.</li>
         <li>الصور المرفقة بمنشورات المجتمع تبقى مخزنة محلياً على الجهاز ولا تُرفع للسحابة.</li>
       </ul>`
     },
     { id:'s6', n:6, title:'الذكاء الاصطناعي والتشخيص', html:`
       <p><strong>إشعار مهم:</strong></p>
-      <p>جميع تقارير التشخيص المعروضة في التطبيق <strong>مولَّدة تلقائياً بواسطة نظام ذكاء اصطناعي</strong> بناءً على المعلومات التي أدخلها المستخدم.</p>
+      <p>جميع تقارير التشخيص المعروضة في التطبيق <strong>مولَّدة تلقائياً بواسطة نظام ذكاء اصطناعي (Google Gemini)</strong> بناءً على المعلومات التي أدخلها المستخدم.</p>
       <ul>
         <li>هذه التقارير ذات طابع <strong>استرشادي وتقني مساعد</strong> فقط.</li>
         <li><strong>لا تُغني</strong> عن الفحص الفني الميداني من قِبَل متخصص مؤهل عند الحاجة.</li>
         <li>لا يتحمل التطبيق المسؤولية عن أي قرارات تُتخذ بناءً على مخرجات نظام الذكاء الاصطناعي دون إجراء الفحص الفني اللازم.</li>
       </ul>`
     },
-    { id:'s7', n:7, title:'إخلاء المسؤولية القانونية (Legal Disclaimer)', html:`
+    { id:'s7', n:7, title:'إخلاء المسؤولية القانونية', html:`
       <p>يُقدِّم تطبيق <strong>Dr. Fix</strong> تشخيصات وتوصيات فنية مولَّدة تلقائياً بواسطة الذكاء الاصطناعي اعتماداً على البيانات والصور التي يقدمها المستخدم. باستخدامك للتطبيق، فإنك تقرّ وتوافق على البنود التالية:</p>
       <ul class="disc-list">
         <li><span class="disc-n" aria-hidden="true">1</span><span><strong>طبيعة النتائج</strong>: جميع نتائج التشخيص والتوصيات الصادرة عن التطبيق هي <strong>توصيات فنية استرشادية للمساعدة فقط</strong> وليست ضماناً أو تأكيداً نهائياً لصحة التشخيص أو سلامة الجهاز.</span></li>
@@ -668,16 +677,18 @@ const DATA = {
       <p><strong>لا يقوم التطبيق ببيع أو تأجير أو مشاركة بياناتك الشخصية مع أي طرف ثالث لأغراض تجارية أو إعلانية.</strong></p>
       <p>البيانات تُشارَك فقط في الحالات التالية:</p>
       <ul>
-        <li><strong>مع OpenRouter</strong>: لمعالجة طلبات التشخيص (بيانات الجهاز والعطل والصور الاختيارية).</li>
-        <li><strong>مع Firebase</strong>: لمزامنة سجل التشخيصات وإدارة الحساب.</li>
+        <li><strong>مع Google Gemini API</strong>: لمعالجة طلبات التشخيص (بيانات الجهاز والعطل والصور الاختيارية).</li>
+        <li><strong>مع Firebase</strong>: لمزامنة سجل التشخيصات، إدارة الحساب، وتخزين البيانات السحابية.</li>
+        <li><strong>مع Google Maps</strong>: لعرض الخريطة التفاعلية وتحديد مواقع مراكز الصيانة.</li>
         <li><strong>المحتوى المجتمعي المعتمد</strong>: ما يوافق المستخدم صراحةً على مشاركته في مجتمع الخبراء يظهر للمستخدمين الآخرين بعد مراجعة المشرف.</li>
       </ul>`
     },
     { id:'s9', n:9, title:'حماية البيانات', html:`
       <ul>
         <li>جميع البيانات المخزنة على السحابة محمية بإجراءات أمان Firebase المعتمدة.</li>
-        <li>لا يتم تخزين كلمات المرور الخاصة بالمشرفين بشكل نصي واضح — يتم تخزينها كـ Hash مشفر.</li>
+        <li>لا يتم تخزين كلمات المرور الخاصة بالمستخدمين أو المشرفين بشكل نصي واضح — يتم تخزينها كـ Hash مشفر (SHA-256).</li>
         <li>الاتصالات بين التطبيق والخوادم الخارجية تتم عبر بروتوكول HTTPS المشفر.</li>
+        <li>لا يمكن الوصول لبيانات المستخدمين إلا من خلال قواعد أمان Firestore المُطبَّقة على مستوى الخادم.</li>
       </ul>`
     },
     { id:'s10', n:10, title:'حقوق المستخدم', html:`
@@ -692,7 +703,9 @@ const DATA = {
       </ul>
       <p>هذا الإجراء <strong>دائم ولا يمكن التراجع عنه.</strong></p>
       <h3>ج. الاستمرار دون حساب</h3>
-      <p>يمكن استخدام التطبيق كاملاً في وضع الضيف دون إنشاء حساب، مما يضمن عدم رفع أي بيانات للسحابة.</p>`
+      <p>يمكن استخدام التطبيق كاملاً في وضع الضيف دون إنشاء حساب، مما يضمن عدم رفع أي بيانات للسحابة.</p>
+      <h3>د. إلغاء صلاحية الموقع أو الميكروفون</h3>
+      <p>يمكن إلغاء صلاحية الموقع الجغرافي أو الميكروفون في أي وقت من إعدادات الجهاز. لن يؤثر ذلك على ميزة التشخيص الأساسية، غير أن بعض الميزات (الخريطة التفاعلية، الإدخال الصوتي) لن تعمل.</p>`
     },
     { id:'s11', n:11, title:'التواصل معنا', html:`
       <p>إذا كانت لديك أي استفسارات بشأن سياسة الخصوصية هذه أو بياناتك الشخصية، يمكنك التواصل معنا عبر:</p>
@@ -700,48 +713,53 @@ const DATA = {
     },
     { id:'s12', n:12, title:'التغييرات على السياسة', html:`
       <p>قد نُحدِّث هذه السياسة من وقت لآخر لتعكس تغييرات في ميزات التطبيق أو متطلبات قانونية. سيُعلَم المستخدمون بأي تغيير جوهري عبر التطبيق أو البريد الإلكتروني.</p>
-      <p><strong>تاريخ آخر تحديث: أغسطس 2026</strong></p>`
+      <p><strong>تاريخ آخر تحديث: سبتمبر 2026</strong></p>`
     }
   ],
 
   en: [
     { id:'s1', n:1, title:'1. Introduction', html:`
-      <p><strong>Dr. Fix</strong> is an intelligent assistant specialized in diagnosing mechanical, electrical, and industrial faults in technical equipment and devices. The app analyzes fault descriptions and user-provided data to generate AI-powered diagnostic suggestions, alongside preventative maintenance guidance and a specialized technical community.</p>
+      <p><strong>Dr. Fix</strong> is an intelligent assistant specialized in diagnosing mechanical, electrical, and industrial faults in technical equipment and devices. The app analyzes fault descriptions and user-provided data to generate AI-powered diagnostic suggestions (via Google Gemini), alongside preventative maintenance guidance, a technical knowledge base, and an interactive map of service centers and spare parts stores.</p>
       <p>We are committed to protecting our users' privacy. This policy precisely describes what data the app collects, how it is used, and with whom it may be shared.</p>`
     },
     { id:'s2', n:2, title:'2. Data We Collect', html:`
       <h3>a. Diagnostic Input Data</h3>
       <p>When using the diagnostic feature, the app requests the following:</p>
       <ul>
-        <li><strong>Device name</strong>, type, and model (entered manually by the user).</li>
-        <li><strong>Fault description and technical notes</strong> (text entered by the user).</li>
-        <li><strong>Optional photos</strong> of the device or fault (chosen by the user from camera or gallery — no photo is ever sent automatically without explicit user selection).</li>
+        <li><strong>Device name</strong>, type, model, and manufacturer (entered manually by the user or via voice input).</li>
+        <li><strong>Fault description, technical notes, and error codes</strong> (text entered by the user manually or via Speech-to-Text).</li>
+        <li><strong>Optional photos</strong> of the device or fault (chosen by the user from camera or gallery — maximum 3 photos per session — no photo is ever sent automatically without explicit user selection).</li>
       </ul>
       <h3>b. Account Data (Registered Users Only)</h3>
-      <p>If the user chooses to sign in with a Google account:</p>
+      <p>The app provides two ways to create an account:</p>
       <ul>
-        <li><strong>Email address</strong> linked to the Google account.</li>
-        <li><strong>Name</strong> as displayed on the Google account.</li>
-        <li><strong>Profile photo</strong> from the Google account (if available).</li>
+        <li><strong>Email Registration:</strong> Name, email address, and password (stored encrypted). An OTP code is sent to verify the email address upon registration.</li>
+        <li><strong>Google Sign-In:</strong> Email address, name, and profile photo from the Google account.</li>
       </ul>
       <blockquote>Users who choose Guest Mode do not have any data from their device uploaded to the cloud.</blockquote>
       <h3>c. Diagnostic History</h3>
       <ul>
         <li>Diagnostic results are saved locally on the device.</li>
-        <li>For registered users: history is also saved in an encrypted cloud database to enable access from multiple devices.</li>
+        <li>For registered users: history is also saved securely on Cloud Firestore to enable access from multiple devices.</li>
       </ul>
       <h3>d. Location</h3>
       <ul>
-        <li>The app requests <strong>approximate location</strong> permission to determine the local currency for displaying spare part costs and nearby service companies.</li>
-        <li>Location data is not stored or shared with any external party.</li>
+        <li>The app requests <strong>approximate location</strong> permission to display nearby service centers and spare parts stores on the interactive map, and to determine the appropriate local currency.</li>
+        <li>Location data is not stored or shared with any external party except Google Maps for map display purposes.</li>
       </ul>
-      <h3>e. Community Content (Optional)</h3>
+      <h3>e. Microphone Permission</h3>
+      <ul>
+        <li>The app requests microphone permission to enable the <strong>Speech-to-Text feature</strong>, allowing you to describe device faults and technical notes verbally without typing.</li>
+        <li>No audio is recorded or sent to any external server — voice processing occurs locally on the device via the system's Speech-to-Text engine.</li>
+      </ul>
+      <h3>f. Community Content (Optional)</h3>
       <p>When sharing a case in the expert community:</p>
       <ul>
         <li><strong>Fault description and solution</strong> entered by the user.</li>
         <li><strong>Name and specialty</strong> (optional — posting anonymously is supported).</li>
+        <li>Content is subject to admin review before appearing to other users.</li>
       </ul>
-      <h3>f. Technical Identifiers</h3>
+      <h3>g. Technical Identifiers</h3>
       <ul>
         <li><strong>Device Technical Token (FCM Token)</strong>: Generated for technical support and customer service purposes only. It is not used for tracking or advertising.</li>
       </ul>`
@@ -751,10 +769,11 @@ const DATA = {
       <table class="data-tbl" role="table" aria-label="Data usage table">
         <thead><tr><th scope="col">Data</th><th scope="col">Purpose</th></tr></thead>
         <tbody>
-          <tr><td>Device data &amp; fault description</td><td>Sent to AI system to generate a diagnostic suggestion</td></tr>
-          <tr><td>Photos (optional)</td><td>Sent to AI system as visual evidence to improve diagnostic accuracy</td></tr>
-          <tr><td>Google account data</td><td>Create personal account, sync diagnostic history</td></tr>
-          <tr><td>Location</td><td>Determine local currency and display nearby spare parts stores</td></tr>
+          <tr><td>Device data &amp; fault description</td><td>Sent to AI system (Google Gemini) to generate a diagnostic suggestion</td></tr>
+          <tr><td>Photos (optional, up to 3)</td><td>Sent to AI system as visual evidence to improve diagnostic accuracy</td></tr>
+          <tr><td>Microphone / Voice input</td><td>Converted locally to text for fault description entry — never sent to any server</td></tr>
+          <tr><td>Google account / Email data</td><td>Create personal account, sync diagnostic history, OTP verification</td></tr>
+          <tr><td>Location</td><td>Display nearby service centers &amp; spare parts stores on map, determine local currency</td></tr>
           <tr><td>Diagnostic history</td><td>Future reference and cross-device sync</td></tr>
           <tr><td>Community content</td><td>Shared with the technician community after admin review</td></tr>
           <tr><td>FCM Token</td><td>Internal technical support only</td></tr>
@@ -766,27 +785,30 @@ const DATA = {
       <h3>a. Firebase (by Google)</h3>
       <p>The app uses Firebase services for the following:</p>
       <ul>
-        <li><strong>Firebase Authentication</strong>: Managing user sign-in via Google accounts.</li>
-        <li><strong>Cloud Firestore</strong>: Securely storing diagnostic history and community content in the cloud.</li>
+        <li><strong>Firebase Authentication</strong>: Managing user sign-in via email/password and Google accounts.</li>
+        <li><strong>Cloud Firestore</strong>: Securely storing diagnostic history, community content, and operational data in the cloud.</li>
+        <li><strong>Firebase Storage</strong>: Storing uploaded files related to technical support when needed.</li>
       </ul>
       <p>Firebase Privacy Policy: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">https://firebase.google.com/support/privacy</a></p>
-      <h3>b. OpenRouter</h3>
-      <p>The app uses the <strong>OpenRouter</strong> service to access AI models and generate diagnostic reports. When running a diagnostic, device data, fault description, and any user-attached photos are sent to OpenRouter servers for processing and returned as a diagnostic result.</p>
-      <p>OpenRouter Privacy Policy: <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">https://openrouter.ai/privacy</a></p>
+      <h3>b. Google Gemini API</h3>
+      <p>The app uses the <strong>Google Gemini API</strong> to access AI models and generate engineering diagnostic reports. When running a diagnostic, device data, fault description, and any user-attached photos are sent to Google Gemini servers via HTTPS for processing and returned as a diagnostic result.</p>
+      <p>Google Gemini Terms &amp; Privacy: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">https://ai.google.dev/gemini-api/terms</a></p>
       <h3>c. Google Maps</h3>
-      <p>The "Spare Parts Stores" screen uses <strong>Google Maps</strong> to display an interactive map. Google may collect anonymized usage data in accordance with its own privacy policy.</p>`
+      <p>The "Spare Parts Stores &amp; Service Centers" screen uses <strong>Google Maps</strong> to display an interactive map enabling users to locate nearby facilities. Google may collect anonymized usage data in accordance with its own privacy policy.</p>
+      <p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>`
     },
     { id:'s5', n:5, title:'5. Photos', html:`
       <ul>
         <li>Photo uploads are <strong>entirely optional</strong>. The app does not require photos to perform a diagnosis.</li>
+        <li>A maximum of <strong>3 photos</strong> per diagnostic session is permitted.</li>
         <li>No photo is ever sent to any external server unless the user explicitly selects and attaches it during a diagnostic session.</li>
-        <li>Sent photos are processed only for technical diagnostic purposes and are not stored on our servers.</li>
+        <li>Sent photos are processed only via Google Gemini API for technical diagnostic purposes and are not stored on our own servers.</li>
         <li>Photos attached to community posts remain stored locally on the device and are not uploaded to the cloud.</li>
       </ul>`
     },
-    { id:'s6', n:6, title:'6. Artificial Intelligence & Diagnostics', html:`
+    { id:'s6', n:6, title:'6. Artificial Intelligence &amp; Diagnostics', html:`
       <p><strong>Important Notice:</strong></p>
-      <p>All diagnostic reports displayed in the app are <strong>automatically generated by an AI system</strong> based on the information entered by the user.</p>
+      <p>All diagnostic reports displayed in the app are <strong>automatically generated by an AI system (Google Gemini)</strong> based on the information entered by the user.</p>
       <ul>
         <li>These reports are <strong>advisory and technically assistive in nature only</strong>.</li>
         <li>They <strong>do not replace</strong> on-site technical inspection by a qualified specialist when needed.</li>
@@ -838,16 +860,18 @@ const DATA = {
       <p><strong>The app does not sell, rent, or share your personal data with any third party for commercial or advertising purposes.</strong></p>
       <p>Data is shared only in the following cases:</p>
       <ul>
-        <li><strong>With OpenRouter</strong>: To process diagnostic requests (device data, fault description, and optional photos).</li>
-        <li><strong>With Firebase</strong>: To sync diagnostic history and manage accounts.</li>
+        <li><strong>With Google Gemini API</strong>: To process diagnostic requests (device data, fault description, and optional photos).</li>
+        <li><strong>With Firebase</strong>: To sync diagnostic history, manage accounts, and store cloud data.</li>
+        <li><strong>With Google Maps</strong>: To display the interactive map and locate nearby service centers.</li>
         <li><strong>Approved Community Content</strong>: Content the user explicitly agrees to share in the expert community is displayed to other users after admin review.</li>
       </ul>`
     },
     { id:'s9', n:9, title:'9. Data Protection', html:`
       <ul>
         <li>All cloud-stored data is protected by Firebase's certified security measures.</li>
-        <li>Admin credentials are not stored as plain text — they are stored as encrypted hashes.</li>
+        <li>User and admin passwords are not stored as plain text — they are stored as encrypted SHA-256 hashes.</li>
         <li>Communications between the app and external servers are conducted over encrypted HTTPS.</li>
+        <li>User data can only be accessed through Firestore security rules enforced at the server level.</li>
       </ul>`
     },
     { id:'s10', n:10, title:'10. Your Rights', html:`
@@ -862,7 +886,9 @@ const DATA = {
       </ul>
       <p>This action is <strong>permanent and cannot be undone.</strong></p>
       <h3>c. Use Without an Account</h3>
-      <p>The full app can be used in Guest Mode without creating an account, ensuring no data is uploaded to the cloud.</p>`
+      <p>The full app can be used in Guest Mode without creating an account, ensuring no data is uploaded to the cloud.</p>
+      <h3>d. Revoke Location or Microphone Permission</h3>
+      <p>You may revoke location or microphone permissions at any time through your device settings. This will not affect the core diagnostic feature, though some features (interactive map, voice input) will become unavailable.</p>`
     },
     { id:'s11', n:11, title:'11. Contact Us', html:`
       <p>If you have any questions about this Privacy Policy or your personal data, you can contact us at:</p>
@@ -870,7 +896,7 @@ const DATA = {
     },
     { id:'s12', n:12, title:'12. Changes to This Policy', html:`
       <p>We may update this policy from time to time to reflect changes in app features or legal requirements. Users will be notified of any significant changes via the app or email.</p>
-      <p><strong>Last Updated: August 2026</strong></p>`
+      <p><strong>Last Updated: September 2026</strong></p>`
     }
   ]
 };
