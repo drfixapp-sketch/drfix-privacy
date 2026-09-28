@@ -285,6 +285,46 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
+  /// 🍎 تسجيل الدخول عن طريق حساب Apple (Sign in with Apple - iOS حصرياً)
+  Future<bool> signInWithApple() async {
+    state = AuthState.loading();
+    try {
+      final firebaseAuth = await _ensureActiveFirebaseAuth();
+      if (firebaseAuth == null) {
+        state = AuthState.unauthenticated(error: 'Firebase غير متوفر حالياً. يمكنك المتابعة كزائر.');
+        return false;
+      }
+
+      final appleProvider = fb_auth.AppleAuthProvider();
+      appleProvider.addScope('email');
+      appleProvider.addScope('name');
+
+      final fb_auth.UserCredential credential = await firebaseAuth.signInWithProvider(appleProvider);
+      final fb_auth.User? fbUser = credential.user;
+
+      if (fbUser != null) {
+        final user = AppUser(
+          uid: fbUser.uid,
+          displayName: fbUser.displayName ?? 'مستخدم Apple المعتمد',
+          email: fbUser.email,
+          photoUrl: fbUser.photoURL,
+          isGuest: false,
+          isVerified: true,
+        );
+        state = AuthState.authenticated(user);
+        await _cacheUser(user);
+        return true;
+      }
+
+      state = AuthState.unauthenticated(error: 'فشل استرجاع بيانات المستخدم من Apple');
+      return false;
+    } catch (e) {
+      debugPrint("Apple sign-in error: $e");
+      state = AuthState.unauthenticated(error: 'Apple sign-in غير متوفر حالياً.');
+      return false;
+    }
+  }
+
   /// 📧 تسجيل الدخول بالبريد الإلكتروني وكلمة المرور (Sign In with Email & Password)
   Future<bool> signInWithEmailAndPassword(String email, String password) async {
     state = AuthState.loading();

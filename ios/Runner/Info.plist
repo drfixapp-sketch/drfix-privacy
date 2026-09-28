@@ -66,5 +66,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>يحتاج التطبيق للوصول إلى الكاميرا لالتقاط صور الأعطال لتقرير التشخيص.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>يحتاج التطبيق للوصول إلى مكتبة الصور لاختيار صور الأعطال المرفقة.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>يحتاج التطبيق للوصول إلى الميكروفون لاستخدام ميزة التشخيص الصوتي وتحويل الكلام إلى نص.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>يحتاج التطبيق لإذن التعرف على الكلام لتشغيل ميزة المساعد الصوتي في التشخيص.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>يحتاج التطبيق لتحديد موقعك للوصول إلى أحدث متاجر قطع الغيار والخدمات القريبة.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>يحتاج التطبيق لتحديد موقعك للوصول إلى خريطة الخدمات والقطع القريبة.</string>
 </dict>
 </plist>

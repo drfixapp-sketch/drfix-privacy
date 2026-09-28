@@ -265,6 +265,23 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
     }
   }
 
+  Future<void> _signInWithApple() async {
+    final isArabic = ref.read(localeProvider).languageCode == 'ar';
+    if (_isSignUp && !_isPolicyAccepted) {
+      _showErrorDialog(
+        context: context,
+        title: isArabic ? 'موافقة إلزامية' : 'Agreement Required',
+        message: isArabic
+            ? 'يجب الموافقة على سياسة الخصوصية وشروط الاستخدام أولاً.'
+            : 'You must agree to the Privacy Policy and Terms first.',
+        isArabic: isArabic,
+      );
+      return;
+    }
+    _userInitiatedAction = true;
+    await ref.read(authProvider.notifier).signInWithApple();
+  }
+
   Future<void> _signInWithGoogle() async {
     final isArabic = ref.read(localeProvider).languageCode == 'ar';
     if (_isSignUp && !_isPolicyAccepted) {
@@ -771,6 +788,39 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                                                   ],
                                                 ),
                                               ),
+                                              const SizedBox(height: 10),
+                                              if (Theme.of(context).platform == TargetPlatform.iOS) ...[
+                                                const SizedBox(height: 10),
+                                                ElevatedButton(
+                                                  onPressed: canProceed ? _signInWithApple : null,
+                                                  style: ElevatedButton.styleFrom(
+                                                    backgroundColor: Colors.black,
+                                                    foregroundColor: Colors.white,
+                                                    disabledBackgroundColor: Colors.grey.shade800,
+                                                    disabledForegroundColor: Colors.grey.shade400,
+                                                    padding: const EdgeInsets.symmetric(vertical: 12),
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius: BorderRadius.circular(12),
+                                                    ),
+                                                    elevation: 0,
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    children: [
+                                                      const Icon(Icons.apple, size: 22, color: Colors.white),
+                                                      const SizedBox(width: 10),
+                                                      Flexible(
+                                                        child: Text(
+                                                          isArabic ? 'تسجيل الدخول باستخدام Apple' : 'Sign in with Apple',
+                                                          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, fontFamily: 'Cairo'),
+                                                          overflow: TextOverflow.ellipsis,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
                                               const SizedBox(height: 10),
                                               ElevatedButton(
                                                 onPressed: canProceed ? _continueAsGuest : null,
