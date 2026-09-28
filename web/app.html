@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    Flutter Web App Entry Point — Dr. Fix
+    base href is set to "/" manually so this file works as app.html
+    alongside index.html (marketing landing page) without requiring
+    Flutter CLI to substitute $FLUTTER_BASE_HREF.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Dr. Fix – المساعد الهندسي الذكي لتشخيص الأعطال وإصلاحها. يدعم 9 قطاعات هندسية.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0F75BC">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Dr. Fix">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Dr. Fix – المساعد الهندسي الذكي</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Google Maps JavaScript API for Flutter Web -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_WEB_MAPS_API_KEY"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0F75BC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Cairo', 'Segoe UI', sans-serif;
+    }
+    #flutter-loading {
+      text-align: center;
+      color: white;
+    }
+    #flutter-loading .logo {
+      width: 80px;
+      height: 80px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    #flutter-loading svg { width: 44px; height: 44px; fill: white; }
+    #flutter-loading h2 { font-size: 1.4rem; font-weight: 800; margin: 0 0 8px; }
+    #flutter-loading p { font-size: 0.85rem; opacity: 0.75; margin: 0; }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 20px auto 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="flutter-loading">
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+    </div>
+    <h2>Dr. Fix</h2>
+    <p>جارٍ تحميل المساعد الهندسي…</p>
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    // 🛡️ آلية كسر كاش المتصفح وتفريغ ServiceWorker تلقائياً عند تحديث المحرك
+    (function() {
+      const CURRENT_APP_BUILD = '1.1.2_qwen38_27b_free';
+      const storedBuild = localStorage.getItem('drfix_app_build');
+      if (storedBuild !== CURRENT_APP_BUILD) {
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            for (let name of names) caches.delete(name);
+          });
+        }
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for (let reg of registrations) reg.unregister();
+          });
+        }
+        localStorage.setItem('drfix_app_build', CURRENT_APP_BUILD);
+        console.log('🧹 [Dr.Fix Web Cache] Cache and ServiceWorkers purged for build: ' + CURRENT_APP_BUILD);
+      }
+    })();
+
+    window.addEventListener('flutter-first-frame', function () {
+      var loading = document.getElementById('flutter-loading');
+      if (loading) loading.style.display = 'none';
+    });
+  </script>
+
+  <script src="flutter_bootstrap.js?v=1.1.2_qwen38_27b_free" async></script>
+</body>
+</html>

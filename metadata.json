@@ -1,0 +1,10 @@
+{
+  "name": "Dr Fix",
+  "description": "Smart AI-powered maintenance assistant and community forum for Jordan & GCC technicians.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "87995924664",
+    "project_id": "dr-fix-38bd1",
+    "storage_bucket": "dr-fix-38bd1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87995924664:android:60220fa6b6df4b4b8f344d",
+        "android_client_info": {
+          "package_name": "com.drfix.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHXNxcHLGxiGC6HhBTdizqTE8iAHoPFDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

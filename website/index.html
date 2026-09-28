@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1565C0">
+  <title>سياسة الخصوصية — تطبيق Dr. Fix | Privacy Policy</title>
+  <meta name="description" content="سياسة الخصوصية الرسمية لتطبيق Dr. Fix — المساعد الذكي لتشخيص الأعطال التقنية. Privacy Policy for Dr. Fix App.">
+  <link rel="canonical" href="">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="سياسة الخصوصية — Dr. Fix | Privacy Policy">
+  <meta property="og:description" content="سياسة الخصوصية الرسمية لتطبيق Dr. Fix — المساعد الذكي لتشخيص الأعطال الميكانيكية والكهربائية والصناعية.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%231565C0'/%3E%3Ccircle cx='600' cy='250' r='120' fill='%231E88E5'/%3E%3Ctext x='600' y='283' text-anchor='middle' dominant-baseline='middle' font-size='110' font-weight='900' font-family='Arial' fill='white'%3EDf%3C/text%3E%3Ctext x='600' y='440' text-anchor='middle' font-size='54' font-weight='700' font-family='Arial' fill='white' opacity='.92'%3EDr. Fix%3C/text%3E%3Ctext x='600' y='515' text-anchor='middle' font-size='30' font-family='Arial' fill='white' opacity='.72'%3EPrivacy Policy%3C/text%3E%3C/svg%3E">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="سياسة الخصوصية — Dr. Fix | Privacy Policy">
+  <meta name="twitter:description" content="سياسة الخصوصية الرسمية لتطبيق Dr. Fix لتشخيص الأعطال التقنية.">
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231565C0'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='bold' font-family='Arial' fill='white'%3EDf%3C/text%3E%3C/svg%3E">
+
+  <style>
+    /* ══ CSS CUSTOM PROPERTIES ══ */
+    :root {
+      --clr-primary:      #1565C0;
+      --clr-primary-d:    #0D47A1;
+      --clr-secondary:    #1E88E5;
+      --clr-secondary-l:  #42A5F5;
+      --clr-accent:       #E8F1FD;
+      --clr-bg:           #F7F9FC;
+      --clr-white:        #FFFFFF;
+      --clr-text:         #1A2332;
+      --clr-muted:        #546E8A;
+      --clr-border:       #DDE4EE;
+      --clr-warn-bg:      #FFFBEB;
+      --clr-warn-border:  #F59E0B;
+      --clr-success:      #166534;
+      --shadow-xs: 0 1px 3px rgba(21,101,192,.07);
+      --shadow-sm: 0 2px 8px rgba(21,101,192,.10);
+      --shadow-md: 0 6px 20px rgba(21,101,192,.13);
+      --shadow-lg: 0 12px 40px rgba(21,101,192,.18);
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 18px;
+      --r-xl: 26px;
+      --ease: 0.22s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ══ RESET ══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body.ltr { direction: ltr; text-align: left; }
+    body.rtl { direction: rtl; text-align: right; }
+
+    /* Offset for sticky header */
+    [id] { scroll-margin-top: 84px; }
+
+    /* ══ SKIP LINK ══ */
+    .skip-link {
+      position: absolute; top: -120px; inset-inline-start: 16px;
+      background: var(--clr-primary); color: var(--clr-white);
+      padding: 8px 16px;
+      border-radius: 0 0 var(--r-sm) var(--r-sm);
+      font-size: .9rem; font-weight: 600;
+      text-decoration: none; z-index: 9999;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ══ HEADER ══ */
+    .site-header {
+      background: linear-gradient(135deg, var(--clr-primary-d) 0%, var(--clr-primary) 55%, var(--clr-secondary) 100%);
+      color: var(--clr-white);
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: var(--shadow-lg);
+    }
+    .hdr-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 36px; gap: 14px; flex-wrap: wrap;
+    }
+    .hdr-brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: rgba(255,255,255,.16);
+      border: 2px solid rgba(255,255,255,.32);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: var(--clr-white);
+      letter-spacing: -1px; user-select: none;
+    }
+    .brand-title { display: block; font-size: 1.22rem; font-weight: 800; line-height: 1.2; letter-spacing: .3px; }
+    .brand-sub   { display: block; font-size: .77rem; opacity: .8; margin-top: 1px; }
+    .hdr-nav { display: flex; align-items: center; gap: 8px; }
+    .btn-lang {
+      display: inline-flex; align-items: center;
+      padding: 7px 15px;
+      border-radius: var(--r-md);
+      font-size: .83rem; font-weight: 700; letter-spacing: .3px;
+      cursor: pointer;
+      background: rgba(255,255,255,.18);
+      color: var(--clr-white);
+      border: 1.5px solid rgba(255,255,255,.38);
+      transition: background var(--ease), box-shadow var(--ease);
+    }
+    .btn-lang:hover        { background: rgba(255,255,255,.32); }
+    .btn-lang:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; border-radius: var(--r-md); }
+    .btn-lang.is-active    { background: #fff; color: var(--clr-primary); border-color: #fff; box-shadow: var(--shadow-sm); }
+    .lang-pipe { color: rgba(255,255,255,.4); user-select: none; padding: 0 2px; }
+    .hdr-sub {
+      background: rgba(0,0,0,.14);
+      padding: 7px 36px;
+      font-size: .79rem;
+      opacity: .88;
+    }
+
+    /* ══ PAGE WRAPPER ══ */
+    .page-wrap { max-width: 980px; margin: 0 auto; padding: 36px 24px 96px; }
+
+    /* ══ TOOLBAR ══ */
+    .toolbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .btn-tool {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px;
+      border-radius: var(--r-md);
+      font-size: .84rem; font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid var(--clr-border);
+      background: var(--clr-white);
+      color: var(--clr-text);
+      box-shadow: var(--shadow-xs);
+      transition: background var(--ease), color var(--ease), border-color var(--ease),
+                  box-shadow var(--ease), transform var(--ease);
+    }
+    .btn-tool svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-tool:hover {
+      background: var(--clr-primary); color: #fff;
+      border-color: var(--clr-primary); box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+    .btn-tool:focus-visible { outline: 2px solid var(--clr-primary); outline-offset: 2px; }
+    .btn-tool:active { transform: none; }
+    .btn-tool.is-copied { background: var(--clr-success); color: #fff; border-color: var(--clr-success); }
+
+    /* ══ TOC ══ */
+    .toc-wrap {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: 26px 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-md);
+      position: relative; overflow: hidden;
+    }
+    .toc-wrap::after {
+      content: '';
+      position: absolute; top: 0; inset-inline-start: 0;
+      width: 5px; height: 100%;
+      background: linear-gradient(180deg, var(--clr-primary), var(--clr-secondary));
+    }
+    .toc-label {
+      font-size: 1rem; font-weight: 700; color: var(--clr-primary);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .toc-label svg { width: 19px; height: 19px; flex-shrink: 0; }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
+      gap: 7px;
+    }
+    .toc-link {
+      display: flex; align-items: center; gap: 9px;
+      padding: 9px 13px;
+      border-radius: var(--r-sm);
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      text-decoration: none;
+      font-size: .86rem; font-weight: 500;
+      border: 1px solid var(--clr-border);
+      line-height: 1.4;
+      transition: background var(--ease), color var(--ease),
+                  border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+    .toc-link:hover {
+      background: var(--clr-primary); color: #fff;
+      border-color: var(--clr-primary);
+      transform: translateY(-1px); box-shadow: var(--shadow-xs);
+    }
+    .toc-link:focus-visible { outline: 2px solid var(--clr-primary); outline-offset: 2px; }
+    .toc-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 22px; height: 22px;
+      background: var(--clr-primary); color: #fff;
+      border-radius: 50%;
+      font-size: .67rem; font-weight: 800; flex-shrink: 0;
+      transition: background var(--ease);
+    }
+    .toc-link:hover .toc-badge { background: rgba(255,255,255,.28); }
+
+    /* ══ ACCORDION ══ */
+    .sec-card {
+      background: var(--clr-white);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-lg);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
+      transition: box-shadow var(--ease), border-color var(--ease);
+    }
+    .sec-card:hover     { box-shadow: var(--shadow-sm); }
+    .sec-card.is-open   { box-shadow: var(--shadow-md); border-color: #C3D8F4; }
+
+    .sec-trigger {
+      width: 100%; background: transparent; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 26px; gap: 12px; text-align: inherit;
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+      transition: background var(--ease);
+    }
+    .sec-trigger:hover       { background: #F0F6FF; }
+    .sec-trigger:focus-visible{ outline: 2px solid var(--clr-secondary); outline-offset: -2px; border-radius: var(--r-lg); }
+    .sec-card.is-open .sec-trigger { background: #E9F2FF; }
+
+    .trig-left { display: flex; align-items: center; gap: 13px; flex: 1; min-width: 0; }
+    .sec-badge {
+      width: 34px; height: 34px; flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .82rem; font-weight: 800;
+      transition: transform var(--ease);
+    }
+    .sec-card.is-open .sec-badge { transform: scale(1.08); }
+    .sec-name {
+      font-size: .97rem; font-weight: 700; color: var(--clr-text); line-height: 1.35;
+    }
+    .chev {
+      width: 22px; height: 22px; flex-shrink: 0;
+      color: var(--clr-muted);
+      transition: transform var(--ease), color var(--ease);
+    }
+    .sec-card.is-open .chev { transform: rotate(180deg); color: var(--clr-primary); }
+
+    .sec-panel {
+      max-height: 0; overflow: hidden;
+      transition: max-height .36s cubic-bezier(.4,0,.2,1);
+    }
+    .panel-inner { padding: 4px 26px 28px; }
+
+    /* ══ CONTENT ══ */
+    .acc-body p               { margin-bottom: 13px; line-height: 1.8; }
+    .acc-body p:last-child    { margin-bottom: 0; }
+    .acc-body strong          { color: var(--clr-primary-d); font-weight: 700; }
+    .acc-body ul,
+    .acc-body ol              { padding-inline-start: 22px; margin-bottom: 13px; }
+    .acc-body li              { margin-bottom: 7px; line-height: 1.75; }
+    .acc-body h3 {
+      font-size: .93rem; font-weight: 700; color: var(--clr-primary);
+      margin: 22px 0 10px;
+      padding-inline-start: 11px;
+      border-inline-start: 3px solid var(--clr-secondary);
+      line-height: 1.4;
+    }
+    .acc-body blockquote {
+      background: var(--clr-accent);
+      border-inline-start: 4px solid var(--clr-secondary);
+      border-radius: var(--r-sm);
+      padding: 12px 16px; margin: 13px 0;
+      font-size: .91rem; color: var(--clr-primary-d); font-style: normal;
+    }
+    .acc-body .warn-box {
+      background: var(--clr-warn-bg);
+      border: 1.5px solid var(--clr-warn-border);
+      border-radius: var(--r-sm);
+      padding: 14px 18px; margin: 14px 0;
+      font-size: .91rem; line-height: 1.75;
+    }
+    .acc-body a {
+      color: var(--clr-secondary); word-break: break-all;
+      text-underline-offset: 2px;
+    }
+    .acc-body a:hover        { color: var(--clr-primary); text-decoration: underline; }
+    .acc-body a:focus-visible{ outline: 2px solid var(--clr-primary); border-radius: 2px; }
+
+    /* TABLE */
+    .tbl-wrap  { overflow-x: auto; margin: 14px 0; border-radius: var(--r-sm); }
+    .data-tbl  {
+      width: 100%; min-width: 420px;
+      border-collapse: collapse; font-size: .87rem;
+    }
+    .data-tbl th {
+      background: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
+      color: #fff; padding: 12px 16px;
+      text-align: inherit; font-weight: 700; white-space: nowrap;
+    }
+    .data-tbl td { padding: 10px 16px; border-bottom: 1px solid var(--clr-border); vertical-align: top; }
+    .data-tbl tr:last-child td { border-bottom: none; }
+    .data-tbl tr:nth-child(even) td { background: var(--clr-bg); }
+    .data-tbl tr:hover td { background: var(--clr-accent); }
+
+    /* DISCLAIMER LIST */
+    .disc-list { list-style: none; padding: 0; margin: 4px 0 16px; }
+    .disc-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 13px 0; border-bottom: 1px solid var(--clr-border);
+    }
+    .disc-list li:last-child { border-bottom: none; }
+    .disc-n {
+      min-width: 28px; height: 28px; flex-shrink: 0;
+      background: var(--clr-primary); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; font-weight: 800; margin-top: 1px;
+    }
+
+    /* ══ BACK TO TOP ══ */
+    #btn-top {
+      position: fixed; bottom: 28px; inset-inline-start: 24px;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+      color: #fff; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-md); z-index: 99;
+      opacity: 0; pointer-events: none;
+      transition: opacity var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+    #btn-top.show        { opacity: 1; pointer-events: auto; }
+    #btn-top:hover       { transform: translateY(-3px) scale(1.08); box-shadow: var(--shadow-lg); }
+    #btn-top:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+    #btn-top svg { width: 20px; height: 20px; }
+
+    /* ══ FOOTER ══ */
+    .site-footer {
+      background: var(--clr-primary-d);
+      color: rgba(255,255,255,.82);
+      text-align: center;
+      padding: 22px 20px;
+      font-size: .87rem; line-height: 1.7;
+    }
+    .site-footer a { color: var(--clr-secondary-l); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; color: #fff; }
+
+    /* ══ RESPONSIVE: Tablet ══ */
+    @media (max-width: 768px) {
+      .hdr-top   { padding: 12px 20px; }
+      .hdr-sub   { padding: 6px 20px; }
+      .page-wrap { padding: 24px 16px 80px; }
+      .toc-wrap  { padding: 20px; }
+      .toc-grid  { grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); }
+      .sec-trigger, .panel-inner { padding-inline: 18px; }
+    }
+
+    /* ══ RESPONSIVE: Mobile ══ */
+    @media (max-width: 480px) {
+      .hdr-top   { padding: 10px 14px; gap: 10px; }
+      .hdr-sub   { padding: 5px 14px; }
+      .brand-logo { width: 40px; height: 40px; font-size: 16px; }
+      .brand-title{ font-size: 1.02rem; }
+      .page-wrap { padding: 16px 12px 68px; }
+      .toc-wrap  { padding: 16px 14px; border-radius: var(--r-lg); }
+      .toc-grid  { grid-template-columns: 1fr 1fr; gap: 5px; }
+      .toc-link  { padding: 8px 9px; font-size: .82rem; }
+      .sec-name  { font-size: .9rem; }
+      .sec-trigger{ padding: 15px 14px; }
+      .panel-inner{ padding: 4px 14px 22px; }
+      .btn-tool  { padding: 8px 12px; font-size: .8rem; }
+      .toolbar   { gap: 6px; }
+    }
+
+    /* ══ PRINT ══ */
+    @media print {
+      .site-header, .toolbar, #btn-top, .site-footer,
+      .toc-wrap, .skip-link { display: none !important; }
+      body { background: #fff; color: #000; }
+      .sec-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; margin-bottom: 8px; }
+      .sec-panel { max-height: none !important; overflow: visible !important; }
+      .chev, .sec-badge { display: none; }
+      .sec-trigger { background: #f3f3f3 !important; pointer-events: none; }
+      .tbl-wrap { overflow: visible; }
+      .data-tbl { min-width: unset; }
+    }
+
+    /* ══ REDUCED MOTION ══ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body class="rtl">
+
+<!-- Skip Navigation -->
+<a class="skip-link" href="#main-content">تخطي للمحتوى | Skip to main content</a>
+
+<!-- Back to Top -->
+<button id="btn-top" aria-label="العودة للأعلى">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<!-- HEADER -->
+<header class="site-header" role="banner" id="page-top">
+  <div class="hdr-top">
+    <div class="hdr-brand">
+      <div class="brand-logo" aria-hidden="true">Df</div>
+      <div>
+        <span class="brand-title" id="hdr-title">سياسة الخصوصية</span>
+        <span class="brand-sub"   id="hdr-sub">تطبيق Dr. Fix</span>
+      </div>
+    </div>
+    <nav class="hdr-nav" id="lang-nav" aria-label="اختيار اللغة">
+      <button class="btn-lang is-active" id="btn-ar"
+        onclick="setLang('ar')" aria-pressed="true" lang="ar">العربية</button>
+      <span class="lang-pipe" aria-hidden="true">|</span>
+      <button class="btn-lang" id="btn-en"
+        onclick="setLang('en')" aria-pressed="false" lang="en">English</button>
+    </nav>
+  </div>
+  <p class="hdr-sub"><span id="hdr-updated">آخر تحديث: سبتمبر 2026</span></p>
+</header>
+
+<!-- MAIN -->
+<main class="page-wrap" id="main-content" role="main">
+
+  <!-- TOOLBAR -->
+  <div class="toolbar" id="toolbar" role="toolbar" aria-label="أدوات الصفحة">
+    <button class="btn-tool" id="btn-print" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 6 2 18 2 18 9"/>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+        <rect x="6" y="14" width="12" height="8"/>
+      </svg>
+      <span id="t-print">طباعة</span>
+    </button>
+    <button class="btn-tool" id="btn-copy" onclick="doCopy(this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span id="t-copy">نسخ الرابط</span>
+    </button>
+    <button class="btn-tool" id="btn-expand" onclick="expandAll()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+      <span id="t-expand">توسيع الكل</span>
+    </button>
+    <button class="btn-tool" id="btn-collapse" onclick="collapseAll()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+      <span id="t-collapse">طي الكل</span>
+    </button>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc-wrap" id="toc" aria-labelledby="toc-lbl">
+    <div class="toc-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="8" y1="6"  x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+        <line x1="8" y1="18" x2="21" y2="18"/>
+        <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/>
+        <line x1="3" y1="18" x2="3.01" y2="18"/>
+      </svg>
+      <span id="toc-lbl"></span>
+    </div>
+    <div class="toc-grid" id="toc-grid" role="list"></div>
+  </nav>
+
+  <!-- SECTIONS -->
+  <div id="sections" aria-live="polite"></div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <p>© 2026 Dr. Fix. All rights reserved.
+    &nbsp;|&nbsp;
+    <a href="mailto:drfixapp@gmail.com">drfixapp@gmail.com</a>
+  </p>
+</footer>
+
+<script>
+'use strict';
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   UI STRINGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+const UI = {
+  ar: {
+    title:'سياسة الخصوصية', sub:'تطبيق Dr. Fix',
+    updated:'آخر تحديث: سبتمبر 2026',
+    toc:'جدول المحتويات',
+    print:'طباعة', copy:'نسخ الرابط', copied:'تم النسخ ✓',
+    expand:'توسيع الكل', collapse:'طي الكل',
+    backTop:'العودة للأعلى',
+    toolbar:'أدوات الصفحة', langNav:'اختيار اللغة'
+  },
+  en: {
+    title:'Privacy Policy', sub:'Dr. Fix App',
+    updated:'Last Updated: September 2026',
+    toc:'Table of Contents',
+    print:'Print', copy:'Copy Link', copied:'Copied ✓',
+    expand:'Expand All', collapse:'Collapse All',
+    backTop:'Back to Top',
+    toolbar:'Page tools', langNav:'Language selection'
+  }
+};
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+const DATA = {
+  ar: [
+    { id:'s1', n:1, title:'مقدمة', html:`
+      <p>تطبيق <strong>Dr. Fix</strong> هو مساعد ذكي متخصص في تشخيص الأعطال الميكانيكية والكهربائية والصناعية للمعدات والأجهزة التقنية. يعمل التطبيق على تحليل وصف العطل والبيانات المدخلة وتقديم تشخيص مقترح مولَّد بواسطة الذكاء الاصطناعي (Google Gemini)، إلى جانب تقديم إرشادات صيانة وقائية، قاعدة معرفة تقنية، وخريطة تفاعلية لمراكز الصيانة ومتاجر قطع الغيار.</p>
+      <p>نحن ملتزمون بحماية خصوصية مستخدمينا. توضح هذه السياسة بدقة البيانات التي يجمعها التطبيق، وكيفية استخدامها، ومع من قد تُشارَك.</p>`
+    },
+    { id:'s2', n:2, title:'البيانات التي يجمعها التطبيق', html:`
+      <h3>أ. بيانات إدخال التشخيص</h3>
+      <p>عند استخدام ميزة التشخيص، يطلب التطبيق المعلومات التالية:</p>
+      <ul>
+        <li><strong>اسم الجهاز</strong> ونوعه وموديله والشركة المصنعة (يُدخلها المستخدم يدوياً أو بالصوت).</li>
+        <li><strong>وصف العطل والملاحظات التقنية وكود الخطأ</strong> (نص يُدخله المستخدم يدوياً أو عبر ميزة تحويل الصوت إلى نص).</li>
+        <li><strong>صور اختيارية</strong> للجهاز أو العطل (يختارها المستخدم من الكاميرا أو معرض الصور — الحد الأقصى 3 صور لكل جلسة — لا تُرسَل أي صورة تلقائياً بدون اختيار صريح).</li>
+      </ul>
+      <h3>ب. بيانات الحساب (للمستخدمين المسجلين فقط)</h3>
+      <p>يوفر التطبيق طريقتين لإنشاء حساب:</p>
+      <ul>
+        <li><strong>التسجيل بالبريد الإلكتروني:</strong> الاسم، البريد الإلكتروني، وكلمة المرور (تُخزَّن مشفرة). يُرسَل رمز OTP للتحقق من صحة البريد الإلكتروني عند التسجيل.</li>
+        <li><strong>تسجيل الدخول بحساب Google:</strong> عنوان البريد الإلكتروني، الاسم، وصورة الملف الشخصي من حساب Google.</li>
+      </ul>
+      <blockquote>المستخدمون الذين يختارون وضع الضيف لا يتم إرسال أي بيانات من أجهزتهم إلى السحابة.</blockquote>
+      <h3>ج. سجل التشخيصات</h3>
+      <ul>
+        <li>يتم حفظ نتائج التشخيص محلياً على الجهاز.</li>
+        <li>للمستخدمين المسجلين: يُحفظ السجل أيضاً بشكل آمن على Cloud Firestore لضمان إمكانية الوصول من أجهزة متعددة.</li>
+      </ul>
+      <h3>د. الموقع الجغرافي</h3>
+      <ul>
+        <li>يطلب التطبيق إذن الموقع <strong>الجغرافي التقريبي</strong> لعرض مراكز الصيانة ومتاجر قطع الغيار القريبة على الخريطة التفاعلية، وتحديد العملة المحلية المناسبة.</li>
+        <li>لا يتم تخزين الموقع الجغرافي أو إرساله لأي طرف خارجي باستثناء Google Maps لأغراض عرض الخريطة.</li>
+      </ul>
+      <h3>هـ. صلاحية الميكروفون</h3>
+      <ul>
+        <li>يطلب التطبيق صلاحية الميكروفون لتمكين ميزة <strong>تحويل الصوت إلى نص (Speech-to-Text)</strong> لمساعدتك في إدخال وصف العطل والملاحظات التقنية بالصوت دون الحاجة للكتابة.</li>
+        <li>لا يتم تسجيل أي صوت أو إرساله لأي خادم خارجي — يتم معالجة الصوت محلياً عبر محرك النظام (Speech-to-Text API) على الجهاز مباشرة.</li>
+      </ul>
+      <h3>و. محتوى المجتمع (اختياري)</h3>
+      <p>عند مشاركة حالة في مجتمع الخبراء:</p>
+      <ul>
+        <li><strong>وصف العطل والحل</strong> الذي أدخله المستخدم.</li>
+        <li><strong>الاسم والتخصص</strong> (اختيارية، يمكن النشر بشكل مجهول).</li>
+        <li>يخضع المحتوى لمراجعة المشرف قبل ظهوره للمستخدمين الآخرين.</li>
+      </ul>
+      <h3>ز. بيانات تقنية</h3>
+      <ul>
+        <li><strong>معرّف الجهاز الفني (FCM Token)</strong>: يُولَّد لأغراض الدعم الفني والتواصل مع خدمة العملاء فقط، ولا يُستخدم لأغراض تتبع أو إعلانات.</li>
+      </ul>`
+    },
+    { id:'s3', n:3, title:'كيف تُستخدم البيانات', html:`
+      <div class="tbl-wrap">
+      <table class="data-tbl" role="table" aria-label="جدول استخدام البيانات">
+        <thead><tr><th scope="col">البيانات</th><th scope="col">الغرض من الاستخدام</th></tr></thead>
+        <tbody>
+          <tr><td>بيانات الجهاز ووصف العطل</td><td>إرسالها لنظام الذكاء الاصطناعي (Google Gemini) لتوليد تشخيص مقترح</td></tr>
+          <tr><td>الصور (اختيارية، حتى 3 صور)</td><td>إرسالها لنظام الذكاء الاصطناعي كدليل بصري لتحسين دقة التشخيص</td></tr>
+          <tr><td>الإدخال الصوتي عبر الميكروفون</td><td>تحويله محلياً إلى نص لتسهيل إدخال وصف العطل — لا يُرسَل لأي خادم</td></tr>
+          <tr><td>بيانات حساب Google / البريد الإلكتروني</td><td>إنشاء حساب شخصي، مزامنة سجل التشخيصات، التحقق برمز OTP</td></tr>
+          <tr><td>الموقع الجغرافي</td><td>عرض مراكز الصيانة ومتاجر قطع الغيار القريبة على الخريطة وتحديد العملة المحلية</td></tr>
+          <tr><td>سجل التشخيصات</td><td>الرجوع إليه مستقبلاً ومزامنته عبر الأجهزة</td></tr>
+          <tr><td>محتوى المجتمع</td><td>مشاركته مع مجتمع التقنيين الآخرين بعد مراجعة المشرف</td></tr>
+          <tr><td>FCM Token</td><td>الدعم الفني الداخلي فقط</td></tr>
+        </tbody>
+      </table>
+      </div>`
+    },
+    { id:'s4', n:4, title:'خدمات الطرف الثالث المستخدمة', html:`
+      <h3>أ. Firebase (Google)</h3>
+      <p>يستخدم التطبيق خدمات Firebase للمهام التالية:</p>
+      <ul>
+        <li><strong>Firebase Authentication</strong>: إدارة تسجيل دخول المستخدمين عبر البريد الإلكتروني وحسابات Google.</li>
+        <li><strong>Cloud Firestore</strong>: تخزين سجل التشخيصات ومحتوى المجتمع والبيانات التشغيلية بشكل آمن على السحابة.</li>
+        <li><strong>Firebase Storage</strong>: تخزين الملفات المرفوعة المتعلقة بالدعم الفني عند الحاجة.</li>
+      </ul>
+      <p>سياسة الخصوصية الخاصة بـ Firebase: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">https://firebase.google.com/support/privacy</a></p>
+      <h3>ب. Google Gemini API</h3>
+      <p>يستخدم التطبيق <strong>Google Gemini API</strong> للوصول إلى نماذج الذكاء الاصطناعي وتوليد تقارير التشخيص الهندسي. عند تشغيل التشخيص، تُرسَل بيانات الجهاز ووصف العطل (والصور إن أرفقها المستخدم) إلى خوادم Google Gemini عبر بروتوكول HTTPS لمعالجتها وإرجاع التشخيص المقترح.</p>
+      <p>سياسة استخدام Google Gemini: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">https://ai.google.dev/gemini-api/terms</a></p>
+      <h3>ج. Google Maps</h3>
+      <p>تستخدم شاشة "متاجر قطع الغيار ومراكز الصيانة" خدمة <strong>Google Maps</strong> لعرض خريطة تفاعلية تُمكِّن المستخدم من تحديد مواقع الجهات المجاورة بدقة. قد تقوم Google بجمع بيانات مجهولة الهوية عن تفاعل المستخدم مع الخريطة وفقاً لسياستها الخاصة.</p>
+      <p>سياسة خصوصية Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>`
+    },
+    { id:'s5', n:5, title:'الصور', html:`
+      <ul>
+        <li>رفع الصور <strong>اختياري بالكامل</strong>. لا يتطلب التطبيق صوراً لإجراء التشخيص.</li>
+        <li>الحد الأقصى <strong>3 صور</strong> لكل جلسة تشخيص واحدة.</li>
+        <li>لا تُرسَل أي صورة لأي خادم خارجي إلا إذا قام المستخدم بشكل صريح باختيارها وإرفاقها أثناء جلسة التشخيص.</li>
+        <li>الصور المرسَلة تُعالَج فقط عبر Google Gemini API لأغراض التشخيص التقني ولا تُخزَّن على خوادمنا الخاصة.</li>
+        <li>الصور المرفقة بمنشورات المجتمع تبقى مخزنة محلياً على الجهاز ولا تُرفع للسحابة.</li>
+      </ul>`
+    },
+    { id:'s6', n:6, title:'الذكاء الاصطناعي والتشخيص', html:`
+      <p><strong>إشعار مهم:</strong></p>
+      <p>جميع تقارير التشخيص المعروضة في التطبيق <strong>مولَّدة تلقائياً بواسطة نظام ذكاء اصطناعي (Google Gemini)</strong> بناءً على المعلومات التي أدخلها المستخدم.</p>
+      <ul>
+        <li>هذه التقارير ذات طابع <strong>استرشادي وتقني مساعد</strong> فقط.</li>
+        <li><strong>لا تُغني</strong> عن الفحص الفني الميداني من قِبَل متخصص مؤهل عند الحاجة.</li>
+        <li>لا يتحمل التطبيق المسؤولية عن أي قرارات تُتخذ بناءً على مخرجات نظام الذكاء الاصطناعي دون إجراء الفحص الفني اللازم.</li>
+      </ul>`
+    },
+    { id:'s7', n:7, title:'إخلاء المسؤولية القانونية', html:`
+      <p>يُقدِّم تطبيق <strong>Dr. Fix</strong> تشخيصات وتوصيات فنية مولَّدة تلقائياً بواسطة الذكاء الاصطناعي اعتماداً على البيانات والصور التي يقدمها المستخدم. باستخدامك للتطبيق، فإنك تقرّ وتوافق على البنود التالية:</p>
+      <ul class="disc-list">
+        <li><span class="disc-n" aria-hidden="true">1</span><span><strong>طبيعة النتائج</strong>: جميع نتائج التشخيص والتوصيات الصادرة عن التطبيق هي <strong>توصيات فنية استرشادية للمساعدة فقط</strong> وليست ضماناً أو تأكيداً نهائياً لصحة التشخيص أو سلامة الجهاز.</span></li>
+        <li><span class="disc-n" aria-hidden="true">2</span><span><strong>عدم الإحلال عن الفحص المتخصص</strong>: لا يُغني التطبيق بأي حال من الأحوال عن الفحص الفني المباشر أو الصيانة لدى فني مؤهل أو مركز خدمة معتمد عند الحاجة.</span></li>
+        <li><span class="disc-n" aria-hidden="true">3</span><span><strong>دقة النتائج</strong>: تعتمد دقة التشخيص المقترح اعتماداً مباشراً على جودة ووضوح البيانات والصور التي يقدمها المستخدم. البيانات الناقصة أو غير الدقيقة قد تؤثر سلباً على مستوى الدقة.</span></li>
+        <li><span class="disc-n" aria-hidden="true">4</span><span><strong>مسؤولية المستخدم</strong>: يتحمل المستخدم وحده المسؤولية الكاملة عن أي قرار، إصلاح، استبدال، أو شراء لقطع غيار أو معدات يتخذه بناءً على نتائج التطبيق.</span></li>
+        <li><span class="disc-n" aria-hidden="true">5</span><span><strong>حدود المسؤولية</strong>: التطبيق ومطوروه ومشغلوه <strong>غير مسؤولين</strong> بأي شكل من الأشكال عن أي أضرار مباشرة أو غير مباشرة، أو خسائر مالية، أو تلف معدات، أو إصابات جسدية، أو خسائر من أي نوع قد تنتج عن الاعتماد على مخرجات التطبيق.</span></li>
+      </ul>
+      <h3>أ. المكونات المشتبه بها</h3>
+      <p>المكونات أو الأجزاء التي يقترحها التطبيق كأسباب محتملة للعطل هي <strong>مكونات مشتبه بها فقط</strong> بناءً على الأعراض المُدخَلة، وليست تأكيداً نهائياً لوجود عطل في تلك المكونات. <strong>يجب التحقق منها ميدانياً من قِبَل فني مختص قبل شراء أي قطعة أو استبدالها.</strong></p>
+      <h3>ب. مراكز الصيانة ومتاجر قطع الغيار</h3>
+      <p>قد يعرض التطبيق معلومات عن مواقع مراكز الصيانة ومتاجر قطع الغيار لتسهيل الوصول إليها. يُقرّ المستخدم بما يلي:</p>
+      <ul>
+        <li>ظهور أي جهة في التطبيق <strong>لا يعني اعتمادها أو التوصية بها</strong> من قِبَل Dr. Fix.</li>
+        <li>لا يضمن التطبيق جودة الخدمة أو الأسعار أو توفر قطع الغيار لدى تلك الجهات.</li>
+        <li>أي تعامل تجاري أو خدمي مع تلك الجهات يتم <strong>مباشرةً بين المستخدم والجهة الخارجية</strong> ودون أي مسؤولية على التطبيق.</li>
+      </ul>
+      <h3>ج. تحذير السلامة</h3>
+      <div class="warn-box" role="alert">⚠️ <strong>تحذير مهم:</strong> في حال الاشتباه بوجود خطر كهربائي، أو تسرب غاز، أو ضغط مرتفع، أو حرارة شديدة، أو أي خطر آخر قد يهدد سلامة الأشخاص أو الممتلكات — <strong>أوقف العمل فوراً</strong> وابتعد عن المعدة، واستعن بفني أو جهة متخصصة مؤهلة. لا تستمر في استخدام المعدة أو تشخيصها ذاتياً في مثل هذه الحالات.</div>
+      <h3>د. الحالات الطارئة</h3>
+      <p>التطبيق <strong>غير مخصص لاتخاذ قرارات عاجلة</strong> تتعلق بسلامة الأشخاص أو الممتلكات. عند وجود خطر مباشر أو حالة طارئة:</p>
+      <ul>
+        <li><strong>أوقف استخدام المعدة فوراً</strong> وابتعد عنها.</li>
+        <li>اتبع تعليمات السلامة الخاصة بالمعدة والمنشأة التي تعمل فيها.</li>
+        <li>تواصل مع فني مؤهل أو مركز خدمة معتمد أو الجهات المختصة قبل إعادة التشغيل.</li>
+        <li>لا تُستخدم نتائج التطبيق مرجعاً وحيداً في مثل هذه المواقف.</li>
+      </ul>
+      <h3>هـ. اختلاف نتائج التشخيص</h3>
+      <p>قد تتباين نتائج التشخيص التي يُنتجها التطبيق في الحالات التالية:</p>
+      <ul>
+        <li>عند إدخال معلومات مختلفة أو إرفاق صور إضافية لنفس الحالة.</li>
+        <li>مع تطور نماذج الذكاء الاصطناعي أو تحديثها بمرور الوقت.</li>
+      </ul>
+      <p>هذا التباين <strong>لا يعني وجود خطأ أو خلل في التطبيق</strong>، وإنما يعكس الطبيعة الاحتمالية لأنظمة الذكاء الاصطناعي وتأثير جودة البيانات المُدخَلة على النتائج. <strong>يجب دائماً الاعتماد على الفحص الفني الميداني الفعلي قبل اتخاذ أي قرار نهائي.</strong></p>
+      <h3>و. الالتزام بالأنظمة المحلية</h3>
+      <ul>
+        <li>يتحمل المستخدم مسؤولية الالتزام الكامل بجميع الأنظمة والقوانين وتعليمات السلامة المعمول بها في الدولة أو المنطقة التي يستخدم فيها التطبيق.</li>
+        <li>لا يُعفي استخدام التطبيق المستخدم من الالتزام بالتعليمات الرسمية الصادرة عن الشركة المصنعة للمعدة أو الجهات التنظيمية المختصة.</li>
+      </ul>`
+    },
+    { id:'s8', n:8, title:'مشاركة البيانات', html:`
+      <p><strong>لا يقوم التطبيق ببيع أو تأجير أو مشاركة بياناتك الشخصية مع أي طرف ثالث لأغراض تجارية أو إعلانية.</strong></p>
+      <p>البيانات تُشارَك فقط في الحالات التالية:</p>
+      <ul>
+        <li><strong>مع Google Gemini API</strong>: لمعالجة طلبات التشخيص (بيانات الجهاز والعطل والصور الاختيارية).</li>
+        <li><strong>مع Firebase</strong>: لمزامنة سجل التشخيصات، إدارة الحساب، وتخزين البيانات السحابية.</li>
+        <li><strong>مع Google Maps</strong>: لعرض الخريطة التفاعلية وتحديد مواقع مراكز الصيانة.</li>
+        <li><strong>المحتوى المجتمعي المعتمد</strong>: ما يوافق المستخدم صراحةً على مشاركته في مجتمع الخبراء يظهر للمستخدمين الآخرين بعد مراجعة المشرف.</li>
+      </ul>`
+    },
+    { id:'s9', n:9, title:'حماية البيانات', html:`
+      <ul>
+        <li>جميع البيانات المخزنة على السحابة محمية بإجراءات أمان Firebase المعتمدة.</li>
+        <li>لا يتم تخزين كلمات المرور الخاصة بالمستخدمين أو المشرفين بشكل نصي واضح — يتم تخزينها كـ Hash مشفر (SHA-256).</li>
+        <li>الاتصالات بين التطبيق والخوادم الخارجية تتم عبر بروتوكول HTTPS المشفر.</li>
+        <li>لا يمكن الوصول لبيانات المستخدمين إلا من خلال قواعد أمان Firestore المُطبَّقة على مستوى الخادم.</li>
+      </ul>`
+    },
+    { id:'s10', n:10, title:'حقوق المستخدم', html:`
+      <h3>أ. حذف سجل التشخيصات</h3>
+      <p>يمكن للمستخدم حذف سجل التشخيصات بالكامل في أي وقت من داخل التطبيق، سواء المحفوظة محلياً أو على السحابة.</p>
+      <h3>ب. حذف الحساب والبيانات</h3>
+      <p>للمستخدمين المسجلين: يتوفر خيار <strong>"حذف الحساب والبيانات"</strong> من القائمة الجانبية في التطبيق. عند الحذف:</p>
+      <ul>
+        <li>يُحذف الحساب من Firebase Authentication.</li>
+        <li>يُحذف سجل التشخيصات كاملاً من Firestore.</li>
+        <li>يُحذف السجل المحلي من الجهاز.</li>
+      </ul>
+      <p>هذا الإجراء <strong>دائم ولا يمكن التراجع عنه.</strong></p>
+      <h3>ج. الاستمرار دون حساب</h3>
+      <p>يمكن استخدام التطبيق كاملاً في وضع الضيف دون إنشاء حساب، مما يضمن عدم رفع أي بيانات للسحابة.</p>
+      <h3>د. إلغاء صلاحية الموقع أو الميكروفون</h3>
+      <p>يمكن إلغاء صلاحية الموقع الجغرافي أو الميكروفون في أي وقت من إعدادات الجهاز. لن يؤثر ذلك على ميزة التشخيص الأساسية، غير أن بعض الميزات (الخريطة التفاعلية، الإدخال الصوتي) لن تعمل.</p>`
+    },
+    { id:'s11', n:11, title:'التواصل معنا', html:`
+      <p>إذا كانت لديك أي استفسارات بشأن سياسة الخصوصية هذه أو بياناتك الشخصية، يمكنك التواصل معنا عبر:</p>
+      <ul><li><strong>البريد الإلكتروني</strong>: <a href="mailto:drfixapp@gmail.com">drfixapp@gmail.com</a></li></ul>`
+    },
+    { id:'s12', n:12, title:'التغييرات على السياسة', html:`
+      <p>قد نُحدِّث هذه السياسة من وقت لآخر لتعكس تغييرات في ميزات التطبيق أو متطلبات قانونية. سيُعلَم المستخدمون بأي تغيير جوهري عبر التطبيق أو البريد الإلكتروني.</p>
+      <p><strong>تاريخ آخر تحديث: سبتمبر 2026</strong></p>`
+    }
+  ],
+
+  en: [
+    { id:'s1', n:1, title:'1. Introduction', html:`
+      <p><strong>Dr. Fix</strong> is an intelligent assistant specialized in diagnosing mechanical, electrical, and industrial faults in technical equipment and devices. The app analyzes fault descriptions and user-provided data to generate AI-powered diagnostic suggestions (via Google Gemini), alongside preventative maintenance guidance, a technical knowledge base, and an interactive map of service centers and spare parts stores.</p>
+      <p>We are committed to protecting our users' privacy. This policy precisely describes what data the app collects, how it is used, and with whom it may be shared.</p>`
+    },
+    { id:'s2', n:2, title:'2. Data We Collect', html:`
+      <h3>a. Diagnostic Input Data</h3>
+      <p>When using the diagnostic feature, the app requests the following:</p>
+      <ul>
+        <li><strong>Device name</strong>, type, model, and manufacturer (entered manually by the user or via voice input).</li>
+        <li><strong>Fault description, technical notes, and error codes</strong> (text entered by the user manually or via Speech-to-Text).</li>
+        <li><strong>Optional photos</strong> of the device or fault (chosen by the user from camera or gallery — maximum 3 photos per session — no photo is ever sent automatically without explicit user selection).</li>
+      </ul>
+      <h3>b. Account Data (Registered Users Only)</h3>
+      <p>The app provides two ways to create an account:</p>
+      <ul>
+        <li><strong>Email Registration:</strong> Name, email address, and password (stored encrypted). An OTP code is sent to verify the email address upon registration.</li>
+        <li><strong>Google Sign-In:</strong> Email address, name, and profile photo from the Google account.</li>
+      </ul>
+      <blockquote>Users who choose Guest Mode do not have any data from their device uploaded to the cloud.</blockquote>
+      <h3>c. Diagnostic History</h3>
+      <ul>
+        <li>Diagnostic results are saved locally on the device.</li>
+        <li>For registered users: history is also saved securely on Cloud Firestore to enable access from multiple devices.</li>
+      </ul>
+      <h3>d. Location</h3>
+      <ul>
+        <li>The app requests <strong>approximate location</strong> permission to display nearby service centers and spare parts stores on the interactive map, and to determine the appropriate local currency.</li>
+        <li>Location data is not stored or shared with any external party except Google Maps for map display purposes.</li>
+      </ul>
+      <h3>e. Microphone Permission</h3>
+      <ul>
+        <li>The app requests microphone permission to enable the <strong>Speech-to-Text feature</strong>, allowing you to describe device faults and technical notes verbally without typing.</li>
+        <li>No audio is recorded or sent to any external server — voice processing occurs locally on the device via the system's Speech-to-Text engine.</li>
+      </ul>
+      <h3>f. Community Content (Optional)</h3>
+      <p>When sharing a case in the expert community:</p>
+      <ul>
+        <li><strong>Fault description and solution</strong> entered by the user.</li>
+        <li><strong>Name and specialty</strong> (optional — posting anonymously is supported).</li>
+        <li>Content is subject to admin review before appearing to other users.</li>
+      </ul>
+      <h3>g. Technical Identifiers</h3>
+      <ul>
+        <li><strong>Device Technical Token (FCM Token)</strong>: Generated for technical support and customer service purposes only. It is not used for tracking or advertising.</li>
+      </ul>`
+    },
+    { id:'s3', n:3, title:'3. How We Use Your Data', html:`
+      <div class="tbl-wrap">
+      <table class="data-tbl" role="table" aria-label="Data usage table">
+        <thead><tr><th scope="col">Data</th><th scope="col">Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Device data &amp; fault description</td><td>Sent to AI system (Google Gemini) to generate a diagnostic suggestion</td></tr>
+          <tr><td>Photos (optional, up to 3)</td><td>Sent to AI system as visual evidence to improve diagnostic accuracy</td></tr>
+          <tr><td>Microphone / Voice input</td><td>Converted locally to text for fault description entry — never sent to any server</td></tr>
+          <tr><td>Google account / Email data</td><td>Create personal account, sync diagnostic history, OTP verification</td></tr>
+          <tr><td>Location</td><td>Display nearby service centers &amp; spare parts stores on map, determine local currency</td></tr>
+          <tr><td>Diagnostic history</td><td>Future reference and cross-device sync</td></tr>
+          <tr><td>Community content</td><td>Shared with the technician community after admin review</td></tr>
+          <tr><td>FCM Token</td><td>Internal technical support only</td></tr>
+        </tbody>
+      </table>
+      </div>`
+    },
+    { id:'s4', n:4, title:'4. Third-Party Services Used', html:`
+      <h3>a. Firebase (by Google)</h3>
+      <p>The app uses Firebase services for the following:</p>
+      <ul>
+        <li><strong>Firebase Authentication</strong>: Managing user sign-in via email/password and Google accounts.</li>
+        <li><strong>Cloud Firestore</strong>: Securely storing diagnostic history, community content, and operational data in the cloud.</li>
+        <li><strong>Firebase Storage</strong>: Storing uploaded files related to technical support when needed.</li>
+      </ul>
+      <p>Firebase Privacy Policy: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">https://firebase.google.com/support/privacy</a></p>
+      <h3>b. Google Gemini API</h3>
+      <p>The app uses the <strong>Google Gemini API</strong> to access AI models and generate engineering diagnostic reports. When running a diagnostic, device data, fault description, and any user-attached photos are sent to Google Gemini servers via HTTPS for processing and returned as a diagnostic result.</p>
+      <p>Google Gemini Terms &amp; Privacy: <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">https://ai.google.dev/gemini-api/terms</a></p>
+      <h3>c. Google Maps</h3>
+      <p>The "Spare Parts Stores &amp; Service Centers" screen uses <strong>Google Maps</strong> to display an interactive map enabling users to locate nearby facilities. Google may collect anonymized usage data in accordance with its own privacy policy.</p>
+      <p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>`
+    },
+    { id:'s5', n:5, title:'5. Photos', html:`
+      <ul>
+        <li>Photo uploads are <strong>entirely optional</strong>. The app does not require photos to perform a diagnosis.</li>
+        <li>A maximum of <strong>3 photos</strong> per diagnostic session is permitted.</li>
+        <li>No photo is ever sent to any external server unless the user explicitly selects and attaches it during a diagnostic session.</li>
+        <li>Sent photos are processed only via Google Gemini API for technical diagnostic purposes and are not stored on our own servers.</li>
+        <li>Photos attached to community posts remain stored locally on the device and are not uploaded to the cloud.</li>
+      </ul>`
+    },
+    { id:'s6', n:6, title:'6. Artificial Intelligence &amp; Diagnostics', html:`
+      <p><strong>Important Notice:</strong></p>
+      <p>All diagnostic reports displayed in the app are <strong>automatically generated by an AI system (Google Gemini)</strong> based on the information entered by the user.</p>
+      <ul>
+        <li>These reports are <strong>advisory and technically assistive in nature only</strong>.</li>
+        <li>They <strong>do not replace</strong> on-site technical inspection by a qualified specialist when needed.</li>
+        <li>The app does not bear responsibility for decisions made based solely on AI diagnostic outputs without conducting appropriate technical inspection.</li>
+      </ul>`
+    },
+    { id:'s7', n:7, title:'7. Legal Disclaimer', html:`
+      <p><strong>Dr. Fix</strong> provides AI-generated technical diagnostics and recommendations based on the data and images provided by the user. By using the app, you acknowledge and agree to the following:</p>
+      <ul class="disc-list">
+        <li><span class="disc-n" aria-hidden="true">1</span><span><strong>Nature of Results</strong>: All diagnostic results and recommendations generated by the app are <strong>technical advisory suggestions only</strong> and do not constitute a guarantee or a final confirmation of the accuracy of any diagnosis or the condition of any equipment.</span></li>
+        <li><span class="disc-n" aria-hidden="true">2</span><span><strong>Not a Substitute for Professional Inspection</strong>: The app does not, under any circumstances, replace direct technical inspection or maintenance by a qualified technician or authorized service center when required.</span></li>
+        <li><span class="disc-n" aria-hidden="true">3</span><span><strong>Accuracy of Results</strong>: The accuracy of the suggested diagnosis depends directly on the quality and clarity of the data and images provided by the user. Incomplete or inaccurate data may negatively affect diagnostic accuracy.</span></li>
+        <li><span class="disc-n" aria-hidden="true">4</span><span><strong>User Responsibility</strong>: The user bears sole and full responsibility for any decision, repair, replacement, or purchase of spare parts or equipment made based on the app's results.</span></li>
+        <li><span class="disc-n" aria-hidden="true">5</span><span><strong>Limitation of Liability</strong>: The app, its developers, and its operators are <strong>not liable</strong> in any form for any direct or indirect damages, financial losses, equipment damage, physical injuries, or losses of any kind that may result from reliance on the app's outputs.</span></li>
+      </ul>
+      <h3>a. Suspected Components</h3>
+      <p>The components or parts suggested by the app as potential causes of a fault are <strong>suspected components only</strong>, based on the symptoms entered, and do not constitute a final confirmation that those components are faulty. <strong>They must be verified on-site by a qualified technician before purchasing or replacing any part.</strong></p>
+      <h3>b. Service Centers &amp; Spare Parts Stores</h3>
+      <p>The app may display information about the locations of service centers and spare parts stores to facilitate access. The user acknowledges that:</p>
+      <ul>
+        <li>The appearance of any entity in the app <strong>does not imply endorsement or recommendation</strong> by Dr. Fix.</li>
+        <li>The app does not guarantee the quality of service, pricing, or availability of spare parts at those entities.</li>
+        <li>Any commercial or service dealings with those entities are conducted <strong>directly between the user and the external party</strong>, without any liability on the part of the app.</li>
+      </ul>
+      <h3>c. Safety Warning</h3>
+      <div class="warn-box" role="alert">⚠️ <strong>Important Warning:</strong> If there is any suspicion of electrical hazard, gas leak, high pressure, extreme heat, or any other risk that may threaten the safety of persons or property — <strong>stop work immediately</strong>, move away from the equipment, and contact a qualified technician or specialist. Do not continue using or self-diagnosing the equipment in such situations.</div>
+      <h3>d. Emergency Situations</h3>
+      <p>This app is <strong>not intended for making urgent decisions</strong> related to the safety of persons or property. In the event of an immediate hazard or emergency situation:</p>
+      <ul>
+        <li><strong>Stop using the equipment immediately</strong> and move away from it.</li>
+        <li>Follow the safety instructions specific to the equipment and the facility in which you are working.</li>
+        <li>Contact a qualified technician, an authorized service center, or the relevant authorities before resuming operation.</li>
+        <li>Do not rely solely on the app's results in such situations.</li>
+      </ul>
+      <h3>e. Diagnostic Result Variability</h3>
+      <p>The diagnostic results produced by the app may vary in the following cases:</p>
+      <ul>
+        <li>When different information is entered or additional photos are attached for the same case.</li>
+        <li>As AI models evolve or are updated over time.</li>
+      </ul>
+      <p>This variability <strong>does not indicate an error or malfunction in the app</strong>, but rather reflects the probabilistic nature of AI systems and the impact of input data quality on results. <strong>Always rely on actual on-site technical inspection before making any final decision.</strong></p>
+      <h3>f. Compliance with Local Regulations</h3>
+      <ul>
+        <li>The user is solely responsible for complying with all applicable regulations, laws, and safety instructions in the country or region in which the app is used.</li>
+        <li>Use of the app does not exempt the user from adhering to the official instructions issued by the equipment manufacturer or the relevant regulatory authorities.</li>
+      </ul>`
+    },
+    { id:'s8', n:8, title:'8. Data Sharing', html:`
+      <p><strong>The app does not sell, rent, or share your personal data with any third party for commercial or advertising purposes.</strong></p>
+      <p>Data is shared only in the following cases:</p>
+      <ul>
+        <li><strong>With Google Gemini API</strong>: To process diagnostic requests (device data, fault description, and optional photos).</li>
+        <li><strong>With Firebase</strong>: To sync diagnostic history, manage accounts, and store cloud data.</li>
+        <li><strong>With Google Maps</strong>: To display the interactive map and locate nearby service centers.</li>
+        <li><strong>Approved Community Content</strong>: Content the user explicitly agrees to share in the expert community is displayed to other users after admin review.</li>
+      </ul>`
+    },
+    { id:'s9', n:9, title:'9. Data Protection', html:`
+      <ul>
+        <li>All cloud-stored data is protected by Firebase's certified security measures.</li>
+        <li>User and admin passwords are not stored as plain text — they are stored as encrypted SHA-256 hashes.</li>
+        <li>Communications between the app and external servers are conducted over encrypted HTTPS.</li>
+        <li>User data can only be accessed through Firestore security rules enforced at the server level.</li>
+      </ul>`
+    },
+    { id:'s10', n:10, title:'10. Your Rights', html:`
+      <h3>a. Delete Diagnostic History</h3>
+      <p>Users can delete their entire diagnostic history at any time from within the app, including both locally stored and cloud-synced records.</p>
+      <h3>b. Delete Account &amp; Data</h3>
+      <p>For registered users: a <strong>"Delete Account &amp; Data"</strong> option is available from the app's side menu. Upon deletion:</p>
+      <ul>
+        <li>The account is deleted from Firebase Authentication.</li>
+        <li>The entire diagnostic history is deleted from Firestore.</li>
+        <li>The local record is deleted from the device.</li>
+      </ul>
+      <p>This action is <strong>permanent and cannot be undone.</strong></p>
+      <h3>c. Use Without an Account</h3>
+      <p>The full app can be used in Guest Mode without creating an account, ensuring no data is uploaded to the cloud.</p>
+      <h3>d. Revoke Location or Microphone Permission</h3>
+      <p>You may revoke location or microphone permissions at any time through your device settings. This will not affect the core diagnostic feature, though some features (interactive map, voice input) will become unavailable.</p>`
+    },
+    { id:'s11', n:11, title:'11. Contact Us', html:`
+      <p>If you have any questions about this Privacy Policy or your personal data, you can contact us at:</p>
+      <ul><li><strong>Email</strong>: <a href="mailto:drfixapp@gmail.com">drfixapp@gmail.com</a></li></ul>`
+    },
+    { id:'s12', n:12, title:'12. Changes to This Policy', html:`
+      <p>We may update this policy from time to time to reflect changes in app features or legal requirements. Users will be notified of any significant changes via the app or email.</p>
+      <p><strong>Last Updated: September 2026</strong></p>`
+    }
+  ]
+};
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   STATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+let lang = 'ar';
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RENDER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function render(l) {
+  lang = l;
+  const u = UI[l], ss = DATA[l], rtl = (l === 'ar');
+
+  document.documentElement.lang = l;
+  document.documentElement.dir  = rtl ? 'rtl' : 'ltr';
+  document.body.className        = rtl ? 'rtl' : 'ltr';
+  document.title                 = u.title + ' — Dr. Fix';
+
+  /* header */
+  document.getElementById('hdr-title').textContent   = u.title;
+  document.getElementById('hdr-sub').textContent     = u.sub;
+  document.getElementById('hdr-updated').textContent = u.updated;
+
+  /* lang buttons */
+  ['ar','en'].forEach(x => {
+    const b = document.getElementById('btn-' + x);
+    const on = (x === l);
+    b.className = 'btn-lang' + (on ? ' is-active' : '');
+    b.setAttribute('aria-pressed', String(on));
+  });
+
+  /* toolbar labels */
+  document.getElementById('t-print').textContent    = u.print;
+  document.getElementById('t-copy').textContent     = u.copy;
+  document.getElementById('t-expand').textContent   = u.expand;
+  document.getElementById('t-collapse').textContent = u.collapse;
+  document.getElementById('toolbar').setAttribute('aria-label', u.toolbar);
+  document.getElementById('lang-nav').setAttribute('aria-label', u.langNav);
+  document.getElementById('btn-top').setAttribute('aria-label', u.backTop);
+
+  /* TOC */
+  document.getElementById('toc-lbl').textContent = u.toc;
+  document.getElementById('toc').setAttribute('aria-label', u.toc);
+  document.getElementById('toc-grid').innerHTML = ss.map(s => `
+    <div role="listitem">
+      <a class="toc-link" href="#${s.id}" onclick="openSec('${s.id}')">
+        <span class="toc-badge" aria-hidden="true">${s.n}</span>
+        <span>${s.title}</span>
+      </a>
+    </div>`).join('');
+
+  /* sections */
+  document.getElementById('sections').innerHTML = ss.map(s => `
+    <article class="sec-card" id="${s.id}">
+      <button class="sec-trigger"
+        id="trig-${s.id}"
+        aria-expanded="false"
+        aria-controls="panel-${s.id}">
+        <span class="trig-left">
+          <span class="sec-badge" aria-hidden="true">${s.n}</span>
+          <span class="sec-name">${s.title}</span>
+        </span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="sec-panel" id="panel-${s.id}" role="region" aria-labelledby="trig-${s.id}">
+        <div class="panel-inner"><div class="acc-body">${s.html}</div></div>
+      </div>
+    </article>`).join('');
+
+  /* bind click events */
+  ss.forEach(s => {
+    document.getElementById('trig-' + s.id)
+      .addEventListener('click', () => toggleSec(s.id));
+  });
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ACCORDION (max-height technique)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function measurePanel(panel) {
+  const saved = panel.style.maxHeight;
+  panel.style.maxHeight = 'none';
+  const h = panel.scrollHeight;
+  panel.style.maxHeight = saved;
+  return h;
+}
+
+function openSec(id) {
+  const card  = document.getElementById(id);
+  const trig  = document.getElementById('trig-' + id);
+  const panel = document.getElementById('panel-' + id);
+  if (!card.classList.contains('is-open')) {
+    card.classList.add('is-open');
+    trig.setAttribute('aria-expanded', 'true');
+    panel.style.maxHeight = measurePanel(panel) + 'px';
+  }
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}
+
+function toggleSec(id) {
+  const card  = document.getElementById(id);
+  const trig  = document.getElementById('trig-' + id);
+  const panel = document.getElementById('panel-' + id);
+  const open  = card.classList.contains('is-open');
+  card.classList.toggle('is-open', !open);
+  trig.setAttribute('aria-expanded', String(!open));
+  panel.style.maxHeight = open ? '0' : measurePanel(panel) + 'px';
+}
+
+function expandAll() {
+  DATA[lang].forEach(s => {
+    const card  = document.getElementById(s.id);
+    const trig  = document.getElementById('trig-' + s.id);
+    const panel = document.getElementById('panel-' + s.id);
+    if (card && !card.classList.contains('is-open')) {
+      card.classList.add('is-open');
+      trig.setAttribute('aria-expanded', 'true');
+      panel.style.maxHeight = measurePanel(panel) + 'px';
+    }
+  });
+}
+
+function collapseAll() {
+  DATA[lang].forEach(s => {
+    const card  = document.getElementById(s.id);
+    const trig  = document.getElementById('trig-' + s.id);
+    const panel = document.getElementById('panel-' + s.id);
+    if (card && card.classList.contains('is-open')) {
+      card.classList.remove('is-open');
+      trig.setAttribute('aria-expanded', 'false');
+      panel.style.maxHeight = '0';
+    }
+  });
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LANGUAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function setLang(l) { render(l); handleHash(); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   COPY LINK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function doCopy(btn) {
+  const span = btn.querySelector('span');
+  const u    = UI[lang];
+  const ok   = () => {
+    btn.classList.add('is-copied');
+    span.textContent = u.copied;
+    setTimeout(() => { btn.classList.remove('is-copied'); span.textContent = u.copy; }, 2200);
+  };
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(location.href).then(ok).catch(() => fbCopy(ok));
+  } else { fbCopy(ok); }
+}
+function fbCopy(cb) {
+  const ta = document.createElement('textarea');
+  ta.value = location.href;
+  ta.setAttribute('readonly','');
+  ta.style.cssText = 'position:fixed;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); cb(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BACK TO TOP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+const btnTop = document.getElementById('btn-top');
+window.addEventListener('scroll', () => {
+  btnTop.classList.toggle('show', window.scrollY > 320);
+}, { passive: true });
+btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HASH / KEYBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function handleHash() {
+  const id = location.hash.replace('#','');
+  if (id && document.getElementById(id)) {
+    setTimeout(() => openSec(id), 80);
+  }
+}
+window.addEventListener('hashchange', handleHash);
+
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  const el = document.activeElement;
+  if (!el || !el.classList.contains('sec-trigger')) return;
+  const card = el.closest('.sec-card');
+  if (card && card.classList.contains('is-open')) {
+    toggleSec(card.id); el.focus();
+  }
+});
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   INIT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+render('ar');
+handleHash();
+</script>
+</body>
+</html>
