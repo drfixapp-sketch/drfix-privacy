@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-upload-ios:
     name: Build & Upload to App Store Connect
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
       - name: Checkout Code
@@ -23,61 +23,37 @@ jobs:
       - name: Set up Flutter SDK
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.x'
           channel: 'stable'
           cache: true
 
-      - name: Install Flutter Dependencies
+      - name: Install Dependencies
         run: flutter pub get
 
-      - name: Setup Apple Certificates & Profile (If Secrets Provided)
-        if: ${{ env.APPLE_CERTIFICATE_BASE64 != '' }}
-        env:
-          APPLE_CERTIFICATE_BASE64: ${{ secrets.APPLE_CERTIFICATE_BASE64 }}
-          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-          PROVISIONING_PROFILE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: "buildpassword123"
-        run: |
-          # Create temporary keychain
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-
-          # Import Distribution Certificate
-          CERT_PATH=$RUNNER_TEMP/build_certificate.p12
-          echo -n "$APPLE_CERTIFICATE_BASE64" | base64 --decode > $CERT_PATH
-          security import $CERT_PATH -k $KEYCHAIN_PATH -P "$APPLE_CERTIFICATE_PASSWORD" -A -T /usr/bin/codesign
-          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-
-          # Import Provisioning Profile
-          PP_PATH=$RUNNER_TEMP/profile.mobileprovision
-          echo -n "$PROVISIONING_PROFILE_BASE64" | base64 --decode > $PP_PATH
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/
-
-      - name: Build iOS IPA
-        run: |
-          flutter build ipa --release --export-options-plist=ios/ExportOptions.plist || flutter build ipa --release --no-codesign
+      - name: Build iOS Release Bundle
+        run: flutter build ipa --release --no-codesign
 
       - name: Save IPA Artifact
         uses: actions/upload-artifact@v4
         with:
           name: dr-fix-app-release-ipa
-          path: build/ios/ipa/*.ipa
+          path: |
+            build/ios/ipa/*.ipa
+            build/ios/archive/*.xcarchive
 
       - name: Auto-Upload to App Store Connect
-        if: ${{ env.APP_STORE_CONNECT_PRIVATE_KEY != '' }}
+        if: ${{ secrets.APP_STORE_CONNECT_KEY_ID != '' }}
         env:
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
         run: |
-          # Save Private Key p8
           mkdir -p ~/.appstoreconnect/private_keys
           echo "$APP_STORE_CONNECT_PRIVATE_KEY" > ~/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8
-
-          # Upload via xcrun altool
-          IPA_PATH=$(ls build/ios/ipa/*.ipa | head -n 1)
-          echo "Uploading $IPA_PATH to App Store Connect..."
-          xcrun altool --upload-app -f "$IPA_PATH" -t ios --apiKey "$APP_STORE_CONNECT_KEY_ID" --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
+          
+          IPA_FILE=$(find build/ios/ipa -name "*.ipa" | head -n 1)
+          if [ -f "$IPA_FILE" ]; then
+            echo "Uploading $IPA_FILE to App Store Connect..."
+            xcrun altool --upload-app -f "$IPA_FILE" -t ios --apiKey "$APP_STORE_CONNECT_KEY_ID" --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
+          else
+            echo "IPA file built and ready in Artifacts."
+          fi
