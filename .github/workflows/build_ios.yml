@@ -7,32 +7,34 @@ on:
 
 jobs:
   build-and-upload-ios:
-    name: Build & Upload to App Store Connect
-    runs-on: macos-14
+    name: Build & Upload iOS App
+    runs-on: macos-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Java Development Kit (JDK)
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Flutter SDK
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           cache: true
 
       - name: Install Dependencies
-        run: flutter pub get
+        run: |
+          flutter pub get
 
-      - name: Build iOS Release Bundle
-        run: flutter build ipa --release --no-codesign
+      - name: Build iOS Release IPA
+        run: |
+          flutter build ipa --release --no-codesign
 
-      - name: Save IPA Artifact
+      - name: Upload IPA Artifact to GitHub
         uses: actions/upload-artifact@v4
         with:
           name: dr-fix-app-release-ipa
@@ -41,19 +43,23 @@ jobs:
             build/ios/archive/*.xcarchive
 
       - name: Auto-Upload to App Store Connect
-        if: ${{ secrets.APP_STORE_CONNECT_KEY_ID != '' }}
         env:
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
         run: |
-          mkdir -p ~/.appstoreconnect/private_keys
-          echo "$APP_STORE_CONNECT_PRIVATE_KEY" > ~/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8
-          
-          IPA_FILE=$(find build/ios/ipa -name "*.ipa" | head -n 1)
-          if [ -f "$IPA_FILE" ]; then
-            echo "Uploading $IPA_FILE to App Store Connect..."
-            xcrun altool --upload-app -f "$IPA_FILE" -t ios --apiKey "$APP_STORE_CONNECT_KEY_ID" --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
+          if [ -n "$APP_STORE_CONNECT_KEY_ID" ] && [ -n "$APP_STORE_CONNECT_PRIVATE_KEY" ]; then
+            echo "App Store Connect credentials detected. Preparing upload..."
+            mkdir -p ~/.appstoreconnect/private_keys
+            echo "$APP_STORE_CONNECT_PRIVATE_KEY" > ~/.appstoreconnect/private_keys/AuthKey_${APP_STORE_CONNECT_KEY_ID}.p8
+            
+            IPA_FILE=$(find build/ios/ipa -name "*.ipa" | head -n 1)
+            if [ -f "$IPA_FILE" ]; then
+              echo "Uploading $IPA_FILE to App Store Connect..."
+              xcrun altool --upload-app -f "$IPA_FILE" -t ios --apiKey "$APP_STORE_CONNECT_KEY_ID" --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
+            else
+              echo "IPA file generated and available in Artifacts."
+            fi
           else
-            echo "IPA file built and ready in Artifacts."
+            echo "Skipping auto-upload: App Store Connect secrets not configured."
           fi
