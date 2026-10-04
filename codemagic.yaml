@@ -132,7 +132,7 @@ workflows:
           # Find an existing iPad Pro 13-inch device for this runtime
           DEVICE_ID=$(xcrun simctl list devices available \
             | grep -A 500 "$RUNTIME" \
-            | grep -i "iPad Pro (13" \
+            | grep -i "iPad Pro 13-inch \
             | head -1 \
             | grep -oE '[A-F0-9]{8}-([A-F0-9]{4}-){3}[A-F0-9]{12}') || true
 
@@ -140,13 +140,13 @@ workflows:
           if [ -z "${DEVICE_ID:-}" ]; then
             echo "No iPad Pro 13-inch found — creating one..."
             DEVICE_TYPE=$(xcrun simctl list devicetypes \
-              | grep -i "iPad Pro (13" \
+              | grep -i "iPad Pro 13-inch \
               | tail -1 \
               | sed 's/ (com\..*//')
             # Fallback device type if 13-inch not listed
             DEVICE_TYPE="${DEVICE_TYPE:-iPad Pro (M4)}"
             echo "Creating device: '$DEVICE_TYPE' on $RUNTIME"
-            DEVICE_ID=$(xcrun simctl create "DrFix_iPad13" "$DEVICE_TYPE" "$RUNTIME")
+            DEVICE_ID=$(xcrun simctl create "DrFix_iPad13" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M4" "$RUNTIME")
           fi
 
           echo "Device ID: $DEVICE_ID"
