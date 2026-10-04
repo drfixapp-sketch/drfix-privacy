@@ -7,28 +7,30 @@
       flutter: stable
       xcode: latest
     scripts:
-      - name: Boot iPad Pro 13-inch Simulator
-        script: |
-          echo "Creating a fresh iPad Pro 13-inch simulator for 2026..."
-          # إنشاء جهاز مخصص وحفظ المعرف الخاص به مباشرة في ملف نصي لتفادي أخطاء القص والفرز
-          xcrun simctl create "DrFix-iPad-13" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-2026" latest > sim_udid.txt
-          UDID=$(cat sim_udid.txt)
-          echo "Target Device UDID: $UDID"
-          xcrun simctl boot "$UDID"
-          echo "Simulator Booted Successfully."
       - name: Run Integration Tests (Arabic & English)
         script: |
           mkdir -p screenshots/ar screenshots/en
-          UDID=$(cat sim_udid.txt)
           
-          # 1. لقطات الشاشة العربية
-          echo "Configuring Simulator to Arabic..."
-          xcrun simctl configure "$UDID" --locale ar --language ar
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d "$UDID"
+          echo "==== 1. Preparing Arabic iPad Pro 13-inch ===="
+          UDID_AR=$(xcrun simctl create "DrFix-iPad-AR" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-2026" latest)
+          # حقن اللغة والمنطقة مباشرة في أمر الإقلاع لتفادي انهيار الأداة
+          xcrun simctl boot "$UDID_AR"
+          xcrun simctl spawn "$UDID_AR" defaults write NSGlobalDomain AppleLanguages -array ar
+          xcrun simctl spawn "$UDID_AR" defaults write NSGlobalDomain AppleLocale ar_SA
           
-          # 2. لقطات الشاشة الإنجليزية
-          echo "Configuring Simulator to English..."
-          xcrun simctl configure "$UDID" --locale en --language en
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d "$UDID"
+          echo "Running Arabic Tests..."
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d "$UDID_AR"
+          xcrun simctl shutdown "$UDID_AR"
+          
+          echo "==== 2. Preparing English iPad Pro 13-inch ===="
+          UDID_EN=$(xcrun simctl create "DrFix-iPad-EN" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-2026" latest)
+          xcrun simctl boot "$UDID_EN"
+          xcrun simctl spawn "$UDID_EN" defaults write NSGlobalDomain AppleLanguages -array en
+          xcrun simctl spawn "$UDID_EN" defaults write NSGlobalDomain AppleLocale en_US
+          
+          echo "Running English Tests..."
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d "$UDID_EN"
+          xcrun simctl shutdown "$UDID_EN"
+          
     artifacts:
       - screenshots/**/*.png
