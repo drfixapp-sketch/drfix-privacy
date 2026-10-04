@@ -11,18 +11,23 @@
         script: |
           mkdir -p screenshots/ar screenshots/en
           
-          echo "==== Launching iPad Pro 13-inch Simulator via Flutter Engine ===="
-          # إجبار محرك فلاتر على إنشاء وتشغيل محاكي آيباد متوافق مع متطلبات المتجر لعام 2026 فوراً
-          flutter emulators --create --name=iPad_Pro_13
-          flutter emulators --launch iPad_Pro_13
+          echo "==== Step 1: Creating iPad Pro 13-inch Simulator via macOS ===="
+          # إنشاء المحاكي الرسمي المعتمد لعام 2026 برمجياً وجلب معرّفه الفريد
+          UDID=$(xcrun simctl create "DrFix-iPad" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-2026" latest)
+          echo "Created Device UDID: $UDID"
           
-          # الانتظار لضمان الاستقرار الكامل
-          sleep 10
+          echo "==== Step 2: Booting iOS Simulator ===="
+          xcrun simctl boot "$UDID"
           
-          # تشغيل واختبار اللقطات العربية
-          echo "Running Arabic Tests..."
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d ios
+          echo "==== Step 3: Giving Simulator 15 Seconds to Stabilize ===="
+          sleep 15
           
-          # تشغيل واختبار اللقطات الإنجليزية
-          echo "Running English Tests..."
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d ios
+          echo "==== Step 4: Executing Arabic Integration Tests ===="
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d "$UDID"
+          
+          echo "==== Step 5: Executing English Integration Tests ===="
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d "$UDID"
+          
+          xcrun simctl shutdown "$UDID"
+    artifacts:
+      - screenshots/**/*.png
