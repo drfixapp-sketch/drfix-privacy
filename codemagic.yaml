@@ -146,13 +146,13 @@ workflows:
             # Fallback device type if 13-inch not listed
             DEVICE_TYPE="${DEVICE_TYPE:-iPad Pro (M4)}"
             echo "Creating device: '$DEVICE_TYPE' on $RUNTIME"
-            DEVICE_ID=$(xcrun simctl create "DrFix_iPad13" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M4" "$RUNTIME")
+          UDID=$(xcrun simctl create "iPad Pro 13-inch (M4)" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M4" latest)
           fi
 
           echo "Device ID: $DEVICE_ID"
 
           # Boot
-          xcrun simctl boot "$DEVICE_ID"
+          xcrun simctl boot $UDID
 
           # Wait for booted status (up to 120 s)
           echo "Waiting for simulator to boot..."
