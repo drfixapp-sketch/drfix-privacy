@@ -11,26 +11,25 @@
         script: |
           mkdir -p screenshots/ar screenshots/en
           
-          echo "==== 1. Preparing Arabic iPad Pro 13-inch ===="
-          UDID_AR=$(xcrun simctl create "DrFix-iPad-AR" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-2026" latest)
-          # حقن اللغة والمنطقة مباشرة في أمر الإقلاع لتفادي انهيار الأداة
-          xcrun simctl boot "$UDID_AR"
-          xcrun simctl spawn "$UDID_AR" defaults write NSGlobalDomain AppleLanguages -array ar
-          xcrun simctl spawn "$UDID_AR" defaults write NSGlobalDomain AppleLocale ar_SA
+          # جلب معرف أول محاكي آيباد (iPad) متوفر وجاهز في السيرفر السحابي تلقائياً
+          UDID=$(xcrun simctl list devices | grep "iPad" | grep -v "unavailable" | head -1 | awk -F '[()]' '{print $2}')
+          echo "Found Available Cloud iPad UDID: $UDID"
           
+          # إقلاع الجهاز المكتشف
+          xcrun simctl boot "$UDID"
+          
+          # 1. تشغيل واختبار اللقطات العربية
           echo "Running Arabic Tests..."
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d "$UDID_AR"
-          xcrun simctl shutdown "$UDID_AR"
+          xcrun simctl spawn "$UDID" defaults write NSGlobalDomain AppleLanguages -array ar
+          xcrun simctl spawn "$UDID" defaults write NSGlobalDomain AppleLocale ar_SA
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d "$UDID"
           
-          echo "==== 2. Preparing English iPad Pro 13-inch ===="
-          UDID_EN=$(xcrun simctl create "DrFix-iPad-EN" "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-2026" latest)
-          xcrun simctl boot "$UDID_EN"
-          xcrun simctl spawn "$UDID_EN" defaults write NSGlobalDomain AppleLanguages -array en
-          xcrun simctl spawn "$UDID_EN" defaults write NSGlobalDomain AppleLocale en_US
-          
+          # 2. تشغيل واختبار اللقطات الإنجليزية
           echo "Running English Tests..."
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d "$UDID_EN"
-          xcrun simctl shutdown "$UDID_EN"
+          xcrun simctl spawn "$UDID" defaults write NSGlobalDomain AppleLanguages -array en
+          xcrun simctl spawn "$UDID" defaults write NSGlobalDomain AppleLocale en_US
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d "$UDID"
           
+          xcrun simctl shutdown "$UDID"
     artifacts:
       - screenshots/**/*.png
