@@ -11,23 +11,18 @@
         script: |
           mkdir -p screenshots/ar screenshots/en
           
-          # 1. جلب المحاكي وتشغيله
-          UDID=$(xcrun simctl list devices | grep "iPad" | grep -v "unavailable" | head -1 | awk -F '[()]' '{print $2}')
-          echo "Target iPad UDID: $UDID"
-          xcrun simctl boot "$UDID"
+          echo "==== Launching iPad Pro 13-inch Simulator via Flutter Engine ===="
+          # إجبار محرك فلاتر على إنشاء وتشغيل محاكي آيباد متوافق مع متطلبات المتجر لعام 2026 فوراً
+          flutter emulators --create --name=iPad_Pro_13
+          flutter emulators --launch iPad_Pro_13
           
-          # [قفل 2026 الإلزامي]: الانتظار الحقيقي حتى تفتح شاشة الآيباد بالكامل ويصبح النظام مستقراً
-          echo "Waiting for iPad Simulator to finish booting completely..."
-          xcrun simctl bootstatus "$UDID"
+          # الانتظار لضمان الاستقرار الكامل
+          sleep 10
           
-          # 2. تشغيل واختبار اللقطات العربية
+          # تشغيل واختبار اللقطات العربية
           echo "Running Arabic Tests..."
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d "$UDID"
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=ar -d ios
           
-          # 3. تشغيل واختبار اللقطات الإنجليزية
+          # تشغيل واختبار اللقطات الإنجليزية
           echo "Running English Tests..."
-          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d "$UDID"
-          
-          xcrun simctl shutdown "$UDID"
-    artifacts:
-      - screenshots/**/*.png
+          flutter test integration_test/screenshot_test.dart --dart-define=LOCALE=en -d ios
