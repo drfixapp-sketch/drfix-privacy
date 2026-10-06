@@ -8,6 +8,7 @@ workflows:
       xcode: latest
       ios_signing:
         distribution_type: app_store
+        bundle_identifier: com.drfix.app
     scripts:
       - name: Configure and Fetch Flutter Dependencies
         script: |
