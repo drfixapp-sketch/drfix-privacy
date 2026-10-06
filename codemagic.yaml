@@ -1,4 +1,35 @@
 workflows:
+  build-ios-release-ipa:
+    name: "🚀 Build Dr. Fix App Store IPA (Production 1.1.4+9)"
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      xcode: latest
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.drfix.app
+    scripts:
+      - name: Configure and Fetch Flutter Dependencies
+        script: |
+          flutter pub get
+      - name: Build iOS IPA Package
+        script: |
+          echo "==== Building Release IPA for App Store Submission ===="
+          flutter build ipa --release --no-codesign
+          
+          echo "==== Preparing IPA / Archive Output ===="
+          mkdir -p build/ios/ipa
+          if [ -d "build/ios/archive/Runner.xcarchive" ]; then
+            cd build/ios/archive
+            zip -r ../../../build/ios/ipa/dr_fix_production.xcarchive.zip Runner.xcarchive
+            cd ../../../
+          fi
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/ipa/*.zip
+      - build/ios/iphoneos/*.app
+
   build-ios-simulator-app:
     name: "📦 Build Dr. Fix Simulator (.app) NEW 2026"
     max_build_duration: 30
@@ -13,15 +44,12 @@ workflows:
       - name: Build iOS Simulator Bundle
         script: |
           echo "==== Building iOS Bundle for Simulators ===="
-          # بناء الحزمة بدون الحاجة لتوقيع رقمي (No Code Signing Required)
           flutter build ios --simulator --no-codesign
           
           echo "==== Compressing Application Bundle ===="
-          # الدخول لمجلد المخرجات وضغط حزمة Runner.app بالكامل
           cd build/ios/iphonesimulator
           zip -r dr_fix_simulator.zip Runner.app
           
-          # نقل الملف المضغوط إلى جذر المشروع ليتم التقاطه كـ Artifact
           mv dr_fix_simulator.zip ../../../
     artifacts:
       - dr_fix_simulator.zip
