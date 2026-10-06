@@ -13,6 +13,19 @@ workflows:
       - name: Configure and Fetch Flutter Dependencies
         script: |
           flutter pub get
+      - name: Inject Production Environment Credentials
+        script: |
+          echo "==== Injecting Production Credentials into assets/app_config.env ===="
+          echo "GEMINI_MODEL=gemini-3.6-flash" > assets/app_config.env
+          echo "OPENROUTER_MODEL=openrouter/free" >> assets/app_config.env
+          echo "AI_MODEL_ID=gemini-3.6-flash" >> assets/app_config.env
+          if [ -n "$GEMINI_API_KEY" ]; then
+            echo "GEMINI_API_KEY=$GEMINI_API_KEY" >> assets/app_config.env
+          fi
+          if [ -n "$OPENROUTER_API_KEY" ]; then
+            echo "OPENROUTER_API_KEY=$OPENROUTER_API_KEY" >> assets/app_config.env
+          fi
+          echo "==== Environment Configuration Injected Successfully ===="
       - name: Build Production iOS IPA Package
         script: |
           echo "==== Building Production iOS IPA for App Store Submission ===="
