@@ -18,7 +18,7 @@ void main() async {
 
   // تحميل ملف البيئة (اختياري — لا يوقف التطبيق عند غيابه)
   try {
-    await dotenv.load(fileName: ".env");
+    await dotenv.load(fileName: "assets/app_config.env");
   } catch (e) {
     debugPrint("Failed to load .env file: $e");
   }

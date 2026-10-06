@@ -2,7 +2,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:dr_fix/data/network/ai_api_service.dart';
 
 Future<void> main() async {
-  await dotenv.load();
+  await dotenv.load(fileName: "assets/app_config.env");
   final aiService = AiApiService();
   
   print('🚀 [DIAGNOSIS TEST STARTING...]');
