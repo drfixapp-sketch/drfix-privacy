@@ -8,7 +8,6 @@ workflows:
       xcode: latest
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.drfix.app
     scripts:
       - name: Configure and Fetch Flutter Dependencies
         script: |
@@ -16,7 +15,7 @@ workflows:
       - name: Build iOS IPA Package
         script: |
           echo "==== Building Release IPA for App Store Submission ===="
-          flutter build ipa --release --no-codesign
+          flutter build ipa --release
           
           echo "==== Preparing IPA / Archive Output ===="
           mkdir -p build/ios/ipa
