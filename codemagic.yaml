@@ -6,6 +6,7 @@ workflows:
     environment:
       flutter: stable
       xcode: latest
+      # Automatic Code Signing via connected App Store Connect API key in Codemagic Integrations
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.drfix.app
