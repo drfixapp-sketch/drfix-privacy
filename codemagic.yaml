@@ -34,14 +34,10 @@ workflows:
         script: |
           echo "==== Building Production iOS IPA for App Store Submission ===="
           flutter build ipa --release --export-options-plist=$HOME/export_options.plist
-      - name: Upload Production IPA Package to App Store Connect
+      - name: Publish IPA to App Store Connect
         script: |
-          echo "==== Creating Temporary AuthKey File ===="
-          mkdir -p ~/.appstoreconnect/private_keys
-          echo "$APP_STORE_CONNECT_PRIVATE_KEY" > ~/.appstoreconnect/private_keys/AuthKey_$APP_STORE_CONNECT_KEY_IDENTIFIER.p8
-
-          echo "==== Uploading Production IPA to App Store Connect via altool ===="
-          xcrun altool --upload-app --type ios --file build/ios/ipa/*.ipa --apiKey "$APP_STORE_CONNECT_KEY_IDENTIFIER" --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID"
+          echo "==== Publishing IPA via Codemagic App Store Connect CLI ===="
+          app-store-connect publish --bundle-identifier "com.drfix.app"
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/ipa/*.zip
