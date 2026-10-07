@@ -37,3 +37,7 @@ workflows:
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/ipa/*.zip
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
