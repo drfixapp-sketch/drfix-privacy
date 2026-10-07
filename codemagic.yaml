@@ -3,8 +3,6 @@ workflows:
     name: "🚀 Build Dr. Fix App Store IPA (Production 1.1.4+9)"
     max_build_duration: 30
     instance_type: mac_mini_m2
-    integrations:
-      app_store_connect: codemagic
     environment:
       flutter: stable
       xcode: latest
@@ -41,5 +39,8 @@ workflows:
       - build/ios/ipa/*.zip
     publishing:
       app_store_connect:
-        auth: integration
+        auth: apiKey
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        private_key: $APP_STORE_CONNECT_PRIVATE_KEY
         submit_to_testflight: true
