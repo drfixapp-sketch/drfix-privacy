@@ -37,7 +37,7 @@ workflows:
       - name: Publish IPA to App Store Connect
         script: |
           echo "==== Publishing IPA via Codemagic App Store Connect CLI ===="
-          app-store-connect publish --bundle-identifier "com.drfix.app"
+          app-store-connect publish --bundle-id "com.drfix.app"
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/ipa/*.zip
