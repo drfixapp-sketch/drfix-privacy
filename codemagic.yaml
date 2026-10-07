@@ -9,6 +9,8 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.drfix.app
+      groups:
+        - appstore
     scripts:
       - name: Configure and Fetch Flutter Dependencies
         script: |
@@ -37,10 +39,18 @@ workflows:
       - name: Publish IPA to App Store Connect
         script: |
           echo "==== Publishing IPA via Codemagic App Store Connect CLI ===="
+          IPA_PATH=$(find build/ios/ipa -name "*.ipa" | head -1)
+          if [ -z "$IPA_PATH" ]; then
+            echo "❌ ERROR: No IPA file found in build/ios/ipa/"
+            exit 1
+          fi
+          echo "✅ IPA found at: $IPA_PATH"
           app-store-connect publish \
+            --path "$IPA_PATH" \
             --issuer-id "$APP_STORE_CONNECT_ISSUER_ID" \
-            --key-id "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
+            --key-id "$APP_STORE_CONNECT_KEY_ID" \
             --private-key "$APP_STORE_CONNECT_PRIVATE_KEY"
+
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/ipa/*.zip
