@@ -26,15 +26,10 @@ workflows:
             echo "OPENROUTER_API_KEY=$OPENROUTER_API_KEY" >> assets/app_config.env
           fi
           echo "==== Environment Configuration Injected Successfully ===="
-      - name: Initialize Keychain and Import Certificates
+      - name: Set up code signing settings on Xcode project
         script: |
-          echo "==== Initializing Keychain and Importing Certificates ===="
-          keychain initialize
-          keychain add-certificates
-      - name: Force Xcode Manual Provisioning Profile Integration
-        script: |
-          echo "==== Applying Manual Provisioning Profiles to Xcode Project ===="
-          xcode-project use-profiles --project ios/Runner.xcodeproj
+          echo "==== Applying Provisioning Profiles to Xcode Project ===="
+          xcode-project use-profiles
       - name: Build Production iOS IPA Package
         script: |
           echo "==== Building Production iOS IPA for App Store Submission ===="
