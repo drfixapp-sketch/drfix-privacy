@@ -4,7 +4,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import '../../data/models/diagnostic_report_model.dart';
-import '../../data/network/ai_config.dart';
 import 'stt_helper.dart';
 
 /// نموذج رسالة المحادثة السياقية بين الفني والمساعد الذكي
@@ -176,7 +175,7 @@ class _ContextualDiagnosticChatSheetState extends State<ContextualDiagnosticChat
   }
 
   Future<String> _queryOpenRouter(String userQuestion) async {
-    final apiKey = AiConfig.openRouterApiKey;
+    final apiKey = dotenv.env['OPENROUTER_API_KEY'] ?? '';
     final model = (dotenv.env['OPENROUTER_MODEL']?.trim().isNotEmpty == true)
         ? dotenv.env['OPENROUTER_MODEL']!.trim()
         : 'qwen/qwen3.8-27b:free';

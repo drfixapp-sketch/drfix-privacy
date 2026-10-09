@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:dr_fix/data/network/ai_config.dart';
+import 'package:dr_fix/data/models/diagnosis_contract_model.dart';
 
 /// خدمة الاتصال بالشبكة لربط ومعالجة عمليات الذكاء الاصطناعي
 enum AiProvider { openrouter, gemini }
@@ -112,7 +112,7 @@ class _GeminiProviderAdapter implements AiProviderAdapter {
     required String prompt,
     List<String>? imagesB64,
   }) async {
-    final apiKey = AiConfig.geminiApiKey;
+    final apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
     final platformName = kIsWeb ? 'Web' : defaultTargetPlatform.name;
     print('====================================================');
     print('🔍 [GEMINI DIAGNOSTIC] Platform: $platformName');
@@ -223,7 +223,7 @@ class _OpenRouterProviderAdapter implements AiProviderAdapter {
 
   @override
   Future<String> execute({required Dio dio, required String prompt, List<String>? imagesB64}) async {
-    final apiKey = AiConfig.openRouterApiKey;
+    final apiKey = dotenv.env['OPENROUTER_API_KEY'] ?? '';
     if (apiKey.isEmpty) {
       throw Exception('Missing OPENROUTER_API_KEY');
     }
@@ -354,8 +354,8 @@ class AiApiService {
     required String prompt,
     List<String>? imagesB64,
   }) async {
-    final geminiKey = (apiKey != null && apiKey.isNotEmpty) ? apiKey : AiConfig.geminiApiKey;
-    final openRouterKey = AiConfig.openRouterApiKey;
+    final geminiKey = apiKey ?? dotenv.env['GEMINI_API_KEY'] ?? '';
+    final openRouterKey = dotenv.env['OPENROUTER_API_KEY'] ?? '';
 
     String? rawResult;
     String engineSource = 'Gemini Direct SDK';
@@ -821,7 +821,7 @@ class AiApiService {
   }
 
   // جلب مفتاح OpenRouter من ملف البيئة .env
-  String get _openRouterKey => AiConfig.openRouterApiKey;
+  String get _openRouterKey => dotenv.env['OPENROUTER_API_KEY'] ?? '';
 
   /// 1️⃣ دالة جلب الأسئلة التفاعلية الديناميكية لعطل معين مع ميزة التخزين المؤقت المحلي (Caching)
   Future<List<dynamic>> getDynamicQuestionsForFault(String faultType) async {
@@ -1169,12 +1169,12 @@ class AiApiService {
   AiProvider _selectPreferredProvider() {
     print('STEP 4 _selectPreferredProvider()');
 
-    final geminiKey = AiConfig.geminiApiKey;
+    final geminiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
     if (geminiKey.isNotEmpty) {
       return AiProvider.gemini;
     }
 
-    final openRouterKey = AiConfig.openRouterApiKey;
+    final openRouterKey = dotenv.env['OPENROUTER_API_KEY'] ?? '';
     if (openRouterKey.isNotEmpty) {
       return AiProvider.openrouter;
     }

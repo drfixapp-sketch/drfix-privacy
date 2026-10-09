@@ -9,7 +9,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:dio/dio.dart' hide RequestOptions;
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:dr_fix/presentation/screens/diagnostic_report_screen.dart';
-import 'package:dr_fix/data/network/ai_config.dart';
+import 'package:dr_fix/data/models/diagnostic_report_model.dart';
 import 'package:dr_fix/main.dart';
 
 class VisualAiUploadScreen extends StatefulWidget {
@@ -85,8 +85,8 @@ class _VisualAiUploadScreenState extends State<VisualAiUploadScreen> {
     });
 
     try {
-      final geminiApiKey = AiConfig.geminiApiKey;
-      final openRouterApiKey = AiConfig.openRouterApiKey;
+      final geminiApiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
+      final openRouterApiKey = dotenv.env['OPENROUTER_API_KEY'] ?? '';
 
       final systemPrompt = '''
 You are an expert industrial maintenance AI diagnostic engine specialized in "The 9 Maintenance Systems":
