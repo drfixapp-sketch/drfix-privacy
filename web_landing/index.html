@@ -67,7 +67,7 @@
     .nav-links{display:flex;align-items:center;gap:8px}
     .nav-links a{text-decoration:none;font-size:.85rem;font-weight:600;color:var(--slate-600);padding:6px 12px;border-radius:8px;transition:all .2s}
     .nav-links a:hover{background:var(--slate-100);color:var(--brand-blue)}
-    .nav-action-btn{background:var(--brand-blue);color:white!important;font-weight:700!important;padding:8px 18px!important;border-radius:10px!important;box-shadow:var(--shadow-blue)}
+    .nav-action-btn{background:var(--brand-blue);color:white!important;font-weight:700!important;padding:8px 18px!important;border-radius:10px!important;box-shadow:var(--shadow-blue);display:inline-flex;align-items:center;gap:6px}
     .nav-action-btn:hover{background:var(--brand-blue-hover)!important;transform:translateY(-1px)}
     .nav-keys-btn{background:var(--slate-100);color:var(--slate-700);border:1px solid var(--slate-200);padding:7px 12px;border-radius:10px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
     .nav-keys-btn:hover{background:var(--slate-200);color:var(--slate-900)}
@@ -99,7 +99,7 @@
     .stat-label{font-size:.78rem;font-weight:600;color:var(--slate-500)}
 
     /* WORKBENCH SECTION (PRIMARY APP CONTAINER) */
-    #workbench-section{padding:50px 20px 80px;background:linear-gradient(180deg,#F1F5F9 0%,#E2E8F0 100%);position:relative}
+    #workbench-section{padding:40px 20px 80px;background:linear-gradient(180deg,#F1F5F9 0%,#E2E8F0 100%);position:relative}
     .workbench-container{max-width:1280px;margin:0 auto;background:var(--white);border:1px solid var(--slate-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:hidden}
     
     /* Workbench Header */
@@ -325,7 +325,7 @@
 
 <!-- NAVBAR -->
 <nav>
-  <a href="#" class="nav-brand">
+  <a href="#" class="nav-brand" onclick="showLandingPage();return false;">
     <div class="nav-logo">
       <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
     </div>
@@ -334,18 +334,18 @@
 
   <!-- Dual-Mode Switcher -->
   <div class="nav-mode-pill">
-    <button class="mode-btn active" id="btn-mode-landing" onclick="switchPlatformMode('landing')">🌐 الموقع التعريفي</button>
-    <button class="mode-btn mode-btn-live" id="btn-mode-workbench" onclick="switchPlatformMode('workbench')">⚡ منصة التشخيص (Web App)</button>
+    <button class="mode-btn active" id="btn-mode-landing" onclick="showLandingPage()">🌐 الموقع التعريفي</button>
+    <button class="mode-btn mode-btn-live" id="btn-mode-workbench" onclick="launchEngineeringWorkbench()">⚡ منصة التشخيص (Web App)</button>
   </div>
 
   <div class="nav-links">
-    <a href="#sectors">القطاعات</a>
-    <a href="#features">المميزات</a>
+    <a href="#sectors" onclick="showLandingPage()">القطاعات</a>
+    <a href="#features" onclick="showLandingPage()">المميزات</a>
     <button class="nav-keys-btn" onclick="openApiModal()">
       <span class="key-indicator" id="nav-key-indicator"></span>
       ⚙️ المفاتيح
     </button>
-    <button class="nav-action-btn btn" onclick="activateWorkbench()">تشغيل المنصة 🚀</button>
+    <a href="javascript:void(0);" class="nav-action-btn btn" onclick="launchEngineeringWorkbench()">دخول نسخة الويب المرافقة 🚀</a>
   </div>
 </nav>
 
@@ -361,10 +361,10 @@
     
     <div class="hero-cta">
       <!-- Primary Launch Web App Button -->
-      <button class="btn btn-launch-app" onclick="activateWorkbench()">
+      <a href="javascript:void(0);" class="btn btn-launch-app" onclick="launchEngineeringWorkbench()">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        تشغيل منصة التشخيص الهندسية الآن ⚡
-      </button>
+        دخول نسخة الويب المرافقة 🌐
+      </a>
 
       <!-- Store Links -->
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
@@ -404,10 +404,13 @@
       <div class="wb-tools">
         <div class="wb-engine-pill">
           <span class="wb-engine-status" id="engine-status-dot"></span>
-          <span id="engine-status-text">محرك الذكاء الاصطناعي: جاهز</span>
+          <span id="engine-status-text">محرك الذكاء الاصطناعي: وضع المحاكاة الميداني</span>
         </div>
         <button class="rep-action-btn" onclick="openApiModal()" style="color:white;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)">
           ⚙️ إعدادات المفاتيح
+        </button>
+        <button class="rep-action-btn" onclick="showLandingPage()" style="color:var(--slate-200);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)">
+          ← العودة للموقع التعريفي
         </button>
       </div>
     </div>
@@ -642,9 +645,9 @@
   <h2>جاهز لتشخيص أول عطل ميداني؟</h2>
   <p>افتح منصة الويب الآن مباشرة على حاسوبك أو حمل التطبيق الرسمي على هاتفك الذكي مجاناً.</p>
   <div class="hero-cta">
-    <button class="btn btn-launch-app" onclick="activateWorkbench()">
-      ابدأ التشخيص عبر منصة الويب الآن ⚡
-    </button>
+    <a href="javascript:void(0);" class="btn btn-launch-app" onclick="launchEngineeringWorkbench()">
+      دخول نسخة الويب المرافقة ⚡
+    </a>
   </div>
 </section>
 
@@ -674,9 +677,9 @@
       <div class="footer-links">
         <h4>روابط المنصة</h4>
         <ul>
-          <li><a href="#workbench-section" onclick="activateWorkbench()">منصة التشخيص (Web App)</a></li>
-          <li><a href="#sectors">القطاعات الهندسية</a></li>
-          <li><a href="#features">مميزات التطبيق</a></li>
+          <li><a href="javascript:void(0);" onclick="launchEngineeringWorkbench()">دخول نسخة الويب المرافقة (Web App)</a></li>
+          <li><a href="#sectors" onclick="showLandingPage()">القطاعات الهندسية</a></li>
+          <li><a href="#features" onclick="showLandingPage()">مميزات التطبيق</a></li>
           <li><a href="https://play.google.com/store/apps/details?id=com.drfix.app" target="_blank" rel="noopener">تحميل من Google Play</a></li>
           <li><a href="https://apps.apple.com/us/app/dr-fix/id6817361773" target="_blank" rel="noopener">تحميل من App Store</a></li>
         </ul>
@@ -783,11 +786,11 @@
     provider: localStorage.getItem('drfix_ai_provider') || 'gemini',
     geminiApiKey: localStorage.getItem('drfix_gemini_key') || '',
     openrouterApiKey: localStorage.getItem('drfix_openrouter_key') || '',
-    simulationMode: localStorage.getItem('drfix_sim_mode') !== 'false',
+    simulationMode: true, // Always true by default so it works instantly before adding keys
     geminiModel: 'gemini-1.5-flash',
     openrouterModel: 'meta-llama/llama-3.3-70b-instruct:free',
     authorizedDomain: 'drfix-app.com',
-    appVersion: '2.5.0-web'
+    appVersion: '2.5.1-web'
   };
 
   // 9 Engineering Sectors Logic Mapping & Technical Standards
@@ -936,36 +939,93 @@
   let isSpeaking = false;
 
   /* ==========================================================================
-     2. UI INITIALIZATION & DUAL-MODE ROUTING
+     2. UI INITIALIZATION & DUAL-MODE WORKBENCH ROUTING
      ========================================================================== */
   document.addEventListener('DOMContentLoaded', () => {
     updateKeysStatusUI();
     renderSectorPresets('hvac');
     initImageDropzone();
     initSpeechRecognition();
+
+    // Check if direct deep link to workbench hash
+    if (window.location.hash === '#workbench' || window.location.hash === '#workbench-section') {
+      launchEngineeringWorkbench();
+    }
   });
 
-  function switchPlatformMode(mode) {
-    const btnLanding = document.getElementById('btn-mode-landing');
-    const btnWb = document.getElementById('btn-mode-workbench');
-    
-    if (mode === 'workbench') {
-      btnWb.classList.add('active');
-      btnLanding.classList.remove('active');
-      activateWorkbench();
-    } else {
-      btnLanding.classList.add('active');
-      btnWb.classList.remove('active');
-      document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+  function launchEngineeringWorkbench() {
+    // 1. Instantly hide all landing page hero & informational sections
+    const landingSections = ['hero', 'sectors', 'features', 'cta-band', 'compliance'];
+    landingSections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+
+    // 2. Unhide/render responsive laptop workbench container
+    const wb = document.getElementById('workbench-section');
+    if (wb) {
+      wb.style.display = 'block';
     }
+
+    // 3. Update nav mode pills
+    const btnWb = document.getElementById('btn-mode-workbench');
+    const btnLanding = document.getElementById('btn-mode-landing');
+    if (btnWb) btnWb.classList.add('active');
+    if (btnLanding) btnLanding.classList.remove('active');
+
+    // 4. Update URL hash without reloading page
+    try {
+      history.replaceState(null, '', '#workbench');
+    } catch (e) {}
+
+    // 5. Scroll smoothly to top & focus symptoms input
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      const input = document.getElementById('symptoms-text');
+      if (input) input.focus();
+    }, 120);
   }
 
-  function activateWorkbench() {
+  function showLandingPage() {
+    // 1. Unhide all landing page hero & informational sections
+    const landingSections = ['hero', 'sectors', 'features', 'cta-band', 'compliance'];
+    landingSections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = '';
+    });
+
+    // 2. Keep workbench in regular page flow
     const wb = document.getElementById('workbench-section');
-    wb.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    document.getElementById('btn-mode-workbench').classList.add('active');
-    document.getElementById('btn-mode-landing').classList.remove('active');
-    document.getElementById('symptoms-text').focus();
+    if (wb) {
+      wb.style.display = 'block';
+    }
+
+    // 3. Update nav mode pills
+    const btnWb = document.getElementById('btn-mode-workbench');
+    const btnLanding = document.getElementById('btn-mode-landing');
+    if (btnLanding) btnLanding.classList.add('active');
+    if (btnWb) btnWb.classList.remove('active');
+
+    // 4. Clean URL hash without reloading page
+    try {
+      history.replaceState(null, '', window.location.pathname);
+    } catch (e) {}
+
+    // 5. Scroll smoothly to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Backwards compatibility alias
+  function activateWorkbench() {
+    launchEngineeringWorkbench();
+  }
+
+  function switchPlatformMode(mode) {
+    if (mode === 'workbench') {
+      launchEngineeringWorkbench();
+    } else {
+      showLandingPage();
+    }
   }
 
   function selectSector(sectorKey) {
@@ -991,7 +1051,7 @@
 
   function quickSelectSector(sectorKey) {
     selectSector(sectorKey);
-    activateWorkbench();
+    launchEngineeringWorkbench();
   }
 
   function renderSectorPresets(sectorKey) {
