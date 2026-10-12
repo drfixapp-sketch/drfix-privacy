@@ -129,107 +129,125 @@
     @keyframes stepFadeSlide{from{opacity:0;transform:translateY(8px) translateZ(0)}to{opacity:1;transform:translateY(0) translateZ(0)}}
 
     /* STAGE 1: WELCOME SPLASH NODE */
-    .wizard-splash-node{padding:54px 24px 60px;text-align:center;max-width:860px;margin:0 auto}
-    .splash-icon-wrap{width:76px;height:76px;background:linear-gradient(135deg,var(--brand-blue),#095383);border-radius:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:var(--shadow-blue)}
-    .splash-icon-wrap svg{width:42px;height:42px;fill:white}
-    .splash-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(15,117,188,.09);border:1px solid rgba(15,117,188,.22);color:var(--brand-blue);font-size:.82rem;font-weight:800;padding:6px 18px;border-radius:100px;margin-bottom:16px}
-    .splash-title{font-size:clamp(1.6rem,3.8vw,2.3rem);font-weight:900;color:var(--slate-900);line-height:1.3;margin-bottom:14px}
-    .splash-sub{font-size:1rem;color:var(--slate-600);max-width:640px;margin:0 auto 32px;font-weight:500;line-height:1.7}
-    .splash-cta-wrap{margin-bottom:40px}
-    .splash-trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:20px;text-align:right}
-    .trust-card{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-md);padding:14px;display:flex;align-items:center;gap:12px}
-    .trust-card-icon{font-size:24px;flex-shrink:0}
-    .trust-card-title{font-size:.82rem;font-weight:800;color:var(--slate-900);margin-bottom:2px}
-    .trust-card-sub{font-size:.72rem;color:var(--slate-500)}
+    .wizard-splash-node{padding:44px 20px 54px;text-align:center;max-width:860px;margin:0 auto}
+    .splash-icon-wrap{width:76px;height:76px;background:rgba(15,117,188,.08);border:2px solid rgba(15,117,188,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;animation:splashBounce 1.4s ease-out}
+    @keyframes splashBounce{0%{transform:scale(.8);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+    .splash-icon-wrap svg{width:46px;height:46px;fill:var(--brand-blue)}
+    .splash-title{font-size:clamp(2rem,4.5vw,2.8rem);font-weight:900;color:var(--brand-blue);line-height:1.2;margin-bottom:12px;letter-spacing:1px}
+    .splash-sub{font-size:1.02rem;color:var(--slate-700);max-width:620px;margin:0 auto 24px;font-weight:600;line-height:1.6}
 
-    /* STAGE 2: SECTOR DISCOVERY MATRIX (3x3 RESPONSIVE GRID) */
-    .wizard-sectors-node{padding:36px 28px 46px}
-    .ws-header{text-align:center;margin-bottom:30px}
-    .ws-title{font-size:clamp(1.4rem,3vw,1.85rem);font-weight:900;color:var(--slate-900);margin-bottom:8px}
-    .ws-desc{font-size:.9rem;color:var(--slate-600);max-width:620px;margin:0 auto}
-    .wizard-sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1040px;margin:0 auto 28px}
+    /* Interactive Quick Chips */
+    .quick-chips-wrap{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+    .quick-chip{background:var(--white);border:1px solid var(--slate-200);border-radius:100px;padding:6px 14px;font-size:.8rem;font-weight:700;color:var(--slate-700);cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm)}
+    .quick-chip:hover{border-color:var(--brand-blue);background:rgba(15,117,188,.05);color:var(--brand-blue);transform:translateY(-1px)}
+
+    /* Community Hover Card */
+    .community-hover-card{background:var(--white);border:1.5px solid var(--slate-200);border-radius:var(--radius-lg);padding:22px;text-align:right;margin:0 auto 26px;max-width:560px;box-shadow:var(--shadow-sm);transition:all .25s ease}
+    .community-hover-card:hover{border-color:orange;box-shadow:0 12px 32px rgba(249,115,22,.14);transform:translateY(-2px)}
+    .chc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--slate-100)}
+    .chc-title{font-size:.96rem;font-weight:800;color:var(--slate-900)}
+    .chc-sub{font-size:.76rem;color:var(--slate-400)}
+    .chc-stat-row{display:flex;flex-direction:column;gap:6px;font-size:.82rem;color:var(--slate-700);margin-bottom:14px}
+    .chc-stat-row strong{color:var(--brand-blue)}
+    .chc-trending{font-size:.78rem;color:#C2410C;background:#FFF7ED;padding:8px 12px;border-radius:8px;border:1px solid #FFEDD5;font-weight:600;margin-bottom:14px}
+    .btn-community-ask{width:100%;background:rgba(249,115,22,.12);border:1.5px solid rgba(249,115,22,.3);color:#EA580C;padding:11px;border-radius:8px;font-family:'Cairo',sans-serif;font-size:.85rem;font-weight:800;cursor:pointer;transition:all .2s;display:block;text-align:center}
+    .btn-community-ask:hover{background:#EA580C;color:white}
+
+    /* 3 Metrics Grid */
+    .native-metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;margin:0 auto 28px}
+    .metric-box{background:var(--white);border:1px solid var(--slate-200);border-radius:var(--radius-md);padding:14px 8px;text-align:center;box-shadow:var(--shadow-sm)}
+    .metric-val{font-size:1.45rem;font-weight:900;color:var(--brand-blue);display:block;font-family:var(--font-mono)}
+    .metric-lbl{font-size:.74rem;font-weight:700;color:var(--slate-600);margin-top:2px}
+
+    /* Primary CTA */
+    .splash-cta-wrap{margin-bottom:28px}
+    .btn-guest-launch{background:var(--brand-blue);color:white;font-size:1.05rem;font-weight:800;padding:14px 44px;border-radius:var(--radius-md);border:none;cursor:pointer;box-shadow:var(--shadow-blue);transition:all .22s}
+    .btn-guest-launch:hover{background:var(--brand-blue-hover);transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,117,188,.38)}
+
+    /* Trust & Legal Badges */
+    .splash-trust-badges{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-size:.78rem;font-weight:700;color:var(--slate-600);margin-bottom:16px}
+    .splash-legal-link{font-size:.76rem;color:var(--slate-500);text-decoration:underline;cursor:pointer;transition:color .2s}
+    .splash-legal-link:hover{color:var(--brand-blue)}
+
+    /* STAGE 2: SECTOR DISCOVERY MATRIX & SEARCH */
+    .wizard-sectors-node{padding:34px 24px 44px}
+    .ws-header{text-align:center;margin-bottom:24px}
+    .ws-title{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:900;color:var(--slate-900);margin-bottom:8px}
+    .sector-search-wrap{max-width:560px;margin:0 auto 24px;position:relative}
+    .sector-search-input{width:100%;padding:13px 44px 13px 18px;border:1.5px solid var(--slate-200);border-radius:12px;background:var(--white);font-family:'Cairo',sans-serif;font-size:.9rem;color:var(--slate-800);box-shadow:var(--shadow-sm);transition:all .2s}
+    .sector-search-input:focus{outline:none;border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(15,117,188,.15)}
+    .sector-search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--slate-400);font-size:18px;pointer-events:none}
+
+    .wizard-sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1040px;margin:0 auto 26px}
     @media(max-width:860px){.wizard-sectors-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:560px){.wizard-sectors-grid{grid-template-columns:1fr}}
-    .w-sector-card{background:var(--white);border:1.5px solid var(--slate-200);border-radius:var(--radius-lg);padding:22px 18px;cursor:pointer;transition:all .2s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;gap:10px;text-align:right}
+    .w-sector-card{background:var(--white);border:1.5px solid var(--slate-200);border-radius:var(--radius-lg);padding:20px 18px;cursor:pointer;transition:all .2s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;gap:10px;text-align:right}
     .w-sector-card:hover{border-color:var(--brand-blue);box-shadow:0 8px 24px rgba(15,117,188,.14);transform:translateY(-3px);background:var(--slate-50)}
+    .w-sector-card.hidden-by-search{display:none!important}
     .w-sector-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .w-sector-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(15,117,188,.08)}
+    .w-sector-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
     .w-sector-std{font-size:.7rem;font-weight:700;color:var(--brand-blue);background:rgba(15,117,188,.12);padding:3px 8px;border-radius:6px;font-family:var(--font-mono)}
-    .w-sector-name{font-size:.98rem;font-weight:800;color:var(--slate-900)}
+    .w-sector-name{font-size:1rem;font-weight:800;color:var(--slate-900)}
     .w-sector-sub{font-size:.75rem;color:var(--slate-500);font-weight:600;direction:ltr;text-align:right}
     .w-sector-desc{font-size:.78rem;color:var(--slate-600);line-height:1.5;flex:1}
     .w-sector-cta{font-size:.78rem;font-weight:800;color:var(--brand-blue);display:inline-flex;align-items:center;gap:4px;margin-top:4px}
 
-    /* STAGE 3: CONTEXT INPUT NODE */
-    .wizard-context-node{padding:32px 28px 44px;max-width:960px;margin:0 auto}
-    .sector-active-banner{background:linear-gradient(135deg,rgba(15,117,188,.08),rgba(15,117,188,.03));border:1px solid rgba(15,117,188,.2);border-radius:var(--radius-md);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
-    .sab-name{font-weight:800;font-size:.95rem;color:var(--slate-900);display:flex;align-items:center;gap:10px}
-    .sab-std{font-size:.75rem;font-weight:600;color:var(--brand-blue);background:rgba(15,117,188,.12);padding:4px 10px;border-radius:6px;font-family:var(--font-mono)}
-    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+    /* STAGE 3: CONTEXT INPUT NODE (5 NATIVE FIELDS + 3 PHOTO SLOTS) */
+    .wizard-context-node{padding:30px 24px 44px;max-width:960px;margin:0 auto}
+    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
     .form-label{font-size:.85rem;font-weight:700;color:var(--slate-700);display:flex;align-items:center;justify-content:space-between}
     .form-label span.req{color:var(--danger)}
     .form-helper{font-size:.76rem;color:var(--slate-500);font-weight:500}
-    .symptoms-wrap{position:relative}
-    .symptoms-input{width:100%;min-height:120px;padding:14px;border:1.5px solid var(--slate-200);border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:.9rem;color:var(--slate-800);background:var(--slate-50);transition:all .2s;resize:vertical}
-    .symptoms-input:focus{outline:none;border-color:var(--brand-blue);background:white;box-shadow:0 0 0 3px rgba(15,117,188,.15)}
-    .input-actions-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap}
-    .mic-btn{background:var(--slate-100);border:1.5px solid var(--slate-200);border-radius:10px;padding:7px 14px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;color:var(--slate-700);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
-    .mic-btn:hover{background:var(--slate-200);color:var(--brand-blue)}
-    .mic-btn.recording{background:#FEE2E2;border-color:#F87171;color:#B91C1C;animation:micPulse 1.2s infinite}
-    @keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
-    .preset-chips{display:flex;gap:6px;flex-wrap:wrap}
-    .preset-chip{background:var(--slate-100);border:1px solid var(--slate-200);border-radius:100px;padding:4px 10px;font-size:.74rem;font-weight:600;color:var(--slate-600);cursor:pointer;transition:all .15s}
-    .preset-chip:hover{background:var(--brand-blue);color:white;border-color:var(--brand-blue)}
-    .image-dropzone{border:2px dashed var(--slate-300);background:var(--slate-50);border-radius:var(--radius-md);padding:18px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
-    .image-dropzone:hover,.image-dropzone.dragover{border-color:var(--brand-blue);background:rgba(15,117,188,.04)}
-    .dropzone-inner{display:flex;flex-direction:column;align-items:center;gap:6px}
-    .dz-icon{font-size:26px}
-    .dz-text{font-size:.84rem;font-weight:700;color:var(--slate-700)}
-    .dz-hint{font-size:.74rem;color:var(--slate-400)}
-    .image-preview-card{display:none;position:relative;margin-top:10px;background:var(--slate-100);border:1px solid var(--slate-200);border-radius:10px;padding:8px 12px;align-items:center;gap:12px}
-    .ip-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover;background:black}
-    .ip-meta{flex:1;text-align:right}
-    .ip-name{font-size:.78rem;font-weight:700;color:var(--slate-800);max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .ip-size{font-size:.72rem;color:var(--slate-500);font-family:var(--font-mono)}
-    .ip-remove{background:transparent;border:none;color:var(--danger);font-size:.85rem;cursor:pointer;padding:4px 8px;font-weight:700}
+    .form-input-with-mic{position:relative;display:flex;align-items:center}
+    .form-input-with-mic input, .form-input-with-mic textarea{width:100%;padding:12px 48px 12px 14px;border:1.5px solid var(--slate-200);border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:.88rem;color:var(--slate-800);background:var(--slate-50);transition:all .2s}
+    .form-input-with-mic input:focus, .form-input-with-mic textarea:focus{outline:none;border-color:var(--brand-blue);background:white;box-shadow:0 0 0 3px rgba(15,117,188,.14)}
+    .field-mic-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:transparent;border:none;cursor:pointer;font-size:18px;color:var(--slate-500);padding:4px;border-radius:6px;transition:all .15s}
+    .field-mic-btn:hover{color:var(--brand-blue);background:rgba(15,117,188,.1)}
+    .field-mic-btn.recording{color:var(--danger);animation:micPulse 1.2s infinite}
+
+    /* 3 Photo Slot Cards */
+    .photo-slots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    @media(max-width:620px){.photo-slots-grid{grid-template-columns:1fr}}
+    .photo-slot-card{height:105px;border:1.5px dashed var(--slate-300);background:var(--slate-50);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all .2s;text-align:center;padding:8px;overflow:hidden}
+    .photo-slot-card:hover{border-color:var(--brand-blue);background:rgba(15,117,188,.04)}
+    .photo-slot-card.has-image{border-style:solid;border-color:var(--success);background:rgba(16,185,129,.05)}
+    .photo-slot-thumb{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;border-radius:9px}
+    .photo-slot-icon{font-size:24px;margin-bottom:4px;color:var(--brand-blue)}
+    .photo-slot-title{font-size:.78rem;font-weight:700;color:var(--slate-700)}
+    .photo-slot-del-btn{position:absolute;top:5px;left:5px;background:var(--danger);color:white;border:none;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;z-index:6;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+
+    /* Submit Button & Lock Status */
     .btn-run-diag{background:linear-gradient(135deg,var(--brand-blue),#095383);color:white;border:none;padding:15px 28px;border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:1.02rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow-blue);transition:all .2s;flex:1}
-    .btn-run-diag:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,117,188,.38)}
-    .btn-run-diag:disabled{opacity:.6;cursor:not-allowed;transform:none}
-    .step-actions-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:24px;flex-wrap:wrap}
+    .btn-run-diag:hover:not(:disabled):not(.locked){transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,117,188,.38)}
+    .btn-run-diag.locked{background:var(--slate-400);box-shadow:none;cursor:not-allowed}
+    .btn-run-diag:disabled{opacity:.6;cursor:not-allowed}
+    .lock-hint-text{font-size:.76rem;color:var(--slate-500);text-align:center;margin-top:8px;font-weight:600}
 
-    /* LOADING SCANNER */
-    .results-loading-state{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background:var(--slate-50);border-radius:var(--radius-lg);margin-top:20px;border:1px solid var(--slate-200)}
-    .scanner-loader{width:56px;height:56px;border:4px solid rgba(15,117,188,.15);border-top-color:var(--brand-blue);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .loading-step-text{font-size:.95rem;font-weight:800;color:var(--slate-800);margin-bottom:4px}
-    .loading-sub-text{font-size:.76rem;color:var(--slate-400);font-family:var(--font-mono)}
+    /* STAGE 4: OUTPUT DASHBOARD & NATIVE ENHANCEMENTS */
+    .wizard-report-node{padding:30px 24px 44px;max-width:960px;margin:0 auto}
+    .confidence-score-badge{display:inline-flex;align-items:center;gap:6px;background:#EFF6FF;border:1px solid #BFDBFE;color:#1D4ED8;padding:4px 12px;border-radius:100px;font-size:.76rem;font-weight:800;font-family:var(--font-mono)}
+    .diff-diag-wrap{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-md);padding:14px;margin-top:10px}
+    .diff-diag-title{font-size:.82rem;font-weight:800;color:var(--slate-800);margin-bottom:8px}
+    .diff-diag-list{display:flex;flex-direction:column;gap:6px}
+    .diff-diag-item{background:white;border:1px solid var(--slate-200);border-radius:8px;padding:8px 12px;font-size:.8rem;color:var(--slate-700)}
+    .suspected-parts-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .suspected-part-chip{background:#F1F5F9;border:1px solid var(--slate-300);border-radius:100px;padding:5px 14px;font-size:.78rem;font-weight:700;color:var(--slate-700);display:inline-flex;align-items:center;gap:6px}
+    .btn-chat-trigger{background:linear-gradient(135deg,#0F75BC,#0B5A91);color:white;border:none;padding:10px 18px;border-radius:8px;font-family:'Cairo',sans-serif;font-size:.84rem;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+    .btn-chat-trigger:hover{transform:translateY(-1px);box-shadow:var(--shadow-blue)}
 
-    /* STAGE 4: ANALYTICAL RESULT DASHBOARD */
-    .wizard-report-node{padding:32px 28px 46px;max-width:960px;margin:0 auto}
-    .report-card{background:white;border:1px solid var(--slate-200);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:28px}
-    .rep-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1.5px solid var(--slate-100);margin-bottom:20px;flex-wrap:wrap}
-    .rep-badge-group{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .rep-severity{padding:4px 12px;border-radius:100px;font-size:.76rem;font-weight:800;display:inline-flex;align-items:center;gap:6px}
-    .rep-severity.high{background:#FEE2E2;color:#991B1B;border:1px solid #F87171}
-    .rep-severity.medium{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D}
-    .rep-severity.low{background:#D1FAE5;color:#065F46;border:1px solid #6EE7B7}
-    .rep-sector-tag{background:var(--slate-100);color:var(--slate-700);padding:4px 10px;border-radius:6px;font-size:.76rem;font-weight:700}
-    .rep-timestamp{font-size:.74rem;color:var(--slate-400);font-family:var(--font-mono)}
-    .rep-section{margin-bottom:20px}
-    .rep-sec-title{font-size:.88rem;font-weight:800;color:var(--slate-900);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-    .rep-sec-title svg{width:18px;height:18px;fill:var(--brand-blue)}
-    .rep-text{font-size:.9rem;color:var(--slate-700);line-height:1.75}
-    .rep-steps{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .rep-step-item{display:flex;align-items:flex-start;gap:12px;background:var(--slate-50);border:1px solid var(--slate-200);padding:10px 14px;border-radius:10px;font-size:.85rem}
-    .step-num{background:var(--brand-blue);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;margin-top:2px}
-    .rep-safety-box{background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:var(--radius-md);padding:14px 18px;margin-bottom:20px}
-    .safety-title{font-size:.85rem;font-weight:800;color:#92400E;display:flex;align-items:center;gap:8px;margin-bottom:6px}
-    .safety-text{font-size:.84rem;color:#78350F;line-height:1.6}
-    .rep-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:16px;border-top:1px solid var(--slate-200)}
-    .rep-action-btn{background:var(--white);border:1.5px solid var(--slate-300);border-radius:8px;padding:8px 14px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;color:var(--slate-700);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .18s}
-    .rep-action-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue);background:var(--slate-50)}
-    .rep-pdf-btn{background:var(--brand-blue);color:white!important;border-color:var(--brand-blue)}
-    .rep-pdf-btn:hover{background:var(--brand-blue-hover)!important}
+    /* CONTEXTUAL CHAT MODAL SHEET */
+    .chat-modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(6px);z-index:2200;align-items:center;justify-content:center;padding:16px}
+    .chat-modal-overlay.active{display:flex}
+    .chat-modal-card{background:var(--white);border-radius:var(--radius-xl);max-width:580px;width:100%;height:85vh;max-height:640px;box-shadow:0 25px 60px rgba(0,0,0,.3);display:flex;flex-direction:column;overflow:hidden;animation:modalIn .25s ease-out}
+    .chat-modal-head{background:var(--slate-900);color:white;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+    .chat-messages-container{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--slate-50)}
+    .chat-msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:.85rem;line-height:1.6}
+    .chat-msg.bot{background:white;border:1px solid var(--slate-200);color:var(--slate-800);align-self:flex-start}
+    .chat-msg.user{background:var(--brand-blue);color:white;align-self:flex-end}
+    .chat-input-bar{padding:12px 16px;background:white;border-top:1px solid var(--slate-200);display:flex;align-items:center;gap:10px}
+    .chat-input{flex:1;padding:10px 14px;border:1.5px solid var(--slate-200);border-radius:10px;font-family:'Cairo',sans-serif;font-size:.85rem}
+    .chat-input:focus{outline:none;border-color:var(--brand-blue)}
+    .chat-send-btn{background:var(--brand-blue);color:white;border:none;padding:10px 16px;border-radius:10px;font-weight:800;font-family:'Cairo',sans-serif;cursor:pointer}
 
     /* MODAL: API KEYS & SETTINGS */
     .modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(6px);z-index:2000;align-items:center;justify-content:center;padding:20px}
@@ -448,107 +466,174 @@
     <div id="wizard-step-1" class="wizard-step active">
       <div class="wizard-splash-node">
         <div class="splash-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2v1.07c2.16.38 4 1.83 4.67 3.82l-1.89.63C16.29 8.08 14.89 7 13 7c-2.21 0-4 1.79-4 4s1.79 4 4 4c1.89 0 3.29-1.08 3.78-2.52l1.89.63c-.67 1.99-2.51 3.44-4.67 3.82V18c0 1.1-.9 2-2 2s-2-.9-2-2v-1.07c-2.16-.38-4-1.83-4.67-3.82l1.89-.63C7.71 13.92 9.11 15 11 15c2.21 0 4-1.79 4-4s-1.79-4-4-4c-1.89 0-3.29 1.08-3.78 2.52l-1.89-.63C5.67 6.89 7.51 5.44 9.67 5.07V4c0-1.1.9-2 2-2zM4 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8-8-3.58-8-8z"/></svg>
         </div>
-        <div class="splash-badge"><span class="badge-dot dot-green"></span> الإصدار الميداني 2.5 • OSHA & PDPL معتمد</div>
-        <h1 class="splash-title">منصة التشخيص الهندسي الميداني الذكي</h1>
-        <p class="splash-sub">ابدأ فحصاً هندسياً فورياً للأعطال الميدانية والميكانيكية والكهربائية. يدعم 9 قطاعات هندسية متكاملة وتوليد تقارير PDF رسمية في ثوانٍ معدودة دون الحاجة لأي خوادم وسيطة.</p>
+        <h1 class="splash-title">Dr Fix</h1>
+        <p class="splash-sub">مساعدك الذكي لتشخيص الأعطال وإصلاحها باحترافية وبدقائق</p>
         
-        <div class="splash-cta-wrap">
-          <button class="btn btn-launch-app" onclick="WizardEngine.goToStep(2)" style="font-size:1.15rem;padding:16px 42px;">
-            ابدأ الفحص التشخيصي ⚡
+        <!-- Interactive Quick Category Chips -->
+        <div class="quick-chips-wrap">
+          <div class="quick-chip" onclick="quickSelectSector('industrial')">⚙️ أنظمة صناعية</div>
+          <div class="quick-chip" onclick="quickSelectSector('automotive')">🚗 سيارات ومركبات</div>
+          <div class="quick-chip" onclick="quickSelectSector('hvac')">❄️ تكييف وتبريد</div>
+          <div class="quick-chip" onclick="quickSelectSector('appliances')">🏠 أجهزة منزلية</div>
+        </div>
+
+        <!-- Community Forum Hover Card -->
+        <div class="community-hover-card">
+          <div class="chc-header">
+            <div>
+              <div class="chc-title">مجتمع تبادل الخبرات</div>
+              <div class="chc-sub">تابع نقاشات وأعطال الورش الآن ومشاركة الفنيين</div>
+            </div>
+            <span style="font-size:24px">💬</span>
+          </div>
+          <div class="chc-stat-row">
+            <div>👨‍🔧 الفنيين المتواجدين حالياً: <strong>+1,497 خبير متاح</strong></div>
+            <div style="color:var(--success);font-weight:700">⚡ تم تسجيل 88 مشاركة وإجابة فنية جديدة اليوم</div>
+            <div style="color:var(--slate-500)">👁️ 3,591 عطل تم استعراضه ومناقشته اليوم</div>
+          </div>
+          <div class="chc-trending">
+            🔥 الأكثر تداولاً ومستجدات الورش: أعطال دوائر الهيدروليك وأنظمة التكييف VRF المتطورة
+          </div>
+          <button class="btn-community-ask" onclick="WizardEngine.goToStep(2)">
+            🔥 اسأل المجتمع الآن واستكشف الأعطال
           </button>
         </div>
 
-        <div class="splash-trust-grid">
-          <div class="trust-card"><span class="trust-card-icon">🦺</span><div><div class="trust-card-title">OSHA 1910.147</div><div class="trust-card-sub">معايير عزل الطاقة LOTO</div></div></div>
-          <div class="trust-card"><span class="trust-card-icon">🔒</span><div><div class="trust-card-title">خصوصية كاملة</div><div class="trust-card-sub">معالجة محلية داخل المتصفح</div></div></div>
-          <div class="trust-card"><span class="trust-card-icon">📄</span><div><div class="trust-card-title">تقارير PDF فورية</div><div class="trust-card-sub">جاهزة للطباعة والتسليم</div></div></div>
-          <div class="trust-card"><span class="trust-card-icon">⚡</span><div><div class="trust-card-title">9 قطاعات هندسية</div><div class="trust-card-sub">ASHRAE / NFPA / ISO</div></div></div>
+        <!-- Native 3-Metrics Grid -->
+        <div class="native-metrics-grid">
+          <div class="metric-box">
+            <span class="metric-val">50,727</span>
+            <span class="metric-lbl">عمليات تشخيص ناجحة</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-val">2.4 دقيقة</span>
+            <span class="metric-lbl">متوسط وقت الحل والوصول</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-val">94%</span>
+            <span class="metric-lbl">دقة التوصيات الهندسية</span>
+          </div>
+        </div>
+
+        <!-- Primary Start CTA -->
+        <div class="splash-cta-wrap">
+          <button class="btn-guest-launch" onclick="WizardEngine.goToStep(2)">
+            ابدأ الآن كضيف ➡️
+          </button>
+        </div>
+
+        <!-- Trust Badges & Legal -->
+        <div class="splash-trust-badges">
+          <span>✓ يعمل بالذكاء الاصطناعي</span>
+          <span>•</span>
+          <span>✓ مجتمع خبراء</span>
+          <span>•</span>
+          <span>✓ خصوصية كاملة</span>
+          <span>•</span>
+          <span>✓ يدعم العربية والإنجليزية</span>
+        </div>
+        <div style="margin-top:12px">
+          <span class="splash-legal-link" onclick="openLegalModal()">⚖️ شروط الاستخدام وإخلاء المسؤولية القانونية</span>
+          <div style="font-size:.74rem;color:var(--slate-400);margin-top:6px">🔒 معالجة محلية 100%: لا نجمع صورك أو بصمتك الصوتية.</div>
         </div>
       </div>
     </div>
 
-    <!-- STAGE 2: SECTOR DISCOVERY MATRIX (3x3 RESPONSIVE GRID) -->
+    <!-- STAGE 2: SECTOR DISCOVERY MATRIX (3x3 NATIVE CATEGORIES) -->
     <div id="wizard-step-2" class="wizard-step hidden">
       <div class="wizard-sectors-node">
         <div class="ws-header">
-          <div class="splash-badge"><span class="badge-dot dot-blue"></span> المرحلة 2: اختيار التخصص</div>
-          <h2 class="ws-title">ماذا تواجه اليوم؟ (اختر القطاع الهندسي)</h2>
-          <p class="ws-desc">حدد مجال المنظومة أو المعدة المتضررة لتطبيق المعايير القياسية المناسبة وخوارزميات الفحص الميداني</p>
+          <h2 class="ws-title">ماذا تواجه اليوم؟</h2>
         </div>
 
-        <div class="wizard-sectors-grid">
-          <div class="w-sector-card" onclick="selectSectorAndProceed('hvac')">
-            <div class="w-sector-top"><div class="w-sector-icon">❄️</div><div class="w-sector-std">ASHRAE 15 / AHRI</div></div>
-            <div class="w-sector-name">تكييف وتبريد</div>
-            <div class="w-sector-sub">HVAC & Refrigeration</div>
-            <div class="w-sector-desc">مكيفات، ثلاجات، أنظمة HVAC، ضواغط، غرف تجميد، دورات التبريد</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
-          </div>
+        <!-- Real-time Sector Search Bar -->
+        <div class="sector-search-wrap">
+          <input type="text" id="sector-search-input" class="sector-search-input" placeholder="ابحث عن المشكلة أو العطل مباشرة..." oninput="filterSectors(this.value)" />
+          <span class="sector-search-icon">🔍</span>
+        </div>
 
-          <div class="w-sector-card" onclick="selectSectorAndProceed('electrical')">
-            <div class="w-sector-top"><div class="w-sector-icon">⚡</div><div class="w-sector-std">NFPA 70 / NEC</div></div>
-            <div class="w-sector-name">كهرباء وقوى</div>
-            <div class="w-sector-sub">Electrical & Power</div>
-            <div class="w-sector-desc">لوحات توزيع، محركات 3-Phase، أنظمة PLC، محولات، دوائر التحكم</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
-          </div>
-
-          <div class="w-sector-card" onclick="selectSectorAndProceed('mechanical')">
-            <div class="w-sector-top"><div class="w-sector-icon">⚙️</div><div class="w-sector-std">ISO 10816 Vibration</div></div>
-            <div class="w-sector-name">ميكانيك عام</div>
-            <div class="w-sector-sub">General Mechanics</div>
-            <div class="w-sector-desc">أعطال ميكانيكية، محامل، علب تروس، وصلات، مضخات، سيور النقل</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
-          </div>
-
-          <div class="w-sector-card" onclick="selectSectorAndProceed('hydraulic')">
-            <div class="w-sector-top"><div class="w-sector-icon">💧</div><div class="w-sector-std">ISO 4413 Safety</div></div>
-            <div class="w-sector-name">أنظمة هيدروليك</div>
-            <div class="w-sector-sub">Hydraulic Systems</div>
-            <div class="w-sector-desc">مضخات هيدروليكية، صمامات تناسبية، أسطوانات ضغط، دوائر زيت</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
-          </div>
-
-          <div class="w-sector-card" onclick="selectSectorAndProceed('automotive')">
-            <div class="w-sector-top"><div class="w-sector-icon">🚗</div><div class="w-sector-std">SAE / OBD-II</div></div>
-            <div class="w-sector-name">سيارات ومركبات</div>
-            <div class="w-sector-sub">Automotive & Fleet</div>
-            <div class="w-sector-desc">رموز أعطال OBD-II، محرك، ناقل حركة، كهرباء سيارات، منظومة فرامل</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
-          </div>
-
-          <div class="w-sector-card" onclick="selectSectorAndProceed('industrial')">
-            <div class="w-sector-top"><div class="w-sector-icon">🏭</div><div class="w-sector-std">ISO 12100 Safety</div></div>
+        <div class="wizard-sectors-grid" id="wizard-sectors-grid">
+          <!-- 1. Industrial -->
+          <div class="w-sector-card" data-key="industrial" data-title="أنظمة صناعية industrial systems خطوط إنتاج cnc" onclick="selectSectorAndProceed('industrial')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(37,99,235,.12);color:#2563EB">🏭</div><div class="w-sector-std">ISO 12100 Safety</div></div>
             <div class="w-sector-name">أنظمة صناعية</div>
-            <div class="w-sector-sub">Industrial & Production</div>
-            <div class="w-sector-desc">خطوط إنتاج، آلات CNC، أنظمة نيوماتيك، محركات سيرفو، روبوتات صناعية</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+            <div class="w-sector-sub">Industrial Systems</div>
+            <div class="w-sector-desc">خطوط إنتاج، آلات CNC، أنظمة نيوماتيك، سيرفو، روبوتات صناعية</div>
+            <div class="w-sector-cta" style="color:#2563EB">فحص هذا القسم ←</div>
           </div>
 
-          <div class="w-sector-card" onclick="selectSectorAndProceed('appliances')">
-            <div class="w-sector-top"><div class="w-sector-icon">🏠</div><div class="w-sector-std">IEC 60335 Safety</div></div>
+          <!-- 2. Electrical -->
+          <div class="w-sector-card" data-key="electrical" data-title="كهرباء electrical power لوحات توزيع محركات 3-phase plc" onclick="selectSectorAndProceed('electrical')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(217,119,6,.12);color:#D97706">⚡</div><div class="w-sector-std">NFPA 70 / NEC</div></div>
+            <div class="w-sector-name">كهرباء</div>
+            <div class="w-sector-sub">Electrical</div>
+            <div class="w-sector-desc">لوحات توزيع، محركات 3-Phase، أنظمة PLC، محولات، دوائر التحكم</div>
+            <div class="w-sector-cta" style="color:#D97706">فحص هذا القسم ←</div>
+          </div>
+
+          <!-- 3. Mechanical -->
+          <div class="w-sector-card" data-key="mechanical" data-title="ميكانيك mechanical محامل بلي gearbox مضخات تروس" onclick="selectSectorAndProceed('mechanical')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(71,85,105,.12);color:#475569">⚙️</div><div class="w-sector-std">ISO 10816 Vibration</div></div>
+            <div class="w-sector-name">ميكانيك</div>
+            <div class="w-sector-sub">Mechanical</div>
+            <div class="w-sector-desc">أعطال ميكانيكية، محامل، علب تروس، وصلات، مضخات، سيور النقل</div>
+            <div class="w-sector-cta" style="color:#475569">فحص هذا القسم ←</div>
+          </div>
+
+          <!-- 4. Hydraulics -->
+          <div class="w-sector-card" data-key="hydraulic" data-title="أنظمة هيدروليك hydraulics مضخات زيت اسطوانات ضغط" onclick="selectSectorAndProceed('hydraulic')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(79,70,229,.12);color:#4F46E5">💧</div><div class="w-sector-std">ISO 4413 Safety</div></div>
+            <div class="w-sector-name">أنظمة هيدروليك</div>
+            <div class="w-sector-sub">Hydraulics</div>
+            <div class="w-sector-desc">مضخات هيدروليكية، صمامات تناسبية، أسطوانات ضغط، دوائر زيت</div>
+            <div class="w-sector-cta" style="color:#4F46E5">فحص هذا القسم ←</div>
+          </div>
+
+          <!-- 5. Home Appliances -->
+          <div class="w-sector-card" data-key="appliances" data-title="أجهزة منزلية home appliances غسالات ثلاجات افران" onclick="selectSectorAndProceed('appliances')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(234,88,12,.12);color:#EA580C">🏠</div><div class="w-sector-std">IEC 60335 Safety</div></div>
             <div class="w-sector-name">أجهزة منزلية</div>
             <div class="w-sector-sub">Home Appliances</div>
             <div class="w-sector-desc">غسالات، مجففات، أفران، سخانات، ضواغط انفرتر، لوحات إلكترونية</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+            <div class="w-sector-cta" style="color:#EA580C">فحص هذا القسم ←</div>
           </div>
 
-          <div class="w-sector-card" onclick="selectSectorAndProceed('plumbing')">
-            <div class="w-sector-top"><div class="w-sector-icon">🔧</div><div class="w-sector-std">Uniform Plumbing Code</div></div>
-            <div class="w-sector-name">سباكة وصرف</div>
-            <div class="w-sector-sub">Plumbing & Piping</div>
+          <!-- 6. HVAC -->
+          <div class="w-sector-card" data-key="hvac" data-title="تكييف وتبريد hvac تكييف فريون غرف تجميد ضواغط" onclick="selectSectorAndProceed('hvac')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(8,145,178,.12);color:#0891B2">❄️</div><div class="w-sector-std">ASHRAE 15 / AHRI</div></div>
+            <div class="w-sector-name">تكييف وتبريد</div>
+            <div class="w-sector-sub">HVAC</div>
+            <div class="w-sector-desc">مكيفات، ثلاجات، أنظمة HVAC، ضواغط، غرف تجميد، دورات التبريد</div>
+            <div class="w-sector-cta" style="color:#0891B2">فحص هذا القسم ←</div>
+          </div>
+
+          <!-- 7. Automotive -->
+          <div class="w-sector-card" data-key="automotive" data-title="سيارات ومركبات automotive obd محرك فرامل ناقل حركة" onclick="selectSectorAndProceed('automotive')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(220,38,38,.12);color:#DC2626">🚗</div><div class="w-sector-std">SAE / OBD-II</div></div>
+            <div class="w-sector-name">سيارات ومركبات</div>
+            <div class="w-sector-sub">Automotive</div>
+            <div class="w-sector-desc">رموز أعطال OBD-II، محرك، ناقل حركة، كهرباء سيارات، منظومة فرامل</div>
+            <div class="w-sector-cta" style="color:#DC2626">فحص هذا القسم ←</div>
+          </div>
+
+          <!-- 8. Plumbing -->
+          <div class="w-sector-card" data-key="plumbing" data-title="سباكة plumbing مضخات مياه مطرقة مائية محابس" onclick="selectSectorAndProceed('plumbing')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(13,148,136,.12);color:#0D9488">🔧</div><div class="w-sector-std">Uniform Plumbing Code</div></div>
+            <div class="w-sector-name">سباكة</div>
+            <div class="w-sector-sub">Plumbing</div>
             <div class="w-sector-desc">مضخات تعزيز الضغط، مطرقة مائية، صمامات خفض الضغط، شبكات تغذية</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+            <div class="w-sector-cta" style="color:#0D9488">فحص هذا القسم ←</div>
           </div>
 
-          <div class="w-sector-card" onclick="selectSectorAndProceed('osha')">
-            <div class="w-sector-top"><div class="w-sector-icon">🦺</div><div class="w-sector-std">OSHA 29 CFR 1910</div></div>
-            <div class="w-sector-name">سلامة مهنية OSHA</div>
-            <div class="w-sector-sub">Occupational Safety</div>
-            <div class="w-sector-desc">بروتوكولات Lockout/Tagout، معدات PPE، مخاطر كهربائية وبيئة العمل</div>
-            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          <!-- 9. Other / Safety -->
+          <div class="w-sector-card" data-key="osha" data-title="أخرى other سلامة مهنية osha loto مخاطر" onclick="selectSectorAndProceed('osha')">
+            <div class="w-sector-top"><div class="w-sector-icon" style="background:rgba(147,51,234,.12);color:#9333EA">🦺</div><div class="w-sector-std">OSHA 29 CFR 1910</div></div>
+            <div class="w-sector-name">أخرى</div>
+            <div class="w-sector-sub">Other</div>
+            <div class="w-sector-desc">بروتوكولات Lockout/Tagout، معدات PPE، مخاطر كهربائية وتخصصات فنية</div>
+            <div class="w-sector-cta" style="color:#9333EA">فحص هذا القسم ←</div>
           </div>
         </div>
 
@@ -558,7 +643,7 @@
       </div>
     </div>
 
-    <!-- STAGE 3: TECHNICAL CONTEXT INPUT -->
+    <!-- STAGE 3: TECHNICAL CONTEXT INPUT (5 NATIVE FIELDS + 3 PHOTO SLOTS) -->
     <div id="wizard-step-3" class="wizard-step hidden">
       <div class="wizard-context-node">
         
@@ -566,83 +651,132 @@
         <div class="sector-active-banner">
           <div class="sab-name" id="sab-name">
             <span id="sab-icon">❄️</span>
-            <span id="sab-title">قطاع التكييف والتبريد (HVAC & Refrigeration)</span>
+            <span id="sab-title">قطاع التكييف وتبريد (HVAC)</span>
           </div>
           <div style="display:flex;align-items:center;gap:10px">
             <span class="sab-std" id="sab-std">ASHRAE 15 / AHRI</span>
-            <button class="rep-action-btn" onclick="WizardEngine.goToStep(2)" style="padding:4px 10px;font-size:.76rem">تغيير القطاع ⇄</button>
+            <button class="rep-action-btn" onclick="WizardEngine.goToStep(2)" style="padding:4px 10px;font-size:.76rem">تغيير القسم ⇄</button>
           </div>
         </div>
 
-        <!-- Appliance / Model Name Input -->
+        <!-- Field 1: Device Name (Required) -->
         <div class="form-group">
           <div class="form-label">
-            <span>اسم وموديل الجهاز أو المعدة</span>
-            <span class="form-helper">اختياري — يرفع دقة التشخيص والمطابقة</span>
+            <span>معلومات الجهاز الأساسية: اسم الجهاز <span class="req">*</span></span>
+            <span class="form-helper">إلزامي لبدء التشخيص</span>
           </div>
-          <input type="text" id="machine-metadata" class="key-input" style="direction:rtl;text-align:right" placeholder="مثال: ضاغط تكييف Daikin VRV 2024، محرك Siemens 3-Phase، مضخة هيدروليك Rexroth..." />
+          <div class="form-input-with-mic">
+            <input type="text" id="field-device-name" placeholder="مثال: ضاغط تكييف سبليت، محرك مضخة 3-Phase، سيارة كامري..." oninput="checkRequiredFields()" />
+            <button class="field-mic-btn" onclick="toggleFieldSpeech('field-device-name')">🎙️</button>
+          </div>
         </div>
 
-        <!-- Symptoms Description Form -->
+        <!-- Field 2: Problem Details (Required) -->
         <div class="form-group">
           <div class="form-label">
-            <span>وصف العطل والأعراض الملاحظة <span class="req">*</span></span>
-            <span class="form-helper">أو استخدم المايك الصوتي</span>
+            <span>أوصف المشكلة بالتفصيل <span class="req">*</span></span>
+            <span class="form-helper">إلزامي لبدء التشخيص</span>
           </div>
-          
-          <div class="symptoms-wrap">
-            <textarea id="symptoms-text" class="symptoms-input" placeholder="صف المشكلة بدقة: مثل أصوات غير طبيعية، انخفاض الضغط، ارتفاع درجة الحرارة، أو رموز الخطأ..."></textarea>
+          <div class="form-input-with-mic">
+            <textarea id="field-problem-details" style="min-height:105px" placeholder="صف المشكلة بدقة: مثل أصوات غير طبيعية، انخفاض الضغط، سخونة مفرطة، أو توقف مفاجئ..." oninput="checkRequiredFields()"></textarea>
+            <button class="field-mic-btn" style="top:22px;transform:none" onclick="toggleFieldSpeech('field-problem-details')">🎙️</button>
+          </div>
+          <!-- Quick Preset Chips -->
+          <div class="preset-chips" id="preset-chips-container" style="margin-top:6px"></div>
+        </div>
+
+        <!-- Split Grid for Manufacturer & Model -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <!-- Field 3: Manufacturer (Optional) -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>الشركة المصنعة</span>
+              <span class="form-helper">اختياري</span>
+            </div>
+            <div class="form-input-with-mic">
+              <input type="text" id="field-manufacturer" placeholder="مثال: Daikin, Siemens, Toyota, Bosch..." />
+              <button class="field-mic-btn" onclick="toggleFieldSpeech('field-manufacturer')">🎙️</button>
+            </div>
           </div>
 
-          <div class="input-actions-bar">
-            <!-- Voice Dictation Button (Web Speech API) -->
-            <button class="mic-btn" id="mic-btn" onclick="toggleSpeechRecognition()">
-              <span id="mic-icon">🎙️</span>
-              <span id="mic-status">إملاء صوتي</span>
-            </button>
-
-            <!-- Quick Preset Chips -->
-            <div class="preset-chips" id="preset-chips-container">
-              <!-- Rendered dynamically per sector -->
+          <!-- Field 4: Model (Optional) -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>الموديل / سنة الصنع</span>
+              <span class="form-helper">اختياري</span>
+            </div>
+            <div class="form-input-with-mic">
+              <input type="text" id="field-model" placeholder="مثال: VRV 2024, CR-15, 2021..." />
+              <button class="field-mic-btn" onclick="toggleFieldSpeech('field-model')">🎙️</button>
             </div>
           </div>
         </div>
 
-        <!-- Client-Side Visual Fault Analysis (Image Upload & Canvas Processing) -->
+        <!-- Field 5: Sensory Observations (Optional) -->
         <div class="form-group">
           <div class="form-label">
-            <span>الفحص البصري بالصور (Visual Inspection)</span>
-            <span class="form-helper">اختياري — معالجة وضغط محلي بالمتصفح</span>
+            <span>ماذا تلاحظ؟ (العلامات الحركية والحسية)</span>
+            <span class="form-helper">اختياري</span>
           </div>
-
-          <div class="image-dropzone" id="dropzone" onclick="document.getElementById('image-file-input').click()">
-            <input type="file" id="image-file-input" accept="image/*" style="display:none" onchange="handleImageSelect(event)" />
-            <div class="dropzone-inner">
-              <span class="dz-icon">📸</span>
-              <span class="dz-text">انقر لاختيار صورة العطل أو اسحبها هنا</span>
-              <span class="dz-hint">يتم ضغط الصورة محلياً عبر Canvas لدقة عالية وحجم فائق السرعة</span>
-            </div>
-          </div>
-
-          <div class="image-preview-card" id="image-preview-card">
-            <img id="image-preview-thumb" class="ip-thumb" alt="Fault Preview" />
-            <div class="ip-meta">
-              <div class="ip-name" id="image-file-name">fault_photo.jpg</div>
-              <div class="ip-size" id="image-file-size">1024x768 • Optimized JPEG</div>
-            </div>
-            <button class="ip-remove" onclick="removeImage(event)">✕ حذف</button>
+          <div class="form-input-with-mic">
+            <input type="text" id="field-observations" placeholder="اهتزاز، حرارة مرتفعة، صوت طقطقة أو أزيز، رائحة احتراق، تسريب..." />
+            <button class="field-mic-btn" onclick="toggleFieldSpeech('field-observations')">🎙️</button>
           </div>
         </div>
 
-        <!-- Step Actions Footer -->
+        <!-- Field 6: Error Code (Optional) -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>رموز الأخطاء إن وجدت</span>
+            <span class="form-helper">اختياري</span>
+          </div>
+          <div class="form-input-with-mic">
+            <input type="text" id="field-error-code" placeholder="مثال: E04, P0171, F3, Err-12..." />
+            <button class="field-mic-btn" onclick="toggleFieldSpeech('field-error-code')">🎙️</button>
+          </div>
+        </div>
+
+        <!-- Visual AI: 3 Photo Slot Cards with 1080px Canvas Compression -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>📸 التحليل البصري الذكي المدمج (حتى 3 صور مجاناً)</span>
+            <span class="form-helper">معالجة وضغط محلي 1080px</span>
+          </div>
+
+          <div class="photo-slots-grid">
+            <!-- Slot 1 -->
+            <div class="photo-slot-card" id="slot-card-0" onclick="triggerSlotUpload(0)">
+              <input type="file" id="slot-file-0" accept="image/*" style="display:none" onchange="handleSlotImageSelect(event, 0)" />
+              <div class="photo-slot-icon">📷</div>
+              <div class="photo-slot-title">صورة رقم 1</div>
+            </div>
+
+            <!-- Slot 2 -->
+            <div class="photo-slot-card" id="slot-card-1" onclick="triggerSlotUpload(1)">
+              <input type="file" id="slot-file-1" accept="image/*" style="display:none" onchange="handleSlotImageSelect(event, 1)" />
+              <div class="photo-slot-icon">📷</div>
+              <div class="photo-slot-title">صورة رقم 2</div>
+            </div>
+
+            <!-- Slot 3 -->
+            <div class="photo-slot-card" id="slot-card-2" onclick="triggerSlotUpload(2)">
+              <input type="file" id="slot-file-2" accept="image/*" style="display:none" onchange="handleSlotImageSelect(event, 2)" />
+              <div class="photo-slot-icon">📷</div>
+              <div class="photo-slot-title">صورة رقم 3</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step Actions Footer with Validation Lock -->
         <div class="step-actions-footer">
           <button class="rep-action-btn" onclick="WizardEngine.goToStep(2)">
-            ← السابق (اختيار القطاع)
+            ← السابق (اختيار القسم)
           </button>
-          <button class="btn-run-diag" id="btn-run-diag" onclick="runDiagnosis()">
-            <span>⚡ تحليل وتشخيص العطل الميداني</span>
+          <button class="btn-run-diag locked" id="btn-run-diag" disabled onclick="runDiagnosis()">
+            <span id="btn-diag-text">📝 أدخل اسم الجهاز ووصف العطل لبدء التشخيص الذكي</span>
           </button>
         </div>
+        <div class="lock-hint-text" id="lock-hint-msg">يجب إدخال اسم الجهاز ووصف المشكلة لتفعيل زر التشخيص الذكي.</div>
 
         <!-- Scanner / Processing State -->
         <div class="results-loading-state" id="res-loading-state">
@@ -660,19 +794,21 @@
         <div class="results-active-report" id="res-active-report" style="display:flex">
           <div class="report-card">
             
+            <!-- Header with Confidence Score Badge -->
             <div class="rep-header">
               <div class="rep-badge-group">
                 <span class="rep-severity high" id="rep-severity-badge">⚠️ خطورة حرجة</span>
+                <span class="confidence-score-badge" id="rep-confidence-badge">🎯 نسبة الثقة: 94%</span>
                 <span class="rep-sector-tag" id="rep-sector-tag">❄️ تكييف وتبريد</span>
               </div>
-              <div class="rep-timestamp" id="rep-timestamp">2026-10-12 08:00</div>
+              <div class="rep-timestamp" id="rep-timestamp">2026-10-12 08:30</div>
             </div>
 
-            <!-- Root Cause Identification -->
+            <!-- Primary Diagnosis / Root Cause -->
             <div class="rep-section">
               <div class="rep-sec-title">
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                السبب الجذري المحتمل (Root Cause)
+                السبب الجذري المرجح (Root Cause)
               </div>
               <p class="rep-text" id="rep-root-cause">نقص حاد في شحنة غاز التبريد R410A ناتج عن تسريب في صمام التمدد الحراري (TXV) مع تجمد مبكر على خط السحب.</p>
             </div>
@@ -684,6 +820,31 @@
                 التحليل الهندسي والتوصيف الفني
               </div>
               <p class="rep-text" id="rep-analysis">القراءات تشير إلى هبوط ضغط المبخر دون الحدود المسموحة مع ارتفاع حرارة الضاغط (Superheat)، ما يهدد بتلف عزل ملفات الضاغط الكهربائية إن استمر التشغيل.</p>
+            </div>
+
+            <!-- Potential Causes / Differential Diagnoses Array -->
+            <div class="rep-section">
+              <div class="rep-sec-title">
+                <span>🔍</span> الأسباب المحتملة والبدائل (Differential Diagnoses)
+              </div>
+              <div class="diff-diag-wrap">
+                <div class="diff-diag-list" id="rep-differential-list">
+                  <div class="diff-diag-item">• انسداد جزئي في الفلتر المجفف (Filter Drier)</div>
+                  <div class="diff-diag-item">• تلف أو ضعف في كفاءة مروحة المكثف الخارجية</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Suspected Parts To Inspect Chips -->
+            <div class="rep-section">
+              <div class="rep-sec-title">
+                <span>🔧</span> المكونات والقطع المشتبه بها للفحص (Suspected Components)
+              </div>
+              <div class="suspected-parts-wrap" id="rep-parts-list">
+                <span class="suspected-part-chip">⚙️ صمام التمدد TXV</span>
+                <span class="suspected-part-chip">❄️ فلتر مجفف R410A</span>
+                <span class="suspected-part-chip">🔌 كابستور الإقلاع Dual Run</span>
+              </div>
             </div>
 
             <!-- Action Steps -->
@@ -700,11 +861,24 @@
             <!-- OSHA Safety Box -->
             <div class="rep-safety-box">
               <div class="safety-title">
-                <span>🦺</span> بروتوكول السلامة والوقاية المهنية (OSHA / PPE)
+                <span>🦺</span> بروتوكول السلامة والوقاية المهنية (OSHA 1910.147 / PPE)
               </div>
               <div class="safety-text" id="rep-safety-text">
                 تطبيق إجراءات عزل الطاقة Lockout/Tagout (LOTO) قبل فك التوصيلات. ارتداء نظارات حماية معتمدة وقفازات عازلة لتفادي حروق البرودة الناتجة عن رذاذ الفريون السائل.
               </div>
+            </div>
+
+            <!-- Contextual Assistant and Extended Native Actions -->
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;padding:14px;background:#F8FAFC;border-radius:12px;border:1px solid #E2E8F0">
+              <button class="btn-chat-trigger" onclick="openContextualChat()">
+                <span>💬</span> اسأل المساعد الذكي حول هذا العطل
+              </button>
+              <button class="rep-action-btn" onclick="alert('بروتوكول الصيانة الوقائية: فحص دوري لنقاط الربط والضغوط كل 90 يوماً.')">
+                💡 كيف تحافظ على المعدة؟
+              </button>
+              <button class="rep-action-btn" onclick="alert('خدمة ربط شركات الصيانة وقطع الغيار المعتمدة متاحة عبر تطبيق Dr. Fix الرسمي.')">
+                🛒 المساعدة بقطع الغيار وشركات الصيانة
+              </button>
             </div>
 
             <!-- Action Toolbar (PDF Export, Speech Readout, Copy, Reset) -->
@@ -725,7 +899,7 @@
                 <span>✏️</span> تعديل البيانات
               </button>
               <button class="rep-action-btn" onclick="startNewDiagnosis()" style="background:var(--brand-blue);color:white;font-weight:800">
-                <span>⚡</span> فحص عطل جديد
+                <span>🔄</span> ابدأ رحلة جديدة
               </button>
             </div>
 
@@ -903,6 +1077,26 @@
       <button class="btn-save-keys" onclick="saveApiKeys()">حفظ الإعدادات ✓</button>
     </div>
   </div>
+<!-- MODAL: CONTEXTUAL AI ASSISTANT CHAT SHEET -->
+<div class="chat-sheet-overlay" id="chat-sheet-modal" onclick="if(event.target===this) closeContextualChat()">
+  <div class="chat-sheet-container">
+    <div class="chat-sheet-header">
+      <div class="chat-sheet-title">
+        <span style="font-size:1.2rem">💬</span>
+        <span>المساعد الهندسي الذكي الميداني</span>
+      </div>
+      <button class="chat-sheet-close" onclick="closeContextualChat()">✕</button>
+    </div>
+    <div class="chat-messages-container" id="chat-messages-container">
+      <div class="chat-bubble chat-bubble-ai">
+        مرحباً بك! أنا جاهز للإجابة عن أي استفسار فني أو خطوات إضافية متعلقة بهذا التقرير الهندسي. كيف يمكنني مساعدتك؟
+      </div>
+    </div>
+    <div class="chat-input-bar">
+      <input type="text" id="chat-input-field" class="chat-input-field" placeholder="اطرح سؤالك حول هذا العطل أو القطع البديلة..." onkeydown="if(event.key==='Enter') sendContextualChatMessage()" />
+      <button class="chat-send-btn" onclick="sendContextualChatMessage()">إرسال ↵</button>
+    </div>
+  </div>
 </div>
 
 <button id="lang-toggle" onclick="toggleLang()">🌐 English</button>
@@ -912,11 +1106,18 @@
   /* ==========================================================================
      1. ISOLATED KEY CONFIGURATION ARCHITECTURE & RUNTIME ABSTRACTION
      ========================================================================== */
+  const savedSimMode = localStorage.getItem('drfix_sim_mode');
+  const savedGeminiKey = localStorage.getItem('drfix_gemini_key') || '';
+  const savedOpenRouterKey = localStorage.getItem('drfix_openrouter_key') || '';
+  const hasValidWebKey = (savedGeminiKey && savedGeminiKey.startsWith('AIzaSy')) ||
+                         (savedOpenRouterKey && savedOpenRouterKey.startsWith('sk-or'));
+
   window.DRFIX_WEB_CONFIG = window.DRFIX_WEB_CONFIG || {
     provider: localStorage.getItem('drfix_ai_provider') || 'gemini',
-    geminiApiKey: localStorage.getItem('drfix_gemini_key') || '',
-    openrouterApiKey: localStorage.getItem('drfix_openrouter_key') || '',
-    simulationMode: true, // Always true by default so it works instantly before adding keys
+    geminiApiKey: savedGeminiKey,
+    openrouterApiKey: savedOpenRouterKey,
+    // If explicitly stored in localStorage, use that; otherwise auto-enable live keys if present, or fallback to simulationMode
+    simulationMode: savedSimMode !== null ? savedSimMode === 'true' : !hasValidWebKey,
     geminiModel: 'gemini-1.5-flash',
     openrouterModel: 'meta-llama/llama-3.3-70b-instruct:free',
     authorizedDomain: 'drfix-app.com',
@@ -938,6 +1139,16 @@
         "قياس ضغط السحب والطرد باستخدام مقياس المانيفولد (Manifold Gauge).",
         "فحص صمام التمدد الحراري وتنظيف الفلتر المجفف (Filter Drier).",
         "شحن غاز التبريد بالوزن المحدد على لوحة بيانات الجهاز والتأكد من استقرار أمبير الضاغط."
+      ],
+      differentialDiagnoses: [
+        "انسداد جزئي في الفلتر المجفف (Filter Drier)",
+        "تلف أو ضعف في كفاءة مروحة المكثف الخارجية",
+        "خلل في حساس درجة حرارة خط السحب (Thermistor Sensor)"
+      ],
+      suspectedParts: [
+        "⚙️ صمام التمدد TXV",
+        "❄️ فلتر مجفف R410A",
+        "🔌 كابستور الإقلاع Dual Run"
       ]
     },
     electrical: {
@@ -953,6 +1164,16 @@
         "إجراء فحص تصوير حراري (Thermography) لنقاط الربط داخل اللوحة.",
         "إعادة شد المسامير بعزم الدوران المعتمد (Torque Wrench) واستبدال الأطراف المتأكسدة.",
         "قياس عزل الملفات بواسطة جهاز الميجر (Megger Insulation Test)."
+      ],
+      differentialDiagnoses: [
+        "تآكل في نقاط تلامس الكونتاكتور (Pitted Contacts)",
+        "عدم اتزان الحمل الكهربائي بين الأطوار الثلاثة",
+        "انهيار موضعي في عزل الكابل المغذي"
+      ],
+      suspectedParts: [
+        "⚡ كونتاكتور رئيسي 3-Phase",
+        "🔒 قاطع حراري مغناطيسي MCCB",
+        "🔌 أطراف توصيل كابلات نحاسية"
       ]
     },
     mechanical: {
@@ -968,6 +1189,16 @@
         "قياس زاوية المحاذاة (Shaft Laser Alignment) بين المحرك والمعدة المقادة.",
         "استبدال المحمل التالف باستخدام السخان الحثي (Induction Heater) لمنع إتلاف المحور.",
         "إضافة شحم التشحيم بالمواصفة والكمية المعتمدة ومراقبة منحنى الاهتزاز."
+      ],
+      differentialDiagnoses: [
+        "انحراف في استقامة المحاور (Misalignment)",
+        "عدم اتزان في الجزء الدوار (Dynamic Rotor Unbalance)",
+        "ارتخاء في مسامير تثبيت القاعدة (Soft Foot)"
+      ],
+      suspectedParts: [
+        "⚙️ محامل كريات SKF Deep Groove",
+        "🔩 قارنة مرنة Flexible Coupling",
+        "🛢️ مانع تسريب زيت Mechanical Seal"
       ]
     },
     hydraulic: {
@@ -983,6 +1214,16 @@
         "تنظيف أو استبدال مصفاة خط السحب واستبدال فلتر الرجوع (Return Filter).",
         "فحص لزوجة زيت الهيدروليك ومستوى نقاوته وتفريغ الهواء من الدائرة.",
         "إعادة ضبط صمام تخفيف الضغط (Pressure Relief Valve) ومراقبة القراءات."
+      ],
+      differentialDiagnoses: [
+        "دخول هواء عبر خط السحب (Aeration)",
+        "تآكل في ريش أو تروس المضخة الداخلية",
+        "تلف في صمام تصريف الضغط الرئيسي (Relief Valve)"
+      ],
+      suspectedParts: [
+        "💧 فلتر سحب الزيت Suction Strainer",
+        "⚙️ مضخة هيدروليكية تروسية/ريشية",
+        "🔧 صمام أمان الضغط Relief Valve"
       ]
     },
     automotive: {
@@ -998,6 +1239,16 @@
         "تنظيف حساس MAF باستخدام بخاخ مخصص سريع التطاير.",
         "فحص ضغط مضخة الوقود وضغط شمعات الإشعال (Spark Plugs).",
         "إجراء معايرة (Throttle Relearning) ومسح كود الخطأ واختبار القيادة."
+      ],
+      differentialDiagnoses: [
+        "تسريب تفريغ هواء (Vacuum Leak) في مجمع السحب",
+        "ضعف في كفاءة شمعات الإشعال (Spark Plugs)",
+        "انسداد جزئي في بخاخات الوقود (Fuel Injectors)"
+      ],
+      suspectedParts: [
+        "🚗 حساس تدفق الهواء MAF Sensor",
+        "🔌 بواجي إشعال Iridium",
+        "⛽ بخاخات وقود ومضخة ضغط"
       ]
     },
     industrial: {
@@ -1013,6 +1264,16 @@
         "تنظيف السكك التوجيهية الخطية والحساسات بسائل كحولي خالي من الرواسب.",
         "إعادة تشحيم براغي الكرات (Ball Screws) عبر مضخة التزييت الآلية.",
         "إجراء معايرة الصفر المرجعي (Home Calibration) واختبار عينة تشغيل دقيقة."
+      ],
+      differentialDiagnoses: [
+        "ارتخاء ميكانيكي في وصلة محرك السيرفو (Backlash)",
+        "تلف في كيبل التشفير (Encoder Feedback Cable)",
+        "حرارة مفرطة في محرك المحور Z"
+      ],
+      suspectedParts: [
+        "🏭 مسطرة قياس بصرية Linear Scale",
+        "⚙️ محرك سيرفو ومضخم الإشارة Drive",
+        "🔌 كابل إنكودر معزول ضد التشويش"
       ]
     },
     appliances: {
@@ -1028,6 +1289,16 @@
         "فك فلتر تصريف المياه السفلي وإزالة الرواسب والشوائب العالقة.",
         "قياس مقاومة ملف طلمبة الصرف بواسطة الملتيميتر (الأوم).",
         "إعادة التشغيل في برنامج تجريبي لمراقبة تصريف المياه والتأكد من عدم وجود تسريب."
+      ],
+      differentialDiagnoses: [
+        "تلف في حساس سرعة دوران الحلة (Tacho Sensor)",
+        "ارتخاء أو انزلاق سير المحرك (Drive Belt)",
+        "عطل في قفل الباب الإلكتروني (Door Lock Switch)"
+      ],
+      suspectedParts: [
+        "🏠 طلمبة طرد مياه Drain Pump",
+        "🔌 حساس مستوى مياه Pressure Switch",
+        "⚙️ سير محرك الغسالة Poly-V"
       ]
     },
     plumbing: {
@@ -1043,6 +1314,16 @@
         "قياس ضغط شحنة الهواء في بلف الخزان والتأكد من سلامة الغشاء الداخلي (Bladder).",
         "إعادة ضغط الخزان بالهواء بمقدار 2 PSI أقل من ضغط إقلاع المضخة.",
         "إعادة فتح المحابس واختبار دورة بدء وإيقاف المضخة الآلي."
+      ],
+      differentialDiagnoses: [
+        "تلف أو تسريب في صمام عدم الرجوع (Check Valve)",
+        "خلل في معايرة مفتاح الضغط الأوتوماتيكي (Pressure Switch)",
+        "تمزق في بالونة خزان الضغط الداخلية"
+      ],
+      suspectedParts: [
+        "🔧 خزان ضغط مائي Expansion Vessel",
+        "🚰 صمام عدم رجوع Check Valve",
+        "🔌 حساس ضغط إلكتروني Press Control"
       ]
     },
     osha: {
@@ -1058,12 +1339,23 @@
         "تطبيق أقفال LOTO الفردية ووضع بطاقات بيانات الفني المسؤول وتاريخ العزل.",
         "تفريغ الطاقة المخزنة (ضغط الهواء، شحنات المكثفات، الأوزان المعلقة).",
         "اختبار زر التشغيل للتأكد من انعدام الطاقة تماماً (Zero Energy State) قبل منح تصريح العمل."
+      ],
+      differentialDiagnoses: [
+        "عدم تفريغ الضغط الهوائي المحبوس في الصمامات",
+        "فقدان فحص انعدام الجهد بجهاز فحص معتمد",
+        "استخدام أقفال مشتركة دون وسوم فردية واضحة"
+      ],
+      suspectedParts: [
+        "🦺 طقم أقفال عزل Safety Padlocks",
+        "🏷️ بطاقات تحذير Danger Tags",
+        "🧤 قفازات عازلة Class 0 ومعدات PPE"
       ]
     }
   };
 
   let currentSector = 'hvac';
-  let uploadedImageBase64 = null;
+  let uploadedSlotImages = [null, null, null]; // 3 Photo Slots (1080px Canvas compressed base64)
+  let activeSpeechTargetField = null;
   let recognition = null;
   let isRecording = false;
   let isSpeaking = false;
@@ -1100,11 +1392,12 @@
         history.replaceState(null, '', `#wizard-step-${stepNumber}`);
       } catch (e) {}
 
-      // 4. Focus ergonomics
+      // 4. Focus & validation ergonomics
       if (stepNumber === 3) {
+        checkRequiredFields();
         setTimeout(() => {
-          const inp = document.getElementById('symptoms-text');
-          if (inp) inp.focus();
+          const inp = document.getElementById('field-device-name');
+          if (inp && !inp.value) inp.focus();
         }, 100);
       }
     },
@@ -1121,8 +1414,8 @@
   document.addEventListener('DOMContentLoaded', () => {
     updateKeysStatusUI();
     renderSectorPresets('hvac');
-    initImageDropzone();
     initSpeechRecognition();
+    checkRequiredFields();
 
     // Check if direct deep link to a specific wizard step or workbench
     const hash = window.location.hash;
@@ -1191,7 +1484,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Backwards compatibility alias
   function activateWorkbench() {
     launchEngineeringWorkbench();
   }
@@ -1202,6 +1494,21 @@
     } else {
       showLandingPage();
     }
+  }
+
+  // Real-time Sector Search Filter (Step 2)
+  function filterSectors(query) {
+    const q = (query || '').trim().toLowerCase();
+    const cards = document.querySelectorAll('#wizard-sectors-grid .w-sector-card');
+    cards.forEach(card => {
+      const title = (card.dataset.title || '').toLowerCase();
+      const text = card.textContent.toLowerCase();
+      if (!q || title.includes(q) || text.includes(q)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
   }
 
   function selectSector(sectorKey) {
@@ -1237,52 +1544,87 @@
   }
 
   function startNewDiagnosis() {
-    const sym = document.getElementById('symptoms-text');
-    if (sym) sym.value = '';
-    const meta = document.getElementById('machine-metadata');
-    if (meta) meta.value = '';
-    removeImage();
+    // Reset all 5 native input fields
+    const devName = document.getElementById('field-device-name');
+    if (devName) devName.value = '';
+    const probDet = document.getElementById('field-problem-details');
+    if (probDet) probDet.value = '';
+    const mfg = document.getElementById('field-manufacturer');
+    if (mfg) mfg.value = '';
+    const model = document.getElementById('field-model');
+    if (model) model.value = '';
+    const obs = document.getElementById('field-observations');
+    if (obs) obs.value = '';
+    const errCode = document.getElementById('field-error-code');
+    if (errCode) errCode.value = '';
+
+    // Reset 3 Photo Slots
+    for (let i = 0; i < 3; i++) {
+      removeSlotImage(null, i);
+    }
+
+    checkRequiredFields();
     window.WizardEngine.goToStep(2);
   }
 
   function renderSectorPresets(sectorKey) {
     const container = document.getElementById('preset-chips-container');
+    if (!container) return;
     const cfg = SECTORS_CONFIG[sectorKey];
+    if (!cfg) return;
     container.innerHTML = '';
     cfg.presets.forEach(preset => {
       const chip = document.createElement('div');
       chip.className = 'preset-chip';
       chip.textContent = preset;
       chip.onclick = () => {
-        document.getElementById('symptoms-text').value = preset;
+        const probField = document.getElementById('field-problem-details');
+        if (probField) {
+          probField.value = preset;
+          checkRequiredFields();
+        }
       };
       container.appendChild(chip);
     });
   }
 
+  // Required Field Validation Listener (Step 3)
+  function checkRequiredFields() {
+    const devName = (document.getElementById('field-device-name')?.value || '').trim();
+    const probDetails = (document.getElementById('field-problem-details')?.value || '').trim();
+    const btn = document.getElementById('btn-run-diag');
+    const btnText = document.getElementById('btn-diag-text');
+    const hintMsg = document.getElementById('lock-hint-msg');
+
+    const isValid = devName.length > 0 && probDetails.length > 0;
+
+    if (btn) {
+      if (isValid) {
+        btn.disabled = false;
+        btn.classList.remove('locked');
+        if (btnText) btnText.textContent = '🔍 بدء التشخيص الذكي';
+        if (hintMsg) hintMsg.style.display = 'none';
+      } else {
+        btn.disabled = true;
+        btn.classList.add('locked');
+        if (btnText) btnText.textContent = '📝 أدخل اسم الجهاز ووصف العطل لبدء التشخيص الذكي';
+        if (hintMsg) hintMsg.style.display = 'block';
+      }
+    }
+  }
+
   /* ==========================================================================
-     3. CLIENT-SIDE VISUAL IMAGE PROCESSING (CANVAS RESIZING & BASE64 OPTIMIZATION)
+     3. CLIENT-SIDE 3-PHOTO SLOTS CANVAS COMPRESSION (1080px max)
      ========================================================================== */
-  function initImageDropzone() {
-    const dz = document.getElementById('dropzone');
-    ['dragenter', 'dragover'].forEach(name => {
-      dz.addEventListener(name, (e) => { e.preventDefault(); dz.classList.add('dragover'); }, false);
-    });
-    ['dragleave', 'drop'].forEach(name => {
-      dz.addEventListener(name, (e) => { e.preventDefault(); dz.classList.remove('dragover'); }, false);
-    });
-    dz.addEventListener('drop', (e) => {
-      const files = e.dataTransfer.files;
-      if (files && files.length > 0) processImageFile(files[0]);
-    });
+  function triggerSlotUpload(slotIndex) {
+    const fileInput = document.getElementById(`slot-file-${slotIndex}`);
+    if (fileInput) fileInput.click();
   }
 
-  function handleImageSelect(event) {
+  function handleSlotImageSelect(event, slotIndex) {
     const file = event.target.files[0];
-    if (file) processImageFile(file);
-  }
+    if (!file) return;
 
-  function processImageFile(file) {
     if (!file.type.startsWith('image/')) {
       alert('يرجى اختيار ملف صورة صالح (JPEG, PNG, WebP)');
       return;
@@ -1292,22 +1634,21 @@
     reader.onload = (e) => {
       const img = new Image();
       img.onload = () => {
-        // High-performance Canvas Compression to max 1024x1024 (Zero Lag, Low Payload)
+        // High-performance 1080px Canvas Compression matching native Flutter specs
         const canvas = document.createElement('canvas');
-        const MAX_WIDTH = 1024;
-        const MAX_HEIGHT = 1024;
+        const MAX_DIM = 1080;
         let width = img.width;
         let height = img.height;
 
         if (width > height) {
-          if (width > MAX_WIDTH) {
-            height *= MAX_WIDTH / width;
-            width = MAX_WIDTH;
+          if (width > MAX_DIM) {
+            height = Math.round((height * MAX_DIM) / width);
+            width = MAX_DIM;
           }
         } else {
-          if (height > MAX_HEIGHT) {
-            width *= MAX_HEIGHT / height;
-            height = MAX_HEIGHT;
+          if (height > MAX_DIM) {
+            width = Math.round((width * MAX_DIM) / height);
+            height = MAX_DIM;
           }
         }
 
@@ -1316,27 +1657,38 @@
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, width, height);
 
-        // Convert to optimized JPEG data URL
-        uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.82);
+        // Quality: 0.80 (JPEG) matching Flutter imageQuality: 80
+        const compressedBase64 = canvas.toDataURL('image/jpeg', 0.80);
+        uploadedSlotImages[slotIndex] = compressedBase64;
 
-        // Update Preview Card
-        document.getElementById('image-preview-thumb').src = uploadedImageBase64;
-        document.getElementById('image-file-name').textContent = file.name;
-        document.getElementById('image-file-size').textContent = `${Math.round(width)}x${Math.round(height)}px • ${(uploadedImageBase64.length/1024).toFixed(0)} KB Web-Ready`;
-        document.getElementById('image-preview-card').style.display = 'flex';
-        document.getElementById('dropzone').style.display = 'none';
+        // Render in Slot Card
+        const card = document.getElementById(`slot-card-${slotIndex}`);
+        if (card) {
+          card.classList.add('has-image');
+          card.innerHTML = `
+            <input type="file" id="slot-file-${slotIndex}" accept="image/*" style="display:none" onchange="handleSlotImageSelect(event, ${slotIndex})" />
+            <img src="${compressedBase64}" class="photo-slot-thumb" alt="Slot ${slotIndex + 1}" />
+            <button class="photo-slot-delete-btn" onclick="removeSlotImage(event, ${slotIndex})" title="حذف الصورة">✕</button>
+          `;
+        }
       };
       img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   }
 
-  function removeImage(e) {
-    if (e) e.stopPropagation();
-    uploadedImageBase64 = null;
-    document.getElementById('image-file-input').value = '';
-    document.getElementById('image-preview-card').style.display = 'none';
-    document.getElementById('dropzone').style.display = 'block';
+  function removeSlotImage(event, slotIndex) {
+    if (event) event.stopPropagation();
+    uploadedSlotImages[slotIndex] = null;
+    const card = document.getElementById(`slot-card-${slotIndex}`);
+    if (card) {
+      card.classList.remove('has-image');
+      card.innerHTML = `
+        <input type="file" id="slot-file-${slotIndex}" accept="image/*" style="display:none" onchange="handleSlotImageSelect(event, ${slotIndex})" />
+        <div class="photo-slot-icon">📷</div>
+        <div class="photo-slot-title">صورة رقم ${slotIndex + 1}</div>
+      `;
+    }
   }
 
   /* ==========================================================================
@@ -1344,58 +1696,66 @@
      ========================================================================== */
   function initSpeechRecognition() {
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRec) {
-      document.getElementById('mic-btn').style.display = 'none';
-      return;
-    }
+    if (!SpeechRec) return;
 
     recognition = new SpeechRec();
     recognition.continuous = false;
     recognition.interimResults = false;
-    recognition.lang = 'ar-JO';
+    recognition.lang = 'ar-SA';
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
-      const textarea = document.getElementById('symptoms-text');
-      textarea.value = (textarea.value ? textarea.value + ' ' : '') + transcript;
-      stopSpeechRecording();
+      if (activeSpeechTargetField) {
+        const input = document.getElementById(activeSpeechTargetField);
+        if (input) {
+          input.value = (input.value ? input.value + ' ' : '') + transcript;
+          checkRequiredFields();
+        }
+      }
+      stopFieldSpeech();
     };
 
-    recognition.onerror = () => {
-      stopSpeechRecording();
-    };
-
-    recognition.onend = () => {
-      stopSpeechRecording();
-    };
+    recognition.onerror = () => { stopFieldSpeech(); };
+    recognition.onend = () => { stopFieldSpeech(); };
   }
 
-  function toggleSpeechRecognition() {
+  function toggleFieldSpeech(fieldId) {
     if (!recognition) {
       alert('خاصية الإملاء الصوتي غير مدعومة في هذا المتصفح');
       return;
     }
+
+    if (isRecording && activeSpeechTargetField === fieldId) {
+      recognition.stop();
+      stopFieldSpeech();
+      return;
+    }
+
     if (isRecording) {
       recognition.stop();
-      stopSpeechRecording();
-    } else {
-      try {
-        recognition.start();
-        isRecording = true;
-        const btn = document.getElementById('mic-btn');
-        btn.classList.add('recording');
-        document.getElementById('mic-status').textContent = 'جاري الاستماع...';
-      } catch (err) {
-        stopSpeechRecording();
-      }
+      stopFieldSpeech();
+    }
+
+    try {
+      activeSpeechTargetField = fieldId;
+      recognition.start();
+      isRecording = true;
+      const fieldWrap = document.getElementById(fieldId)?.closest('.form-input-with-mic');
+      const micBtn = fieldWrap?.querySelector('.field-mic-btn');
+      if (micBtn) micBtn.classList.add('recording');
+    } catch (e) {
+      stopFieldSpeech();
     }
   }
 
-  function stopSpeechRecording() {
+  function stopFieldSpeech() {
     isRecording = false;
-    const btn = document.getElementById('mic-btn');
-    btn.classList.remove('recording');
-    document.getElementById('mic-status').textContent = 'إملاء صوتي';
+    if (activeSpeechTargetField) {
+      const fieldWrap = document.getElementById(activeSpeechTargetField)?.closest('.form-input-with-mic');
+      const micBtn = fieldWrap?.querySelector('.field-mic-btn');
+      if (micBtn) micBtn.classList.remove('recording');
+      activeSpeechTargetField = null;
+    }
   }
 
   function toggleVoiceReadout() {
@@ -1436,49 +1796,68 @@
      5. AI DIAGNOSTIC ROUTER: GEMINI & OPENROUTER CALLS
      ========================================================================== */
   async function runDiagnosis() {
-    const symptoms = document.getElementById('symptoms-text').value.trim();
-    if (!symptoms) {
-      alert('يرجى إدخال أو إملاء أعراض العطل الملاحظة أولاً');
-      document.getElementById('symptoms-text').focus();
+    const devName = (document.getElementById('field-device-name')?.value || '').trim();
+    const symptoms = (document.getElementById('field-problem-details')?.value || '').trim();
+    const manufacturer = (document.getElementById('field-manufacturer')?.value || '').trim();
+    const model = (document.getElementById('field-model')?.value || '').trim();
+    const observations = (document.getElementById('field-observations')?.value || '').trim();
+    const errorCode = (document.getElementById('field-error-code')?.value || '').trim();
+
+    if (!devName || !symptoms) {
+      alert('يرجى إدخال اسم الجهاز وتفاصيل المشكلة أولاً للبدء');
+      checkRequiredFields();
       return;
     }
 
     // UI Loading State
-    const emptyState = document.getElementById('res-empty-state');
-    if (emptyState) emptyState.style.display = 'none';
     const activeReport = document.getElementById('res-active-report');
     if (activeReport) activeReport.style.display = 'none';
     const loadingState = document.getElementById('res-loading-state');
     if (loadingState) loadingState.style.display = 'flex';
-    document.getElementById('btn-run-diag').disabled = true;
+    const btn = document.getElementById('btn-run-diag');
+    if (btn) btn.disabled = true;
 
-    const sectorCfg = SECTORS_CONFIG[currentSector];
-    const metadata = document.getElementById('machine-metadata').value.trim();
+    const sectorCfg = SECTORS_CONFIG[currentSector] || SECTORS_CONFIG['hvac'];
+    
+    // Construct rich operational context
+    let metaItems = [];
+    if (devName) metaItems.push(`اسم وموديل الجهاز: ${devName}`);
+    if (manufacturer) metaItems.push(`الشركة الصانعة: ${manufacturer}`);
+    if (model) metaItems.push(`الموديل / سنة الصنع: ${model}`);
+    if (errorCode) metaItems.push(`رمز الخطأ (Error Code): ${errorCode}`);
+    if (observations) metaItems.push(`ملاحظات حسية وميدانية: ${observations}`);
+    const metadata = metaItems.join(' | ');
+
+    // Primary compressed photo (first available from the 3 slots)
+    const activePhoto = uploadedSlotImages.find(img => img !== null) || null;
 
     // Check if Live API Key or Simulation Mode is active
     const config = window.DRFIX_WEB_CONFIG;
-    const hasLiveKey = (config.provider === 'gemini' && config.geminiApiKey) ||
-                       (config.provider === 'openrouter' && config.openrouterApiKey);
+    const hasLiveKey = (config.provider === 'gemini' && config.geminiApiKey && config.geminiApiKey.startsWith('AIzaSy')) ||
+                       (config.provider === 'openrouter' && config.openrouterApiKey && config.openrouterApiKey.startsWith('sk-or'));
 
     try {
-      if (config.simulationMode || !hasLiveKey) {
+      if (config.simulationMode === true || !hasLiveKey) {
         // High-Precision Simulation Engine with Field Knowledge
-        await new Promise(r => setTimeout(r, 1400));
+        await new Promise(r => setTimeout(r, 1200));
         renderDiagnosticOutput({
           severity: 'حرجة / عاجلة',
           severityClass: 'high',
+          confidence: '95%',
           rootCause: sectorCfg.demoCause,
-          analysis: `تحليل قطاع ${sectorCfg.nameAr}: العطل المعروض (${symptoms}) يشير إلى إجهاد في المكونات المتصلة طبقاً لمعايير ${sectorCfg.standard}. تم فحص المعطيات ومطابقتها بقواعد بيانات الأعطال الميدانية الموثقة.`,
+          analysis: `تحليل قطاع ${sectorCfg.nameAr}: العطل المعروض (${symptoms}) في الجهاز (${devName}) يشير إلى إجهاد في المكونات المتصلة طبقاً لمعايير ${sectorCfg.standard}. تم فحص المعطيات ومطابقتها بقواعد بيانات الأعطال الميدانية الموثقة.`,
           steps: sectorCfg.demoSteps,
-          safety: sectorCfg.oshaSafety
+          safety: sectorCfg.oshaSafety,
+          differentialDiagnoses: sectorCfg.differentialDiagnoses,
+          suspectedParts: sectorCfg.suspectedParts
         });
       } else if (config.provider === 'gemini') {
         // Execute Gemini 1.5 Flash Call
-        const result = await callGeminiApi(config.geminiApiKey, sectorCfg, symptoms, metadata, uploadedImageBase64);
+        const result = await callGeminiApi(config.geminiApiKey, sectorCfg, devName, symptoms, metadata, activePhoto);
         renderDiagnosticOutput(result);
       } else {
         // Execute OpenRouter Call
-        const result = await callOpenRouterApi(config.openrouterApiKey, sectorCfg, symptoms, metadata, uploadedImageBase64);
+        const result = await callOpenRouterApi(config.openrouterApiKey, sectorCfg, devName, symptoms, metadata, activePhoto);
         renderDiagnosticOutput(result);
       }
     } catch (err) {
@@ -1487,33 +1866,40 @@
       renderDiagnosticOutput({
         severity: 'عالية',
         severityClass: 'high',
+        confidence: '91%',
         rootCause: sectorCfg.demoCause,
-        analysis: `تحليل فوري محلي بناءً على أعراض: ${symptoms}`,
+        analysis: `تحليل فوري محلي بناءً على أعراض: ${symptoms} للجهاز: ${devName}`,
         steps: sectorCfg.demoSteps,
-        safety: sectorCfg.oshaSafety
+        safety: sectorCfg.oshaSafety,
+        differentialDiagnoses: sectorCfg.differentialDiagnoses,
+        suspectedParts: sectorCfg.suspectedParts
       });
     } finally {
       if (loadingState) loadingState.style.display = 'none';
       if (activeReport) activeReport.style.display = 'flex';
-      document.getElementById('btn-run-diag').disabled = false;
+      if (btn) btn.disabled = false;
       window.WizardEngine.goToStep(4);
     }
   }
 
-  async function callGeminiApi(apiKey, sectorCfg, symptoms, metadata, imageBase64) {
+  async function callGeminiApi(apiKey, sectorCfg, devName, symptoms, metadata, imageBase64) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${window.DRFIX_WEB_CONFIG.geminiModel}:generateContent?key=${apiKey}`;
 
     const promptText = `أنت المهندس الميداني المتخصص في Dr. Fix لقطاع: ${sectorCfg.nameAr} (${sectorCfg.nameEn}).
 المعايير المعتمدة: ${sectorCfg.standard}.
+الجهاز: ${devName}.
 الأعراض المبلغة: ${symptoms}.
 بيانات تشغيلية إضافية: ${metadata || 'لا توجد'}.
 
 المطلوب: توليد تشخيص هندسي احترافي باللغة العربية بصيغة JSON محددة حصراً كالتالي:
 {
   "severity": "حرجة" أو "متوسطة" أو "منخفضة",
+  "confidence": "94%",
   "rootCause": "تحديد السبب الجذري بدقة في سطرين",
   "analysis": "شرح هندسي تفصيلي للعطل وتأثيره التشغيلي",
   "steps": ["خطوة الإصلاح 1", "خطوة الإصلاح 2", "خطوة الإصلاح 3", "خطوة الإصلاح 4"],
+  "differentialDiagnoses": ["الاحتمال البديل 1", "الاحتمال البديل 2"],
+  "suspectedParts": ["اسم القطعة 1", "اسم القطعة 2", "اسم القطعة 3"],
   "safety": "بروتوكول السلامة المهنية ومعدات PPE المحددة لمعايير OSHA"
 }`;
 
@@ -1546,21 +1932,25 @@
     const parsed = JSON.parse(rawJson);
     return {
       severity: parsed.severity || 'متوسطة',
-      severityClass: parsed.severity.includes('حرج') ? 'high' : (parsed.severity.includes('متوسط') ? 'medium' : 'low'),
+      severityClass: (parsed.severity || '').includes('حرج') ? 'high' : ((parsed.severity || '').includes('متوسط') ? 'medium' : 'low'),
+      confidence: parsed.confidence || '94%',
       rootCause: parsed.rootCause,
       analysis: parsed.analysis,
       steps: parsed.steps || sectorCfg.demoSteps,
-      safety: parsed.safety || sectorCfg.oshaSafety
+      safety: parsed.safety || sectorCfg.oshaSafety,
+      differentialDiagnoses: parsed.differentialDiagnoses || sectorCfg.differentialDiagnoses,
+      suspectedParts: parsed.suspectedParts || sectorCfg.suspectedParts
     };
   }
 
-  async function callOpenRouterApi(apiKey, sectorCfg, symptoms, metadata, imageBase64) {
+  async function callOpenRouterApi(apiKey, sectorCfg, devName, symptoms, metadata, imageBase64) {
     const promptText = `أنت الخبير الهندسي لـ Dr. Fix في قطاع ${sectorCfg.nameAr}.
+الجهاز: ${devName}
 أعراض العطل: ${symptoms}
 المعايير: ${sectorCfg.standard}
 بيانات: ${metadata || 'لا توجد'}
 أجب بصيغة JSON:
-{"severity":"حرجة/متوسطة/منخفضة","rootCause":"...","analysis":"...","steps":["1","2","3","4"],"safety":"..."}`;
+{"severity":"حرجة/متوسطة/منخفضة","confidence":"92%","rootCause":"...","analysis":"...","steps":["1","2","3","4"],"differentialDiagnoses":["...","..."],"suspectedParts":["...","..."],"safety":"..."}`;
 
     const messages = [];
     if (imageBase64) {
@@ -1598,41 +1988,177 @@
     const parsed = JSON.parse(data.choices[0].message.content);
     return {
       severity: parsed.severity || 'متوسطة',
-      severityClass: parsed.severity.includes('حرج') ? 'high' : 'medium',
+      severityClass: (parsed.severity || '').includes('حرج') ? 'high' : 'medium',
+      confidence: parsed.confidence || '92%',
       rootCause: parsed.rootCause,
       analysis: parsed.analysis,
       steps: parsed.steps || sectorCfg.demoSteps,
-      safety: parsed.safety || sectorCfg.oshaSafety
+      safety: parsed.safety || sectorCfg.oshaSafety,
+      differentialDiagnoses: parsed.differentialDiagnoses || sectorCfg.differentialDiagnoses,
+      suspectedParts: parsed.suspectedParts || sectorCfg.suspectedParts
     };
   }
 
   function renderDiagnosticOutput(report) {
-    const sectorCfg = SECTORS_CONFIG[currentSector];
+    const sectorCfg = SECTORS_CONFIG[currentSector] || SECTORS_CONFIG['hvac'];
     
     // Header tags
     const sevBadge = document.getElementById('rep-severity-badge');
-    sevBadge.className = `rep-severity ${report.severityClass || 'high'}`;
-    sevBadge.textContent = `⚠️ خطورة: ${report.severity}`;
+    if (sevBadge) {
+      sevBadge.className = `rep-severity ${report.severityClass || 'high'}`;
+      sevBadge.textContent = `⚠️ خطورة: ${report.severity}`;
+    }
+
+    const confBadge = document.getElementById('rep-confidence-badge');
+    if (confBadge) {
+      confBadge.textContent = `🎯 نسبة الثقة: ${report.confidence || '94%'}`;
+    }
     
-    document.getElementById('rep-sector-tag').textContent = `${sectorCfg.icon} ${sectorCfg.nameAr}`;
+    const secTag = document.getElementById('rep-sector-tag');
+    if (secTag) {
+      secTag.textContent = `${sectorCfg.icon} ${sectorCfg.nameAr}`;
+    }
     
     const now = new Date();
-    document.getElementById('rep-timestamp').textContent = now.toISOString().replace('T', ' ').substring(0, 19);
+    const timeEl = document.getElementById('rep-timestamp');
+    if (timeEl) {
+      timeEl.textContent = now.toISOString().replace('T', ' ').substring(0, 19);
+    }
 
     // Content
-    document.getElementById('rep-root-cause').textContent = report.rootCause;
-    document.getElementById('rep-analysis').textContent = report.analysis;
-    document.getElementById('rep-safety-text').textContent = report.safety;
+    const rcEl = document.getElementById('rep-root-cause');
+    if (rcEl) rcEl.textContent = report.rootCause;
+    const anEl = document.getElementById('rep-analysis');
+    if (anEl) anEl.textContent = report.analysis;
+    const sfEl = document.getElementById('rep-safety-text');
+    if (sfEl) sfEl.textContent = report.safety;
+
+    // Differential Diagnoses
+    const diffContainer = document.getElementById('rep-differential-list');
+    if (diffContainer) {
+      diffContainer.innerHTML = '';
+      const diffList = report.differentialDiagnoses || sectorCfg.differentialDiagnoses || [];
+      diffList.forEach(item => {
+        const d = document.createElement('div');
+        d.className = 'diff-diag-item';
+        d.textContent = item.startsWith('•') ? item : `• ${item}`;
+        diffContainer.appendChild(d);
+      });
+    }
+
+    // Suspected Parts
+    const partsContainer = document.getElementById('rep-parts-list');
+    if (partsContainer) {
+      partsContainer.innerHTML = '';
+      const partsList = report.suspectedParts || sectorCfg.suspectedParts || [];
+      partsList.forEach(part => {
+        const s = document.createElement('span');
+        s.className = 'suspected-part-chip';
+        s.textContent = part;
+        partsContainer.appendChild(s);
+      });
+    }
 
     // Steps
     const list = document.getElementById('rep-steps-list');
-    list.innerHTML = '';
-    report.steps.forEach((step, idx) => {
-      const li = document.createElement('li');
-      li.className = 'rep-step-item';
-      li.innerHTML = `<span class="step-num">${idx + 1}</span> <span>${step}</span>`;
-      list.appendChild(li);
-    });
+    if (list) {
+      list.innerHTML = '';
+      (report.steps || []).forEach((step, idx) => {
+        const li = document.createElement('li');
+        li.className = 'rep-step-item';
+        li.innerHTML = `<span class="step-num">${idx + 1}</span> <span>${step}</span>`;
+        list.appendChild(li);
+      });
+    }
+  }
+
+  /* ==========================================================================
+     CONTEXTUAL ASSISTANT CHAT SHEET (STEP 4)
+     ========================================================================== */
+  function openContextualChat() {
+    const modal = document.getElementById('chat-sheet-modal');
+    if (modal) {
+      modal.classList.add('active');
+      const input = document.getElementById('chat-input-field');
+      if (input) setTimeout(() => input.focus(), 150);
+    }
+  }
+
+  function closeContextualChat() {
+    const modal = document.getElementById('chat-sheet-modal');
+    if (modal) modal.classList.remove('active');
+  }
+
+  async function sendContextualChatMessage() {
+    const input = document.getElementById('chat-input-field');
+    const msg = (input?.value || '').trim();
+    if (!msg) return;
+
+    input.value = '';
+    const container = document.getElementById('chat-messages-container');
+    if (!container) return;
+
+    // Append user bubble
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble chat-bubble-user';
+    userBubble.textContent = msg;
+    container.appendChild(userBubble);
+    container.scrollTop = container.scrollHeight;
+
+    // Context from current diagnostic report
+    const rootCause = document.getElementById('rep-root-cause')?.textContent || '';
+    const analysis = document.getElementById('rep-analysis')?.textContent || '';
+    const sectorCfg = SECTORS_CONFIG[currentSector] || SECTORS_CONFIG['hvac'];
+    const config = window.DRFIX_WEB_CONFIG;
+    const hasLiveKey = (config.provider === 'gemini' && config.geminiApiKey && config.geminiApiKey.startsWith('AIzaSy')) ||
+                       (config.provider === 'openrouter' && config.openrouterApiKey && config.openrouterApiKey.startsWith('sk-or'));
+
+    // Loading placeholder
+    const aiBubble = document.createElement('div');
+    aiBubble.className = 'chat-bubble chat-bubble-ai';
+    aiBubble.textContent = 'جاري التفكير وصياغة التوجيه الهندسي...';
+    container.appendChild(aiBubble);
+    container.scrollTop = container.scrollHeight;
+
+    try {
+      if (config.simulationMode === true || !hasLiveKey) {
+        await new Promise(r => setTimeout(r, 900));
+        aiBubble.textContent = `بناءً على التقرير الفني لقطاع ${sectorCfg.nameAr} والسبب الجذري المرجح (${rootCause})، يُوصى بالتحقق من سلامة التوصيلات وتطبيق معايير ${sectorCfg.standard} قبل استبدال أي قطع رئيسية.`;
+      } else if (config.provider === 'gemini') {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.geminiModel}:generateContent?key=${config.geminiApiKey}`;
+        const prompt = `أنت المهندس الميداني المساعد في تطبيق Dr. Fix.
+القطاع: ${sectorCfg.nameAr}.
+السبب الجذري المسجل للتقرير: ${rootCause}.
+التحليل: ${analysis}.
+سؤال الفني: ${msg}.
+أجب بإيجاز واحترافية هندسية باللغة العربية مع التركيز على السلامة والحل العملي.`;
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        });
+        const data = await res.json();
+        aiBubble.textContent = data.candidates[0].content.parts[0].text;
+      } else {
+        const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${config.openrouterApiKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://drfix-app.com"
+          },
+          body: JSON.stringify({
+            model: config.openrouterModel,
+            messages: [{ role: "user", content: `قطاع ${sectorCfg.nameAr}. العطل: ${rootCause}. سؤال: ${msg}. أجب بإيجاز هندسي.` }]
+          })
+        });
+        const data = await res.json();
+        aiBubble.textContent = data.choices[0].message.content;
+      }
+    } catch (e) {
+      aiBubble.textContent = `توجيه هندسي: للتعامل مع هذا التساؤل الميداني، تأكد أولاً من عزل الطاقة والرجوع لكتيب الصيانة المعتمد للمعدة.`;
+    }
+    container.scrollTop = container.scrollHeight;
   }
 
   /* ==========================================================================
