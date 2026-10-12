@@ -98,103 +98,116 @@
     .stat-value{font-size:1.6rem;font-weight:900;color:var(--brand-blue);display:block}
     .stat-label{font-size:.78rem;font-weight:600;color:var(--slate-500)}
 
-    /* WORKBENCH SECTION (PRIMARY APP CONTAINER) */
-    #workbench-section{padding:40px 20px 80px;background:linear-gradient(180deg,#F1F5F9 0%,#E2E8F0 100%);position:relative}
-    .workbench-container{max-width:1280px;margin:0 auto;background:var(--white);border:1px solid var(--slate-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:hidden}
+    /* WORKBENCH SECTION & MULTI-STEP WIZARD CORE */
+    #workbench-section{padding:30px 16px 80px;background:linear-gradient(180deg,#F1F5F9 0%,#E2E8F0 100%);position:relative}
+    .workbench-container{max-width:1180px;margin:0 auto;background:var(--white);border:1px solid var(--slate-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:hidden}
     
-    /* Workbench Header */
-    .wb-header{background:var(--slate-900);color:white;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-bottom:1px solid rgba(255,255,255,.08)}
-    .wb-title-group{display:flex;align-items:center;gap:14px}
-    .wb-icon-badge{width:42px;height:42px;background:rgba(15,117,188,.25);border:1px solid rgba(15,117,188,.4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
-    .wb-title{font-size:1.2rem;font-weight:800;color:white}
-    .wb-sub{font-size:.78rem;color:var(--slate-400);font-weight:500}
+    /* Workbench Top Bar */
+    .wb-header{background:var(--slate-900);color:white;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .wb-title-group{display:flex;align-items:center;gap:12px}
+    .wb-icon-badge{width:42px;height:42px;background:linear-gradient(135deg,rgba(15,117,188,.35),rgba(9,83,131,.5));border:1px solid rgba(15,117,188,.5);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 12px rgba(15,117,188,.2)}
+    .wb-title{font-size:1.15rem;font-weight:800;color:white}
+    .wb-sub{font-size:.76rem;color:var(--slate-400);font-weight:500}
     .wb-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
     .wb-engine-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:6px 14px;font-size:.76rem;color:var(--slate-300);display:flex;align-items:center;gap:8px}
     .wb-engine-status{width:8px;height:8px;border-radius:50%;background:var(--success)}
 
-    /* 9 Sectors Bar */
-    .sectors-bar-wrap{background:var(--slate-800);padding:12px 24px;border-bottom:1px solid var(--slate-700);overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .sectors-bar-wrap::-webkit-scrollbar{height:4px}
-    .sectors-bar-wrap::-webkit-scrollbar-thumb{background:var(--slate-600);border-radius:4px}
-    .sectors-selector{display:flex;gap:8px;min-width:max-content}
-    .sector-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:7px 14px;color:var(--slate-300);font-size:.82rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .18s;user-select:none}
-    .sector-pill:hover{background:rgba(255,255,255,.12);color:white}
-    .sector-pill.active{background:var(--brand-blue);border-color:var(--brand-blue);color:white;box-shadow:0 4px 14px rgba(15,117,188,.4)}
+    /* WIZARD STEPPER PROGRESS BAR */
+    .wizard-stepper{display:flex;align-items:center;justify-content:center;background:var(--slate-800);padding:14px 20px;border-bottom:1px solid var(--slate-700);overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .stepper-node{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;opacity:.55;transition:all .2s ease;white-space:nowrap}
+    .stepper-node.active{opacity:1}
+    .stepper-node.completed{opacity:.95}
+    .stepper-dot{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);color:white;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:800;border:1.5px solid rgba(255,255,255,.2);transition:all .2s ease}
+    .stepper-node.active .stepper-dot{background:var(--brand-blue);border-color:#60a5fa;box-shadow:0 0 12px rgba(15,117,188,.6)}
+    .stepper-node.completed .stepper-dot{background:var(--success);border-color:#34d399}
+    .stepper-label{font-size:.8rem;font-weight:700;color:white}
+    .stepper-line{flex:1;max-width:44px;min-width:16px;height:2px;background:rgba(255,255,255,.15);margin:0 8px}
 
-    /* Workbench Main Grid */
-    .wb-grid{display:grid;grid-template-columns:1.05fr 1.35fr;gap:0;min-height:680px}
-    @media(max-width:960px){
-      .wb-grid{grid-template-columns:1fr}
-    }
+    /* ZERO-OVERHEAD HARDWARE ACCELERATED DOM STEP SWAPPING */
+    .wizard-step.hidden{display:none!important}
+    .wizard-step.active{display:block;animation:stepFadeSlide 220ms cubic-bezier(.16,1,.3,1) forwards;transform:translateZ(0);will-change:opacity,transform}
+    @keyframes stepFadeSlide{from{opacity:0;transform:translateY(8px) translateZ(0)}to{opacity:1;transform:translateY(0) translateZ(0)}}
 
-    /* Left: Inputs Panel */
-    .wb-input-panel{padding:28px;background:var(--white);border-left:1px solid var(--slate-200);display:flex;flex-direction:column;gap:20px}
-    .sector-active-banner{background:linear-gradient(135deg,rgba(15,117,188,.07),rgba(15,117,188,.02));border:1px solid rgba(15,117,188,.18);border-radius:var(--radius-md);padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
-    .sab-name{font-weight:800;font-size:.95rem;color:var(--slate-900);display:flex;align-items:center;gap:8px}
-    .sab-std{font-size:.75rem;font-weight:600;color:var(--brand-blue);background:rgba(15,117,188,.12);padding:3px 8px;border-radius:6px;font-family:var(--font-mono)}
+    /* STAGE 1: WELCOME SPLASH NODE */
+    .wizard-splash-node{padding:54px 24px 60px;text-align:center;max-width:860px;margin:0 auto}
+    .splash-icon-wrap{width:76px;height:76px;background:linear-gradient(135deg,var(--brand-blue),#095383);border-radius:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:var(--shadow-blue)}
+    .splash-icon-wrap svg{width:42px;height:42px;fill:white}
+    .splash-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(15,117,188,.09);border:1px solid rgba(15,117,188,.22);color:var(--brand-blue);font-size:.82rem;font-weight:800;padding:6px 18px;border-radius:100px;margin-bottom:16px}
+    .splash-title{font-size:clamp(1.6rem,3.8vw,2.3rem);font-weight:900;color:var(--slate-900);line-height:1.3;margin-bottom:14px}
+    .splash-sub{font-size:1rem;color:var(--slate-600);max-width:640px;margin:0 auto 32px;font-weight:500;line-height:1.7}
+    .splash-cta-wrap{margin-bottom:40px}
+    .splash-trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:20px;text-align:right}
+    .trust-card{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-md);padding:14px;display:flex;align-items:center;gap:12px}
+    .trust-card-icon{font-size:24px;flex-shrink:0}
+    .trust-card-title{font-size:.82rem;font-weight:800;color:var(--slate-900);margin-bottom:2px}
+    .trust-card-sub{font-size:.72rem;color:var(--slate-500)}
 
-    .form-group{display:flex;flex-direction:column;gap:8px}
-    .form-label{font-size:.84rem;font-weight:700;color:var(--slate-700);display:flex;align-items:center;justify-content:space-between}
+    /* STAGE 2: SECTOR DISCOVERY MATRIX (3x3 RESPONSIVE GRID) */
+    .wizard-sectors-node{padding:36px 28px 46px}
+    .ws-header{text-align:center;margin-bottom:30px}
+    .ws-title{font-size:clamp(1.4rem,3vw,1.85rem);font-weight:900;color:var(--slate-900);margin-bottom:8px}
+    .ws-desc{font-size:.9rem;color:var(--slate-600);max-width:620px;margin:0 auto}
+    .wizard-sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1040px;margin:0 auto 28px}
+    @media(max-width:860px){.wizard-sectors-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.wizard-sectors-grid{grid-template-columns:1fr}}
+    .w-sector-card{background:var(--white);border:1.5px solid var(--slate-200);border-radius:var(--radius-lg);padding:22px 18px;cursor:pointer;transition:all .2s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;gap:10px;text-align:right}
+    .w-sector-card:hover{border-color:var(--brand-blue);box-shadow:0 8px 24px rgba(15,117,188,.14);transform:translateY(-3px);background:var(--slate-50)}
+    .w-sector-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .w-sector-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(15,117,188,.08)}
+    .w-sector-std{font-size:.7rem;font-weight:700;color:var(--brand-blue);background:rgba(15,117,188,.12);padding:3px 8px;border-radius:6px;font-family:var(--font-mono)}
+    .w-sector-name{font-size:.98rem;font-weight:800;color:var(--slate-900)}
+    .w-sector-sub{font-size:.75rem;color:var(--slate-500);font-weight:600;direction:ltr;text-align:right}
+    .w-sector-desc{font-size:.78rem;color:var(--slate-600);line-height:1.5;flex:1}
+    .w-sector-cta{font-size:.78rem;font-weight:800;color:var(--brand-blue);display:inline-flex;align-items:center;gap:4px;margin-top:4px}
+
+    /* STAGE 3: CONTEXT INPUT NODE */
+    .wizard-context-node{padding:32px 28px 44px;max-width:960px;margin:0 auto}
+    .sector-active-banner{background:linear-gradient(135deg,rgba(15,117,188,.08),rgba(15,117,188,.03));border:1px solid rgba(15,117,188,.2);border-radius:var(--radius-md);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+    .sab-name{font-weight:800;font-size:.95rem;color:var(--slate-900);display:flex;align-items:center;gap:10px}
+    .sab-std{font-size:.75rem;font-weight:600;color:var(--brand-blue);background:rgba(15,117,188,.12);padding:4px 10px;border-radius:6px;font-family:var(--font-mono)}
+    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+    .form-label{font-size:.85rem;font-weight:700;color:var(--slate-700);display:flex;align-items:center;justify-content:space-between}
     .form-label span.req{color:var(--danger)}
     .form-helper{font-size:.76rem;color:var(--slate-500);font-weight:500}
-
-    /* Symptoms Textarea */
     .symptoms-wrap{position:relative}
-    .symptoms-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--slate-200);border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:.9rem;color:var(--slate-800);background:var(--slate-50);transition:all .2s;resize:vertical}
+    .symptoms-input{width:100%;min-height:120px;padding:14px;border:1.5px solid var(--slate-200);border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:.9rem;color:var(--slate-800);background:var(--slate-50);transition:all .2s;resize:vertical}
     .symptoms-input:focus{outline:none;border-color:var(--brand-blue);background:white;box-shadow:0 0 0 3px rgba(15,117,188,.15)}
-
-    /* Speech & Input Toolbar */
-    .input-actions-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+    .input-actions-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap}
     .mic-btn{background:var(--slate-100);border:1.5px solid var(--slate-200);border-radius:10px;padding:7px 14px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;color:var(--slate-700);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
     .mic-btn:hover{background:var(--slate-200);color:var(--brand-blue)}
     .mic-btn.recording{background:#FEE2E2;border-color:#F87171;color:#B91C1C;animation:micPulse 1.2s infinite}
     @keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
-
     .preset-chips{display:flex;gap:6px;flex-wrap:wrap}
     .preset-chip{background:var(--slate-100);border:1px solid var(--slate-200);border-radius:100px;padding:4px 10px;font-size:.74rem;font-weight:600;color:var(--slate-600);cursor:pointer;transition:all .15s}
     .preset-chip:hover{background:var(--brand-blue);color:white;border-color:var(--brand-blue)}
-
-    /* Image Upload & Canvas Processing */
     .image-dropzone{border:2px dashed var(--slate-300);background:var(--slate-50);border-radius:var(--radius-md);padding:18px;text-align:center;cursor:pointer;transition:all .2s;position:relative}
     .image-dropzone:hover,.image-dropzone.dragover{border-color:var(--brand-blue);background:rgba(15,117,188,.04)}
     .dropzone-inner{display:flex;flex-direction:column;align-items:center;gap:6px}
     .dz-icon{font-size:26px}
     .dz-text{font-size:.84rem;font-weight:700;color:var(--slate-700)}
     .dz-hint{font-size:.74rem;color:var(--slate-400)}
-
-    .image-preview-card{display:none;position:relative;margin-top:10px;background:var(--slate-100);border:1px solid var(--slate-200);border-radius:10px;padding:8px;align-items:center;gap:12px}
+    .image-preview-card{display:none;position:relative;margin-top:10px;background:var(--slate-100);border:1px solid var(--slate-200);border-radius:10px;padding:8px 12px;align-items:center;gap:12px}
     .ip-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover;background:black}
     .ip-meta{flex:1;text-align:right}
-    .ip-name{font-size:.78rem;font-weight:700;color:var(--slate-800);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ip-name{font-size:.78rem;font-weight:700;color:var(--slate-800);max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .ip-size{font-size:.72rem;color:var(--slate-500);font-family:var(--font-mono)}
     .ip-remove{background:transparent;border:none;color:var(--danger);font-size:.85rem;cursor:pointer;padding:4px 8px;font-weight:700}
-
-    /* Diagnostics Run Button */
-    .btn-run-diag{background:linear-gradient(135deg,var(--brand-blue),#095383);color:white;border:none;padding:15px;border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:1.02rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow-blue);transition:all .2s;margin-top:8px}
+    .btn-run-diag{background:linear-gradient(135deg,var(--brand-blue),#095383);color:white;border:none;padding:15px 28px;border-radius:var(--radius-md);font-family:'Cairo',sans-serif;font-size:1.02rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow-blue);transition:all .2s;flex:1}
     .btn-run-diag:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(15,117,188,.38)}
     .btn-run-diag:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .step-actions-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:24px;flex-wrap:wrap}
 
-    /* Right: Results Panel */
-    .wb-results-panel{padding:28px;background:var(--slate-50);display:flex;flex-direction:column}
-    
-    /* Empty State */
-    .results-empty-state{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;color:var(--slate-400)}
-    .res-empty-icon{font-size:48px;margin-bottom:14px;opacity:.7}
-    .res-empty-title{font-size:1.05rem;font-weight:800;color:var(--slate-600);margin-bottom:6px}
-    .res-empty-desc{font-size:.82rem;max-width:320px;line-height:1.6}
-
-    /* Loading State */
-    .results-loading-state{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px}
-    .scanner-loader{width:64px;height:64px;border:4px solid rgba(15,117,188,.15);border-top-color:var(--brand-blue);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:20px}
+    /* LOADING SCANNER */
+    .results-loading-state{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background:var(--slate-50);border-radius:var(--radius-lg);margin-top:20px;border:1px solid var(--slate-200)}
+    .scanner-loader{width:56px;height:56px;border:4px solid rgba(15,117,188,.15);border-top-color:var(--brand-blue);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px}
     @keyframes spin{to{transform:rotate(360deg)}}
-    .loading-step-text{font-size:.92rem;font-weight:700;color:var(--slate-700);margin-bottom:6px}
+    .loading-step-text{font-size:.95rem;font-weight:800;color:var(--slate-800);margin-bottom:4px}
     .loading-sub-text{font-size:.76rem;color:var(--slate-400);font-family:var(--font-mono)}
 
-    /* Active Report Card */
-    .results-active-report{display:none;flex-direction:column;gap:18px}
-    .report-card{background:white;border:1px solid var(--slate-200);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:24px}
-    
-    .rep-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1.5px solid var(--slate-100);margin-bottom:18px;flex-wrap:wrap}
+    /* STAGE 4: ANALYTICAL RESULT DASHBOARD */
+    .wizard-report-node{padding:32px 28px 46px;max-width:960px;margin:0 auto}
+    .report-card{background:white;border:1px solid var(--slate-200);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:28px}
+    .rep-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1.5px solid var(--slate-100);margin-bottom:20px;flex-wrap:wrap}
     .rep-badge-group{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
     .rep-severity{padding:4px 12px;border-radius:100px;font-size:.76rem;font-weight:800;display:inline-flex;align-items:center;gap:6px}
     .rep-severity.high{background:#FEE2E2;color:#991B1B;border:1px solid #F87171}
@@ -202,24 +215,17 @@
     .rep-severity.low{background:#D1FAE5;color:#065F46;border:1px solid #6EE7B7}
     .rep-sector-tag{background:var(--slate-100);color:var(--slate-700);padding:4px 10px;border-radius:6px;font-size:.76rem;font-weight:700}
     .rep-timestamp{font-size:.74rem;color:var(--slate-400);font-family:var(--font-mono)}
-
-    .rep-section{margin-bottom:18px}
-    .rep-sec-title{font-size:.85rem;font-weight:800;color:var(--slate-900);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-    .rep-sec-title svg{width:16px;height:16px;fill:var(--brand-blue)}
-    .rep-text{font-size:.88rem;color:var(--slate-700);line-height:1.7}
-
-    /* Steps list */
+    .rep-section{margin-bottom:20px}
+    .rep-sec-title{font-size:.88rem;font-weight:800;color:var(--slate-900);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .rep-sec-title svg{width:18px;height:18px;fill:var(--brand-blue)}
+    .rep-text{font-size:.9rem;color:var(--slate-700);line-height:1.75}
     .rep-steps{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .rep-step-item{display:flex;align-items:flex-start;gap:12px;background:var(--slate-50);border:1px solid var(--slate-200);padding:10px 14px;border-radius:10px;font-size:.84rem}
+    .rep-step-item{display:flex;align-items:flex-start;gap:12px;background:var(--slate-50);border:1px solid var(--slate-200);padding:10px 14px;border-radius:10px;font-size:.85rem}
     .step-num{background:var(--brand-blue);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:800;flex-shrink:0;margin-top:2px}
-
-    /* OSHA Safety Box */
-    .rep-safety-box{background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:var(--radius-md);padding:14px 18px;margin-bottom:18px}
-    .safety-title{font-size:.84rem;font-weight:800;color:#92400E;display:flex;align-items:center;gap:8px;margin-bottom:6px}
-    .safety-text{font-size:.82rem;color:#78350F;line-height:1.6}
-
-    /* Report Toolbar */
-    .rep-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:14px;border-top:1px solid var(--slate-200)}
+    .rep-safety-box{background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:var(--radius-md);padding:14px 18px;margin-bottom:20px}
+    .safety-title{font-size:.85rem;font-weight:800;color:#92400E;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+    .safety-text{font-size:.84rem;color:#78350F;line-height:1.6}
+    .rep-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:16px;border-top:1px solid var(--slate-200)}
     .rep-action-btn{background:var(--white);border:1.5px solid var(--slate-300);border-radius:8px;padding:8px 14px;font-family:'Cairo',sans-serif;font-size:.82rem;font-weight:700;color:var(--slate-700);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .18s}
     .rep-action-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue);background:var(--slate-50)}
     .rep-pdf-btn{background:var(--brand-blue);color:white!important;border-color:var(--brand-blue)}
@@ -415,27 +421,146 @@
       </div>
     </div>
 
-    <!-- The 9 Sectors Selection Bar -->
-    <div class="sectors-bar-wrap">
-      <div class="sectors-selector" id="sectors-bar">
-        <!-- Dynamically rendered via JS or static pills -->
-        <div class="sector-pill active" data-sector="hvac" onclick="selectSector('hvac')"><span>❄️</span> تكييف وتبريد</div>
-        <div class="sector-pill" data-sector="electrical" onclick="selectSector('electrical')"><span>⚡</span> كهرباء وقوى</div>
-        <div class="sector-pill" data-sector="mechanical" onclick="selectSector('mechanical')"><span>⚙️</span> ميكانيك عام</div>
-        <div class="sector-pill" data-sector="hydraulic" onclick="selectSector('hydraulic')"><span>💧</span> أنظمة هيدروليك</div>
-        <div class="sector-pill" data-sector="automotive" onclick="selectSector('automotive')"><span>🚗</span> سيارات ومركبات</div>
-        <div class="sector-pill" data-sector="industrial" onclick="selectSector('industrial')"><span>🏭</span> أنظمة صناعية</div>
-        <div class="sector-pill" data-sector="appliances" onclick="selectSector('appliances')"><span>🏠</span> أجهزة منزلية</div>
-        <div class="sector-pill" data-sector="plumbing" onclick="selectSector('plumbing')"><span>🔧</span> سباكة وصرف</div>
-        <div class="sector-pill" data-sector="osha" onclick="selectSector('osha')"><span>🦺</span> سلامة مهنية OSHA</div>
+    <!-- WIZARD STEPPER PROGRESS BAR -->
+    <div class="wizard-stepper" id="wizard-stepper">
+      <div class="stepper-node active" data-step="1" onclick="WizardEngine.goToStep(1)">
+        <div class="stepper-dot">1</div>
+        <div class="stepper-label">الترحيب</div>
+      </div>
+      <div class="stepper-line"></div>
+      <div class="stepper-node" data-step="2" onclick="WizardEngine.goToStep(2)">
+        <div class="stepper-dot">2</div>
+        <div class="stepper-label">القطاع الهندسي</div>
+      </div>
+      <div class="stepper-line"></div>
+      <div class="stepper-node" data-step="3" onclick="WizardEngine.goToStep(3)">
+        <div class="stepper-dot">3</div>
+        <div class="stepper-label">بيانات العطل</div>
+      </div>
+      <div class="stepper-line"></div>
+      <div class="stepper-node" data-step="4" onclick="WizardEngine.goToStep(4)">
+        <div class="stepper-dot">4</div>
+        <div class="stepper-label">تقرير التشخيص</div>
       </div>
     </div>
 
-    <!-- Workbench Split Grid -->
-    <div class="wb-grid">
-      
-      <!-- LEFT: Input Panel -->
-      <div class="wb-input-panel">
+    <!-- STAGE 1: WELCOME / SPLASH NODE -->
+    <div id="wizard-step-1" class="wizard-step active">
+      <div class="wizard-splash-node">
+        <div class="splash-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="splash-badge"><span class="badge-dot dot-green"></span> الإصدار الميداني 2.5 • OSHA & PDPL معتمد</div>
+        <h1 class="splash-title">منصة التشخيص الهندسي الميداني الذكي</h1>
+        <p class="splash-sub">ابدأ فحصاً هندسياً فورياً للأعطال الميدانية والميكانيكية والكهربائية. يدعم 9 قطاعات هندسية متكاملة وتوليد تقارير PDF رسمية في ثوانٍ معدودة دون الحاجة لأي خوادم وسيطة.</p>
+        
+        <div class="splash-cta-wrap">
+          <button class="btn btn-launch-app" onclick="WizardEngine.goToStep(2)" style="font-size:1.15rem;padding:16px 42px;">
+            ابدأ الفحص التشخيصي ⚡
+          </button>
+        </div>
+
+        <div class="splash-trust-grid">
+          <div class="trust-card"><span class="trust-card-icon">🦺</span><div><div class="trust-card-title">OSHA 1910.147</div><div class="trust-card-sub">معايير عزل الطاقة LOTO</div></div></div>
+          <div class="trust-card"><span class="trust-card-icon">🔒</span><div><div class="trust-card-title">خصوصية كاملة</div><div class="trust-card-sub">معالجة محلية داخل المتصفح</div></div></div>
+          <div class="trust-card"><span class="trust-card-icon">📄</span><div><div class="trust-card-title">تقارير PDF فورية</div><div class="trust-card-sub">جاهزة للطباعة والتسليم</div></div></div>
+          <div class="trust-card"><span class="trust-card-icon">⚡</span><div><div class="trust-card-title">9 قطاعات هندسية</div><div class="trust-card-sub">ASHRAE / NFPA / ISO</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 2: SECTOR DISCOVERY MATRIX (3x3 RESPONSIVE GRID) -->
+    <div id="wizard-step-2" class="wizard-step hidden">
+      <div class="wizard-sectors-node">
+        <div class="ws-header">
+          <div class="splash-badge"><span class="badge-dot dot-blue"></span> المرحلة 2: اختيار التخصص</div>
+          <h2 class="ws-title">ماذا تواجه اليوم؟ (اختر القطاع الهندسي)</h2>
+          <p class="ws-desc">حدد مجال المنظومة أو المعدة المتضررة لتطبيق المعايير القياسية المناسبة وخوارزميات الفحص الميداني</p>
+        </div>
+
+        <div class="wizard-sectors-grid">
+          <div class="w-sector-card" onclick="selectSectorAndProceed('hvac')">
+            <div class="w-sector-top"><div class="w-sector-icon">❄️</div><div class="w-sector-std">ASHRAE 15 / AHRI</div></div>
+            <div class="w-sector-name">تكييف وتبريد</div>
+            <div class="w-sector-sub">HVAC & Refrigeration</div>
+            <div class="w-sector-desc">مكيفات، ثلاجات، أنظمة HVAC، ضواغط، غرف تجميد، دورات التبريد</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('electrical')">
+            <div class="w-sector-top"><div class="w-sector-icon">⚡</div><div class="w-sector-std">NFPA 70 / NEC</div></div>
+            <div class="w-sector-name">كهرباء وقوى</div>
+            <div class="w-sector-sub">Electrical & Power</div>
+            <div class="w-sector-desc">لوحات توزيع، محركات 3-Phase، أنظمة PLC، محولات، دوائر التحكم</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('mechanical')">
+            <div class="w-sector-top"><div class="w-sector-icon">⚙️</div><div class="w-sector-std">ISO 10816 Vibration</div></div>
+            <div class="w-sector-name">ميكانيك عام</div>
+            <div class="w-sector-sub">General Mechanics</div>
+            <div class="w-sector-desc">أعطال ميكانيكية، محامل، علب تروس، وصلات، مضخات، سيور النقل</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('hydraulic')">
+            <div class="w-sector-top"><div class="w-sector-icon">💧</div><div class="w-sector-std">ISO 4413 Safety</div></div>
+            <div class="w-sector-name">أنظمة هيدروليك</div>
+            <div class="w-sector-sub">Hydraulic Systems</div>
+            <div class="w-sector-desc">مضخات هيدروليكية، صمامات تناسبية، أسطوانات ضغط، دوائر زيت</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('automotive')">
+            <div class="w-sector-top"><div class="w-sector-icon">🚗</div><div class="w-sector-std">SAE / OBD-II</div></div>
+            <div class="w-sector-name">سيارات ومركبات</div>
+            <div class="w-sector-sub">Automotive & Fleet</div>
+            <div class="w-sector-desc">رموز أعطال OBD-II، محرك، ناقل حركة، كهرباء سيارات، منظومة فرامل</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('industrial')">
+            <div class="w-sector-top"><div class="w-sector-icon">🏭</div><div class="w-sector-std">ISO 12100 Safety</div></div>
+            <div class="w-sector-name">أنظمة صناعية</div>
+            <div class="w-sector-sub">Industrial & Production</div>
+            <div class="w-sector-desc">خطوط إنتاج، آلات CNC، أنظمة نيوماتيك، محركات سيرفو، روبوتات صناعية</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('appliances')">
+            <div class="w-sector-top"><div class="w-sector-icon">🏠</div><div class="w-sector-std">IEC 60335 Safety</div></div>
+            <div class="w-sector-name">أجهزة منزلية</div>
+            <div class="w-sector-sub">Home Appliances</div>
+            <div class="w-sector-desc">غسالات، مجففات، أفران، سخانات، ضواغط انفرتر، لوحات إلكترونية</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('plumbing')">
+            <div class="w-sector-top"><div class="w-sector-icon">🔧</div><div class="w-sector-std">Uniform Plumbing Code</div></div>
+            <div class="w-sector-name">سباكة وصرف</div>
+            <div class="w-sector-sub">Plumbing & Piping</div>
+            <div class="w-sector-desc">مضخات تعزيز الضغط، مطرقة مائية، صمامات خفض الضغط، شبكات تغذية</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+
+          <div class="w-sector-card" onclick="selectSectorAndProceed('osha')">
+            <div class="w-sector-top"><div class="w-sector-icon">🦺</div><div class="w-sector-std">OSHA 29 CFR 1910</div></div>
+            <div class="w-sector-name">سلامة مهنية OSHA</div>
+            <div class="w-sector-sub">Occupational Safety</div>
+            <div class="w-sector-desc">بروتوكولات Lockout/Tagout، معدات PPE، مخاطر كهربائية وبيئة العمل</div>
+            <div class="w-sector-cta">فحص هذا القطاع ←</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:center;margin-top:10px">
+          <button class="rep-action-btn" onclick="WizardEngine.goToStep(1)">← العودة للشاشة الترحيبية</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3: TECHNICAL CONTEXT INPUT -->
+    <div id="wizard-step-3" class="wizard-step hidden">
+      <div class="wizard-context-node">
         
         <!-- Active Sector Standard Banner -->
         <div class="sector-active-banner">
@@ -443,7 +568,19 @@
             <span id="sab-icon">❄️</span>
             <span id="sab-title">قطاع التكييف والتبريد (HVAC & Refrigeration)</span>
           </div>
-          <div class="sab-std" id="sab-std">ASHRAE 15 / AHRI</div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="sab-std" id="sab-std">ASHRAE 15 / AHRI</span>
+            <button class="rep-action-btn" onclick="WizardEngine.goToStep(2)" style="padding:4px 10px;font-size:.76rem">تغيير القطاع ⇄</button>
+          </div>
+        </div>
+
+        <!-- Appliance / Model Name Input -->
+        <div class="form-group">
+          <div class="form-label">
+            <span>اسم وموديل الجهاز أو المعدة</span>
+            <span class="form-helper">اختياري — يرفع دقة التشخيص والمطابقة</span>
+          </div>
+          <input type="text" id="machine-metadata" class="key-input" style="direction:rtl;text-align:right" placeholder="مثال: ضاغط تكييف Daikin VRV 2024، محرك Siemens 3-Phase، مضخة هيدروليك Rexroth..." />
         </div>
 
         <!-- Symptoms Description Form -->
@@ -475,7 +612,7 @@
         <div class="form-group">
           <div class="form-label">
             <span>الفحص البصري بالصور (Visual Inspection)</span>
-            <span class="form-helper">اختياري — معالجة محلية بالمتصفح</span>
+            <span class="form-helper">اختياري — معالجة وضغط محلي بالمتصفح</span>
           </div>
 
           <div class="image-dropzone" id="dropzone" onclick="document.getElementById('image-file-input').click()">
@@ -497,41 +634,30 @@
           </div>
         </div>
 
-        <!-- Optional Operating Parameters -->
-        <div class="form-group">
-          <div class="form-label">
-            <span>بيانات تشغيلية إضافية</span>
-            <span class="form-helper">موديل، جهد كهربائي، ضغط</span>
-          </div>
-          <input type="text" id="machine-metadata" class="key-input" style="direction:rtl;text-align:right" placeholder="مثال: ضغط السحب 65 PSI، جهد 380V ثلاثي الأطوار، موديل Daikin 2024" />
+        <!-- Step Actions Footer -->
+        <div class="step-actions-footer">
+          <button class="rep-action-btn" onclick="WizardEngine.goToStep(2)">
+            ← السابق (اختيار القطاع)
+          </button>
+          <button class="btn-run-diag" id="btn-run-diag" onclick="runDiagnosis()">
+            <span>⚡ تحليل وتشخيص العطل الميداني</span>
+          </button>
         </div>
 
-        <!-- Action Button -->
-        <button class="btn-run-diag" id="btn-run-diag" onclick="runDiagnosis()">
-          <span>⚡ تحليل وتشخيص العطل الميداني</span>
-        </button>
-
-      </div>
-
-      <!-- RIGHT: Results & Diagnosis Workbench -->
-      <div class="wb-results-panel">
-        
-        <!-- State 1: Empty State -->
-        <div class="results-empty-state" id="res-empty-state">
-          <div class="res-empty-icon">🔬</div>
-          <div class="res-empty-title">ورشة التشخيص جاهزة للعمل</div>
-          <div class="res-empty-desc">اختر القطاع الهندسي، اكتب أو أملِ أعراض العطل، وأرفق صورة إن وُجدت، ثم اضغط على زر التحليل لتوليد تقرير فوري.</div>
-        </div>
-
-        <!-- State 2: Scanner / Processing State -->
+        <!-- Scanner / Processing State -->
         <div class="results-loading-state" id="res-loading-state">
-          <div class="scanner-loader"></div>
+          <div class="scanner-loader" id="scanner-loader"></div>
           <div class="loading-step-text" id="loading-step-text">جاري فحص الأعراض والمطابقة الهندسية...</div>
           <div class="loading-sub-text" id="loading-sub-text">AI Core Processing • Sector Standards • OSHA Verification</div>
         </div>
 
-        <!-- State 3: Active Diagnostic Report -->
-        <div class="results-active-report" id="res-active-report">
+      </div>
+    </div>
+
+    <!-- STAGE 4: LIVE AI ANALYTICAL OUTPUT DASHBOARD -->
+    <div id="wizard-step-4" class="wizard-step hidden">
+      <div class="wizard-report-node">
+        <div class="results-active-report" id="res-active-report" style="display:flex">
           <div class="report-card">
             
             <div class="rep-header">
@@ -539,7 +665,7 @@
                 <span class="rep-severity high" id="rep-severity-badge">⚠️ خطورة حرجة</span>
                 <span class="rep-sector-tag" id="rep-sector-tag">❄️ تكييف وتبريد</span>
               </div>
-              <div class="rep-timestamp" id="rep-timestamp">2026-10-11 13:40</div>
+              <div class="rep-timestamp" id="rep-timestamp">2026-10-12 08:00</div>
             </div>
 
             <!-- Root Cause Identification -->
@@ -581,7 +707,7 @@
               </div>
             </div>
 
-            <!-- Action Toolbar (PDF Export, Speech Readout, Copy) -->
+            <!-- Action Toolbar (PDF Export, Speech Readout, Copy, Reset) -->
             <div class="rep-toolbar">
               <button class="rep-action-btn rep-pdf-btn" onclick="exportPdfReport()">
                 <span>📄</span> تصدير تقرير PDF احترافي
@@ -595,13 +721,17 @@
               <button class="rep-action-btn" onclick="window.print()">
                 <span>🖨️</span> طباعة
               </button>
+              <button class="rep-action-btn" onclick="WizardEngine.goToStep(3)">
+                <span>✏️</span> تعديل البيانات
+              </button>
+              <button class="rep-action-btn" onclick="startNewDiagnosis()" style="background:var(--brand-blue);color:white;font-weight:800">
+                <span>⚡</span> فحص عطل جديد
+              </button>
             </div>
 
           </div>
         </div>
-
       </div>
-
     </div>
 
   </div>
@@ -939,16 +1069,70 @@
   let isSpeaking = false;
 
   /* ==========================================================================
-     2. UI INITIALIZATION & DUAL-MODE WORKBENCH ROUTING
+     2. STATE-DRIVEN WIZARD NAVIGATION ENGINE (ZERO PAGE RELOADS)
      ========================================================================== */
+  window.WizardEngine = {
+    currentStep: 1,
+
+    goToStep(stepNumber) {
+      if (stepNumber < 1 || stepNumber > 4) return;
+
+      // 1. Class-based hardware-accelerated DOM swapping (.hidden / .active)
+      document.querySelectorAll('.wizard-step').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('active');
+      });
+
+      const target = document.getElementById(`wizard-step-${stepNumber}`);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('active');
+      }
+
+      this.currentStep = stepNumber;
+      this.updateStepperUI(stepNumber);
+
+      // 2. Hardware scroll reset with sub-millisecond execution
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // 3. Keep URL hash synchronized without network round-trips
+      try {
+        history.replaceState(null, '', `#wizard-step-${stepNumber}`);
+      } catch (e) {}
+
+      // 4. Focus ergonomics
+      if (stepNumber === 3) {
+        setTimeout(() => {
+          const inp = document.getElementById('symptoms-text');
+          if (inp) inp.focus();
+        }, 100);
+      }
+    },
+
+    updateStepperUI(stepNumber) {
+      document.querySelectorAll('.stepper-node').forEach(node => {
+        const step = parseInt(node.dataset.step, 10);
+        node.classList.toggle('active', step === stepNumber);
+        node.classList.toggle('completed', step < stepNumber);
+      });
+    }
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     updateKeysStatusUI();
     renderSectorPresets('hvac');
     initImageDropzone();
     initSpeechRecognition();
 
-    // Check if direct deep link to workbench hash
-    if (window.location.hash === '#workbench' || window.location.hash === '#workbench-section') {
+    // Check if direct deep link to a specific wizard step or workbench
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#wizard-step-')) {
+      const stepNum = parseInt(hash.replace('#wizard-step-', ''), 10);
+      launchEngineeringWorkbench();
+      if (stepNum >= 1 && stepNum <= 4) {
+        window.WizardEngine.goToStep(stepNum);
+      }
+    } else if (hash === '#workbench' || hash === '#workbench-section') {
       launchEngineeringWorkbench();
     }
   });
@@ -973,17 +1157,9 @@
     if (btnWb) btnWb.classList.add('active');
     if (btnLanding) btnLanding.classList.remove('active');
 
-    // 4. Update URL hash without reloading page
-    try {
-      history.replaceState(null, '', '#workbench');
-    } catch (e) {}
-
-    // 5. Scroll smoothly to top & focus symptoms input
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      const input = document.getElementById('symptoms-text');
-      if (input) input.focus();
-    }, 120);
+    // 4. Activate current wizard step (default step 1)
+    const activeStep = window.WizardEngine.currentStep || 1;
+    window.WizardEngine.goToStep(activeStep);
   }
 
   function showLandingPage() {
@@ -1033,25 +1209,40 @@
     currentSector = sectorKey;
     const cfg = SECTORS_CONFIG[sectorKey];
 
-    // Update active pill
-    document.querySelectorAll('.sector-pill').forEach(el => {
-      el.classList.toggle('active', el.dataset.sector === sectorKey);
-    });
-
-    // Update Banner
-    document.getElementById('wb-sector-icon').textContent = cfg.icon;
-    document.getElementById('wb-current-title').textContent = `منصة التشخيص: قطاع ${cfg.nameAr}`;
-    document.getElementById('sab-icon').textContent = cfg.icon;
-    document.getElementById('sab-title').textContent = `قطاع ${cfg.nameAr} (${cfg.nameEn})`;
-    document.getElementById('sab-std').textContent = cfg.standard;
+    // Update Header / Banner elements
+    const wbSectorIcon = document.getElementById('wb-sector-icon');
+    if (wbSectorIcon) wbSectorIcon.textContent = cfg.icon;
+    const wbCurrentTitle = document.getElementById('wb-current-title');
+    if (wbCurrentTitle) wbCurrentTitle.textContent = `منصة التشخيص: قطاع ${cfg.nameAr}`;
+    const sabIcon = document.getElementById('sab-icon');
+    if (sabIcon) sabIcon.textContent = cfg.icon;
+    const sabTitle = document.getElementById('sab-title');
+    if (sabTitle) sabTitle.textContent = `قطاع ${cfg.nameAr} (${cfg.nameEn})`;
+    const sabStd = document.getElementById('sab-std');
+    if (sabStd) sabStd.textContent = cfg.standard;
 
     // Render Sector Presets
     renderSectorPresets(sectorKey);
   }
 
+  function selectSectorAndProceed(sectorKey) {
+    selectSector(sectorKey);
+    window.WizardEngine.goToStep(3);
+  }
+
   function quickSelectSector(sectorKey) {
     selectSector(sectorKey);
     launchEngineeringWorkbench();
+    window.WizardEngine.goToStep(3);
+  }
+
+  function startNewDiagnosis() {
+    const sym = document.getElementById('symptoms-text');
+    if (sym) sym.value = '';
+    const meta = document.getElementById('machine-metadata');
+    if (meta) meta.value = '';
+    removeImage();
+    window.WizardEngine.goToStep(2);
   }
 
   function renderSectorPresets(sectorKey) {
@@ -1253,9 +1444,12 @@
     }
 
     // UI Loading State
-    document.getElementById('res-empty-state').style.display = 'none';
-    document.getElementById('res-active-report').style.display = 'none';
-    document.getElementById('res-loading-state').style.display = 'flex';
+    const emptyState = document.getElementById('res-empty-state');
+    if (emptyState) emptyState.style.display = 'none';
+    const activeReport = document.getElementById('res-active-report');
+    if (activeReport) activeReport.style.display = 'none';
+    const loadingState = document.getElementById('res-loading-state');
+    if (loadingState) loadingState.style.display = 'flex';
     document.getElementById('btn-run-diag').disabled = true;
 
     const sectorCfg = SECTORS_CONFIG[currentSector];
@@ -1299,9 +1493,10 @@
         safety: sectorCfg.oshaSafety
       });
     } finally {
-      document.getElementById('res-loading-state').style.display = 'none';
-      document.getElementById('res-active-report').style.display = 'flex';
+      if (loadingState) loadingState.style.display = 'none';
+      if (activeReport) activeReport.style.display = 'flex';
       document.getElementById('btn-run-diag').disabled = false;
+      window.WizardEngine.goToStep(4);
     }
   }
 
